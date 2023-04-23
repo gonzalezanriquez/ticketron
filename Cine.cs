@@ -12,6 +12,11 @@ namespace TP1_GrupoB
 
 
         private List<Usuario> usuarios;
+        private List<Funcion> funciones;
+        private List<Sala> salas;
+        private List<Pelicula> peliculas;
+        //public Usuario UsuarioActual { Get; Set; }
+
 
         public Cine()
         {
@@ -37,31 +42,25 @@ namespace TP1_GrupoB
             }return encontrado;
         }
 
-        //Mostrar usuarios con lista Clon
+        //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
         public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
         }
- 
-
-        // Cerrar Sesion
-       
+        public List<Funcion> obtenerFuncion() { 
+            return funciones.ToList();
+        }
+        public List<Sala> obtenerSalas() { 
+            return salas.ToList();
+        }
+        public List<Pelicula> obtenerPeliculas() { 
+        return peliculas.ToList();
+        }
 
         /*
-      
-        
-
-
-
-        public List<Funcion> Funciones = new List<Funcion> { Get; Set;};
-        public List<Sala> Salas = new List<Sala> { Get; Set;};
-        public List<Pelicula> peliculas = new List<Pelicula> { Get; Set;};
-        public Usuario UsuarioActual { Get; Set; }
-
-        
+         
+       // Cerrar Sesion(){}
        
-        public Cine(List<Usuario> Usuarios, List<Funcion> Funciones, List<Sala> Salas, List<Pelicula> Peliculas, Usuario UsuarioActual) {
-
-        }      
+       // public Cine(List<Usuario> Usuarios, List<Funcion> Funciones, List<Sala> Salas, List<Pelicula> Peliculas, Usuario UsuarioActual) {}   
 
 
 
@@ -76,14 +75,7 @@ namespace TP1_GrupoB
        // DevolverEntrada(){
         }
 
-    
-
-       // MostrarFunciones(): List<Funcion>
-
-       // MostrarSalas(): List<Sala>
-
-       // MostrarPeliculas(): List<Post>   ¿?Así estaba en el diagrama
-
+ 
        // BuscarFuncion(string Ubicacion, Date Fecha, double Costo, string pelicula): List<Funcion>  
         
         
