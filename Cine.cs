@@ -12,7 +12,7 @@ namespace TP1_GrupoB
 
 
         /*
-       //Property 
+      
         public List<Usuario> Usuarios = new List<Usuario> { Get; Set; }
         public List<Funcion> Funciones = new List<Funcion> { Get; Set;};
         public List<Sala> Salas = new List<Sala> { Get; Set;};
