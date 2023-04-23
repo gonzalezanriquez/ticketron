@@ -21,6 +21,9 @@ namespace TP1_GrupoB
         public Cine()
         {
             usuarios= new List<Usuario>();
+            funciones= new List<Funcion>();
+            salas= new List<Sala>();
+            peliculas= new List<Pelicula>();
         }
 
         //Agregar usuarios
