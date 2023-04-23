@@ -12,15 +12,17 @@ namespace TP1_GrupoB
 
 
         private List<Usuario> usuarios;
+        private int IdUsuarios;
         private List<Funcion> funciones;
         private List<Sala> salas;
         private List<Pelicula> peliculas;
-        //public Usuario UsuarioActual { Get; Set; }
+        private Usuario UsuarioActual;
 
 
         public Cine()
         {
             usuarios= new List<Usuario>();
+            IdUsuarios= 0;
             funciones= new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
@@ -30,9 +32,18 @@ namespace TP1_GrupoB
         public void agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
 
             usuarios.Add(new Usuario(dni, nombre, apellido, mail, contrasenia));
-        
+           
+            
         }
-
+        /* Ejemplo de la clase version 2
+        
+        public void agregarUsuario(Usuario dni, Usuario nombre, Usuario apellido, Usuario mail, Usuario contrasenia) {
+            Usuario otro = new Usuario(mail.dni, mail.nombre, mail.apellido, mail.mail, mail.contrasenia);
+            usuarios.Add(otro);
+            IdUsuarios++;
+            otro.id = IdUsuarios;
+        }
+        */
   
         // Iniciar Sesion
         public bool iniciarSesion(string mail, string contrasenia) {
@@ -40,6 +51,7 @@ namespace TP1_GrupoB
             foreach (Usuario Mail in usuarios) { 
                 if(Mail.mail.Equals(mail) && Mail.contrasenia.Equals(contrasenia)){
                     encontrado = true;
+                    UsuarioActual= Mail;
                     
                 }
             }return encontrado;
