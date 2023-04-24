@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP1_GrupoB
 {
-    internal class Pelicula
+    public class Pelicula
     {
 
         public int id { get; set; }

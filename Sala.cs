@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP1_GrupoB
 {
-    internal class Sala
+    public class Sala
     {
         public int id { get; set; }
         public string ubicacion { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP1_GrupoB
 {
-    internal class Usuario
+    public class Usuario
     {
         // falta misFunciones lista
 

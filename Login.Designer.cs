@@ -41,11 +41,12 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(53, 107);
+            pictureBox1.Location = new Point(64, 95);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(295, 267);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(406, 382);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -53,7 +54,7 @@
             // 
             titulo.AutoSize = true;
             titulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            titulo.Location = new Point(447, 136);
+            titulo.Location = new Point(589, 192);
             titulo.Name = "titulo";
             titulo.Size = new Size(255, 25);
             titulo.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             usuario.AutoSize = true;
             usuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            usuario.Location = new Point(544, 194);
+            usuario.Location = new Point(686, 250);
             usuario.Name = "usuario";
             usuario.Size = new Size(64, 21);
             usuario.TabIndex = 2;
@@ -71,14 +72,14 @@
             // 
             // labelUsuario
             // 
-            labelUsuario.Location = new Point(447, 227);
+            labelUsuario.Location = new Point(589, 283);
             labelUsuario.Name = "labelUsuario";
             labelUsuario.Size = new Size(255, 23);
             labelUsuario.TabIndex = 3;
             // 
             // labelContrasenia
             // 
-            labelContrasenia.Location = new Point(447, 311);
+            labelContrasenia.Location = new Point(589, 367);
             labelContrasenia.Name = "labelContrasenia";
             labelContrasenia.Size = new Size(255, 23);
             labelContrasenia.TabIndex = 5;
@@ -88,7 +89,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(530, 278);
+            label1.Location = new Point(672, 334);
             label1.Name = "label1";
             label1.Size = new Size(89, 21);
             label1.TabIndex = 4;
@@ -99,7 +100,7 @@
             button1.BackColor = Color.DarkOrange;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(527, 370);
+            button1.Location = new Point(669, 426);
             button1.Name = "button1";
             button1.Size = new Size(92, 37);
             button1.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(796, 509);
+            ClientSize = new Size(1022, 662);
             Controls.Add(button1);
             Controls.Add(labelContrasenia);
             Controls.Add(label1);
@@ -122,6 +123,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LOGIN -Te damos la Bienvenida";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP1_GrupoB
 {
-    internal class Funcion
+    public class Funcion
     {
         public int id { get; set; }
         public Sala miSala { get; set; }

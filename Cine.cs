@@ -7,26 +7,28 @@ using System.Threading.Tasks;
 
 namespace TP1_GrupoB
 {
-    internal class Cine
+    public class Cine
     {
 
 
-        private List<Usuario> usuarios;
-        private int IdUsuarios;
-        private List<Funcion> funciones;
-        private List<Sala> salas;
-        private List<Pelicula> peliculas;
-        private Usuario UsuarioActual;
+        public List<Usuario> usuarios {  get; set; }
+        public int idUsuarios{ get; set; }
+        public List<Funcion> funciones { get; set; }
+        public List<Sala> salas { get; set; }
+        public List<Pelicula> peliculas { get; set; }
+        public Usuario Logueado { get; set; }
 
 
         public Cine()
         {
             usuarios= new List<Usuario>();
-            IdUsuarios= 0;
+            idUsuarios= 0;
             funciones= new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
         }
+
+
 
         //Agregar usuarios
         public void agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
@@ -48,10 +50,10 @@ namespace TP1_GrupoB
         // Iniciar Sesion
         public bool iniciarSesion(string mail, string contrasenia) {
             bool encontrado = false;
-            foreach (Usuario Mail in usuarios) { 
-                if(Mail.mail.Equals(mail) && Mail.contrasenia.Equals(contrasenia)){
+            foreach (Usuario usu in usuarios) { 
+                if(usu.mail.Equals(mail) && usu.contrasenia.Equals(contrasenia)){
                     encontrado = true;
-                    UsuarioActual= Mail;
+                    Logueado= usu;
                     
                 }
             }return encontrado;
@@ -83,6 +85,10 @@ namespace TP1_GrupoB
             return false;
         }
 
+        public string nombreLogueado()
+        {
+            return Logueado.nombre;
+        }
 
 
 

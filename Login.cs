@@ -2,8 +2,12 @@ namespace TP1_GrupoB
 {
     public partial class Login : Form
     {
-        public Login()
+        private Cine miCine;
+        public TransfDelegado transferencia;
+
+        public Login(Cine cin)
         {
+            miCine = cin;
             InitializeComponent();
         }
 
@@ -14,25 +18,51 @@ namespace TP1_GrupoB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cine cine1 = new Cine();
-            cine1.agregarUsuario(32793188, "Leandro", "Gonzalez", "mail", "1234");
 
-            int dni = Int32.Parse(labelUsuario.Text);/*CASTEAR PARA EL INGRESO DE TEXTO  A INT*/
+            string mail = labelUsuario.Text;
+            string pass = labelContrasenia.Text;
 
-            if (cine1.login(dni, labelContrasenia.Text))
+            if (mail != null && mail != "" && pass != null && pass != "")
             {
-                MessageBox.Show("ENCONTRADO", "Podes Ingresar");
+                if (miCine.iniciarSesion(mail, pass))
+                {
+                    this.transferencia();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta");
+                }
             }
             else
             {
-                MessageBox.Show("NO ENCONTRADO", "Acceso Incorrecto");
+                MessageBox.Show("Debe ingresar un usuario o una contraseña");
+
 
             }
-
-
-
-
-
         }
+
+        //Cine cine1 = new Cine();
+
+        //cine1.agregarUsuario(32793188, "Leandro", "Gonzalez", "mail", "1234");
+
+        //int dni = Int32.Parse(labelUsuario.Text);/*CASTEAR PARA EL INGRESO DE TEXTO  A INT*/
+
+        //if (cine1.login(dni, labelContrasenia.Text))
+        //{
+        //    MessageBox.Show("ENCONTRADO", "Podes Ingresar");
+        //}
+        //else
+        //{
+        //    MessageBox.Show("NO ENCONTRADO", "Acceso Incorrecto");
+
+        //}
+
+
+
+        public delegate void TransfDelegado();
+
+
+
     }
 }
