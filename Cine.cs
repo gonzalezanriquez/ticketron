@@ -71,29 +71,54 @@ namespace TP1_GrupoB
         return peliculas.ToList();
         }
 
+        public Boolean login(int dni, string pass)
+        {
+            foreach (Usuario usu in obtenerUsuarios())
+            {
+                if (usu.dni.Equals(dni) && usu.contrasenia.Equals(pass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*
-         
+
        // Cerrar Sesion(){}
-       
+
        // public Cine(List<Usuario> Usuarios, List<Funcion> Funciones, List<Sala> Salas, List<Pelicula> Peliculas, Usuario UsuarioActual) {}   
 
 
 
        // ABM Entidades()
-       
+
        // CargarCredito(int idUsuario, double importe){
         } 
-        
+
        // ComprarEntrada(int idUsuario, int cant){
         }
 
        // DevolverEntrada(){
         }
 
- 
+
        // BuscarFuncion(string Ubicacion, Date Fecha, double Costo, string pelicula): List<Funcion>  
-        
-        
+
+
        */
 
 
