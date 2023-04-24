@@ -21,7 +21,7 @@ namespace TP1_GrupoB
 
             if (cine1.login(dni, labelContrasenia.Text))
             {
-                MessageBox.Show("ENCONTRADO","Podes Ingresar");
+                MessageBox.Show("ENCONTRADO", "Podes Ingresar");
             }
             else
             {

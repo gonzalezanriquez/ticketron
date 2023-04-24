@@ -107,7 +107,7 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -119,8 +119,9 @@
             Controls.Add(usuario);
             Controls.Add(titulo);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
-            Name = "Form1";
+            Name = "Login";
             Text = "LOGIN -Te damos la Bienvenida";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

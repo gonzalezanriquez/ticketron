@@ -12,12 +12,23 @@ namespace TP1_GrupoB
 {
     public partial class Form1 : Form
     {
+
+        Login hijoLogin;
         public Form1()
         {
             InitializeComponent();
             Cine cine = new Cine();
+            hijoLogin = new Login();
+            hijoLogin.MdiParent = this;
+            hijoLogin.TopLevel = false;
+            hijoLogin.Dock = DockStyle.Fill;
+            hijoLogin.Show();
+             
 
-            
+
+
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
