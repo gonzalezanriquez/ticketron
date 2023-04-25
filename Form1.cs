@@ -23,15 +23,9 @@ namespace TP1_GrupoB
         {
             InitializeComponent();
             cine = new Cine();
-            cine.agregarUsuario(32793188, "Leandro", "Gonzalez", "mail", "1234",true);
-            cine.agregarUsuario(32793189, "Camila", "Giudice", "mail2", "3456",false);
-            cine.agregarUsuario(32793180, "Kevin", "Hercog", "mail3", "7890",true);
-
-
-            hijoBienvenida = new Bienvenida(cine);
-            hijoBienvenida.MdiParent = this;
-            hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
-            hijoBienvenida.transferencia += TrasnfDelegado;
+            cine.agregarUsuario(32793188, "Leandro", "Gonzalez", "mail", "1234");
+            cine.agregarUsuario(32793189, "Camila", "Giudice", "mail2", "3456");
+            cine.agregarUsuario(32793180, "Kevin", "Hercog", "mail3", "7890");
 
             hijoLogin = new Login(cine);
             hijoLogin.MdiParent = this;
@@ -39,25 +33,48 @@ namespace TP1_GrupoB
             hijoLogin.transferencia += TrasnfDelegado;
             hijoLogin.Show();
 
+            hijoBienvenida = new Bienvenida(cine);
+            hijoBienvenida.MdiParent = this;
+            hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
+            hijoBienvenida.transferencia += TrasnfDelegado;
+
+
+
+
+
+
 
 
         }
 
         private void TrasnfDelegado()
         {
-            MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk );
-            hijoLogin.Close();
+
+           
+                MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                hijoLogin.Close();
 
 
-            hijoBienvenida = new Bienvenida(cine);
-            hijoBienvenida.MdiParent = this;
-            hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor*/
-            hijoBienvenida.Show();
+                hijoBienvenida = new Bienvenida(cine);
+                hijoBienvenida.MdiParent = this;
+                hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor*/
+                hijoBienvenida.Show();
+            
+            
+                hijoBienvenida.Close();
+         
+
+           
 
            
             
              
         }
+
+
+
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {

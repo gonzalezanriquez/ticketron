@@ -32,14 +32,14 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int Id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia,bool IsAdmin) {
+        public Usuario(int Id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {
             id =Id;
             dni = Dni;
             nombre = Nombre;
             apellido = Apellido;
             mail = Mail;
             contrasenia = Contrasenia;
-            isAdmin = IsAdmin;
+            isAdmin = false;
             intentosFallidos=1;
             isBloqueado = false;
 
