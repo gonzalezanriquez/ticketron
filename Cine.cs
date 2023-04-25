@@ -122,11 +122,37 @@ namespace TP1_GrupoB
         }
         #endregion
 
-        public void modificarUsuario(int id, string usuarios, string contrasenia)
+        //Modificar Usuarios
+        public bool modificarUsuario(int id, string mail, string contrasenia)
         {
-
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+                    usu.mail = mail;
+                    usu.contrasenia = contrasenia;
+                    return true;
+                }
+            }
+            return false;
         }
 
+
+        //Eliminar usuarios
+        public bool eliminarUsuario(int id)
+        {
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+                    usuarios.Remove(usu);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //Logueado ahora
         public string nombreLogueado()
         {
             return Logueado.nombre;
