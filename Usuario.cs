@@ -31,7 +31,7 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {       
+        public Usuario(int id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {       
             dni = Dni;
             nombre = Nombre;
             apellido = Apellido;

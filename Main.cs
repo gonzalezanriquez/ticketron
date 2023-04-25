@@ -13,5 +13,23 @@
 
 
         }
+
+        private void botonMostrarUsuarios_Click(object sender, EventArgs e)
+        {
+            refreshData();
+        }
+
+        private void refreshData()
+        {
+            dataGridView1.Rows.Clear();
+
+            foreach (Usuario u in miCine.obtenerUsuarios())
+            {
+
+            dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni.ToString(), u.nombre, u.apellido, u.mail, u.contrasenia });/*Siempre necesita un arreglo*/
+            }
+        }
+
+
     }
 }

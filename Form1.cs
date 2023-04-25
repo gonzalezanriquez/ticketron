@@ -23,10 +23,12 @@ namespace TP1_GrupoB
             InitializeComponent();
             cine = new Cine();
             cine.agregarUsuario(32793188, "Leandro", "Gonzalez", "mail", "1234");
+            cine.agregarUsuario(32793189, "Camila", "Giudice", "mail2", "3456");
+            cine.agregarUsuario(32793180, "Kevin", "Hercog", "mail3", "7890");
 
             hijoLogin = new Login(cine);
             hijoLogin.MdiParent = this;
-            hijoLogin.Dock = DockStyle.Fill;
+            hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
             hijoLogin.transferencia += TrasnfDelegado;
             hijoLogin.Show();
 
@@ -41,6 +43,7 @@ namespace TP1_GrupoB
 
             hijoMain=new Main(cine);
             hijoMain.MdiParent = this;  
+            hijoMain.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor*/
             hijoMain.Show();
              
         }

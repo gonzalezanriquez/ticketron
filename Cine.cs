@@ -11,12 +11,12 @@ namespace TP1_GrupoB
     {
 
 
-        public List<Usuario> usuarios {  get; set; }
-        public int idUsuarios{ get; set; }
-        public List<Funcion> funciones { get; set; }
-        public List<Sala> salas { get; set; }
-        public List<Pelicula> peliculas { get; set; }
-        public Usuario Logueado { get; set; }
+        private List<Usuario> usuarios {  get; set; }
+        private int idUsuarios{ get; set; }
+        private List<Funcion> funciones { get; set; }
+        private List<Sala> salas { get; set; }
+        private List<Pelicula> peliculas { get; set; }
+        private Usuario Logueado { get; set; }
 
 
         public Cine()
@@ -33,7 +33,8 @@ namespace TP1_GrupoB
         //Agregar usuarios
         public void agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
 
-            usuarios.Add(new Usuario(dni, nombre, apellido, mail, contrasenia));
+            usuarios.Add(new Usuario(idUsuarios,dni, nombre, apellido, mail, contrasenia));
+            idUsuarios++;
            
             
         }
