@@ -24,21 +24,16 @@ namespace TP1_GrupoB
 
             if (mail != null && mail != "" && pass != null && pass != "")
             {
-                if (miCine.iniciarSesion(mail, pass))
+
+                if(miCine.iniciarSesion(mail, pass))
                 {
                     this.transferencia();
-
                 }
-                else
-                {
-                    MessageBox.Show("Usuario o Contraseña Incorrecta", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
             }
             else
             {
                 MessageBox.Show("Debe ingresar un usuario o una contraseña", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-
             }
         }
 

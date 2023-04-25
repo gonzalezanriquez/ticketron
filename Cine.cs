@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,51 +59,73 @@ namespace TP1_GrupoB
             bool encontrado = false;
             foreach (Usuario usu in usuarios)
             {
-                if (usu.mail.Equals(mail) && contrasenia.Equals(contrasenia))
-                {
+                encontrado = false;
 
+
+                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Usuario Incorrecto", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    break;
+                } else if (!usu.contrasenia.Equals(contrasenia))
+                {
+                    if (usu.intentosFallidos > 3)
+                    {
+                        usu.isBloqueado = true;
+                        MessageBox.Show("Tuviste 3 Intentos, tu usuario fue Bloqueado", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        usu.intentosFallidos++;
+                        break;
+                    }
+
+                } else
+                {
                     encontrado = true;
                     Logueado = usu;
+                    break;
                 }
-            }
+
+
+
+
+                //if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase)&& usu.contrasenia.Equals(contrasenia)&& !usu.isBloqueado)
+                //{
+                //    encontrado = true;
+                //    Logueado = usu;
+                //    break;
+                //}
+                //else  
+                //{
+                //        if (usu.intentosFallidos>3)
+                //        {
+
+                //        usu.isBloqueado = true;
+                //            MessageBox.Show("Tuviste 3 Intentos, tu usuario fue Bloqueado", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //            break;
+                //        }
+                //        else
+                //        {
+                //        MessageBox.Show("Usuario y/o contraseña Incorrecta. Intento N°: "+ usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //        usu.intentosFallidos++;
+                //        break;
+                //    }
+                //    }
+
+                        
+             
+            }             
+
             return encontrado;
         }
+    
 
 
-        #region IncioSesionFuncioando(comentado)
-
-
-        //public bool iniciarSesion(string mail, string contrasenia) {
-
-        //    bool encontrado = false;
-        //    foreach (Usuario usu in usuarios) 
-        //    {
-
-        //        if (usu.mail.Equals(mail) && contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
-        //        {
-
-        //            encontrado = true;
-        //            Logueado = usu;
-
-
-        //        }
-        //        else
-        //        {
-        //            usu.intentosFallidos++;
-        //            MessageBox.Show("Intento N° " + usu.intentosFallidos);
-        //        }
-
-        //    }
-
-        //    return encontrado;
-        //}
-
-
-        #endregion
-
-        #region Métodos
-        //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
-        public List<Usuario> obtenerUsuarios() { 
+    #region Métodos
+    //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
+    public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
         }
         public List<Funcion> obtenerFuncion() { 
