@@ -40,7 +40,8 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
             isAdmin = IsAdmin;
-
+            intentosFallidos=1;
+            isBloqueado = false;
 
         }
 
