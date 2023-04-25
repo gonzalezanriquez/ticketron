@@ -26,7 +26,8 @@
             foreach (Usuario u in miCine.obtenerUsuarios())
             {
 
-            dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni.ToString(), u.nombre, u.apellido, u.mail, u.contrasenia });/*Siempre necesita un arreglo*/
+                dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni.ToString(), u.nombre, u.apellido, u.mail, u.contrasenia,u.isAdmin.ToString() });
+
             }
         }
 

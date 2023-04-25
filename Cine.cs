@@ -9,35 +9,37 @@ namespace TP1_GrupoB
 {
     public class Cine
     {
-
-
-        private List<Usuario> usuarios {  get; set; }
-        private int idUsuarios{ get; set; }
-        private List<Funcion> funciones { get; set; }
-        private List<Sala> salas { get; set; }
-        private List<Pelicula> peliculas { get; set; }
-        private Usuario Logueado { get; set; }
-
+        #region atributos
+        public List<Usuario> usuarios {  get; set; }
+        public int idUsuarios{ get; set; }
+        public List<Funcion> funciones { get; set; }
+        public List<Sala> salas { get; set; }
+        public List<Pelicula> peliculas { get; set; }
+        public Usuario Logueado { get; set; }
+        #endregion
 
         public Cine()
         {
             usuarios= new List<Usuario>();
-            idUsuarios= 0;
+            idUsuarios= 2;
             funciones= new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
+
         }
 
 
 
         //Agregar usuarios
-        public void agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
-
-            usuarios.Add(new Usuario(idUsuarios,dni, nombre, apellido, mail, contrasenia));
+        public bool agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin) {
+            
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
             idUsuarios++;
-           
+            return true;    
             
         }
+
+
         /* Ejemplo de la clase version 2
         
         public void agregarUsuario(Usuario dni, Usuario nombre, Usuario apellido, Usuario mail, Usuario contrasenia) {
@@ -47,19 +49,57 @@ namespace TP1_GrupoB
             otro.id = IdUsuarios;
         }
         */
-  
+
         // Iniciar Sesion
-        public bool iniciarSesion(string mail, string contrasenia) {
+
+        public bool iniciarSesion(string mail, string contrasenia)
+        {
             bool encontrado = false;
-            foreach (Usuario usu in usuarios) { 
-                if(usu.mail.Equals(mail) && usu.contrasenia.Equals(contrasenia)){
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.mail.Equals(mail) && contrasenia.Equals(contrasenia))
+                {
+
                     encontrado = true;
-                    Logueado= usu;
-                    
+                    Logueado = usu;
                 }
-            }return encontrado;
+            }
+            return encontrado;
         }
 
+
+        #region IncioSesionFuncioando(comentado)
+
+
+        //public bool iniciarSesion(string mail, string contrasenia) {
+
+        //    bool encontrado = false;
+        //    foreach (Usuario usu in usuarios) 
+        //    {
+
+        //        if (usu.mail.Equals(mail) && contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
+        //        {
+
+        //            encontrado = true;
+        //            Logueado = usu;
+
+
+        //        }
+        //        else
+        //        {
+        //            usu.intentosFallidos++;
+        //            MessageBox.Show("Intento N° " + usu.intentosFallidos);
+        //        }
+
+        //    }
+
+        //    return encontrado;
+        //}
+
+
+        #endregion
+
+        #region Métodos
         //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
         public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
@@ -73,17 +113,11 @@ namespace TP1_GrupoB
         public List<Pelicula> obtenerPeliculas() { 
         return peliculas.ToList();
         }
+        #endregion
 
-        public Boolean login(int dni, string pass)
+        public void modificarUsuario(int id, string usuarios, string contrasenia)
         {
-            foreach (Usuario usu in obtenerUsuarios())
-            {
-                if (usu.dni.Equals(dni) && usu.contrasenia.Equals(pass))
-                {
-                    return true;
-                }
-            }
-            return false;
+
         }
 
         public string nombreLogueado()
@@ -95,21 +129,9 @@ namespace TP1_GrupoB
 
 
 
-
-
-
-
-
-
-
-
         /*
 
        // Cerrar Sesion(){}
-
-       // public Cine(List<Usuario> Usuarios, List<Funcion> Funciones, List<Sala> Salas, List<Pelicula> Peliculas, Usuario UsuarioActual) {}   
-
-
 
        // ABM Entidades()
 

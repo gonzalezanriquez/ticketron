@@ -41,6 +41,7 @@
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
             label2 = new Label();
+            isAdmin = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -57,7 +58,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idUsuario, dni, nombre, apellido, mail, password });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idUsuario, dni, nombre, apellido, mail, password, isAdmin });
             dataGridView1.Location = new Point(32, 303);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -143,6 +144,13 @@
             label2.TabIndex = 5;
             label2.Text = "Usuario Actual:";
             // 
+            // isAdmin
+            // 
+            isAdmin.Frozen = true;
+            isAdmin.HeaderText = "Administrador";
+            isAdmin.Name = "isAdmin";
+            isAdmin.ReadOnly = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,5 +185,6 @@
         private PictureBox pictureBox1;
         private Label tituloUsuarios;
         private Label label2;
+        private DataGridViewTextBoxColumn isAdmin;
     }
 }

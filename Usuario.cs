@@ -9,7 +9,7 @@ namespace TP1_GrupoB
     public class Usuario
     {
         // falta misFunciones lista
-
+        #region atributos
         public int id { get; set; }
         public int dni { get; set; }
         public string nombre { get; set; }
@@ -23,45 +23,27 @@ namespace TP1_GrupoB
         public double credito { get; set; }
         public DateTime fechaNacimiento { get; set; }
         public bool isAdmin { get; set; }
-
-
+        #endregion
+       
+        #region constructor
         public Usuario() { }
 
         public Usuario(string Mail, string Contrasenia) { 
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {       
+        public Usuario(int Id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia,bool IsAdmin) {
+            id =Id;
             dni = Dni;
             nombre = Nombre;
             apellido = Apellido;
             mail = Mail;
             contrasenia = Contrasenia;
+            isAdmin = IsAdmin;
+
+
         }
 
-
-        /* En el ejemplo del profesor en clase...
-        public Usuario(string Nombre, string Contrasenia)
-        {
-            nombre = Nombre;
-            contrasenia = Contrasenia;
-        }
-
-        public Usuario(string Nombre, string Contrasenia, int ID)
-        {
-            nombre = Nombre;
-            contrasenia = Contrasenia;
-            id = ID;
-        }
-
-
-         public string[] ToString() { 
-            return new string[] {id.ToString(), nombre, contrasenia}
-            }
-        
-
-        */
-
-
+        #endregion
     }
 }
