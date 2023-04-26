@@ -60,46 +60,60 @@ namespace TP1_GrupoB
             foreach (Usuario usu in usuarios)
             {
                 encontrado = false;
-               
-
-                if (usu.isBloqueado)
-                {
-                    MessageBox.Show("EL USUARIO FUE BLOQUEADO. " + usu.isBloqueado + " " + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    break;
-                }
-                else if (usu.mail.Equals(mail))
-                {
-                    MessageBox.Show("Usuario Correcto - " + usu.mail + "- " + mail, "Ticketron", MessageBoxButtons.OK);
-                    break;
-                }
-                else if (!usu.mail.Equals(mail))
-                {
-                    MessageBox.Show("Usuario Incorrecto - " + usu.mail + "- " +mail , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                   
-                }
-                else if (!usu.contrasenia.Equals(contrasenia))
-                {
-                    if (usu.intentosFallidos > 3)
-                    {
-                        usu.isBloqueado = true;
-                        MessageBox.Show("Tuviste 3 Intentos, tu usuario fue Bloqueado" + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        break;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        usu.intentosFallidos++;
-                        break;
-                    }
-                }
-                else
+                
+                if(usu.mail.Equals(mail) && usu.contrasenia.Equals(contrasenia))
                 {
                     encontrado = true;
                     Logueado = usu;
                     break;
                 }
+                else
+                {
+                    MessageBox.Show("PUTO " , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    break;
+                }
 
-            }             
+                #region revisar
+
+                //}
+                //if (usu.isBloqueado)
+                //{
+                //    MessageBox.Show("EL USUARIO FUE BLOQUEADO. " + usu.isBloqueado + " " + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //    break;
+                //}
+                //else if (usu.mail.Equals(mail))
+                //{
+                //    MessageBox.Show("Usuario Correcto - " + usu.mail + "- " + mail, "Ticketron", MessageBoxButtons.OK);
+                //    break;
+                //}
+                //else if (!usu.mail.Equals(mail))
+                //{
+                //    MessageBox.Show("Usuario Incorrecto - " + usu.mail + "- " +mail , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                //}
+                //else if (!usu.contrasenia.Equals(contrasenia))
+                //{
+                //    if (usu.intentosFallidos > 3)
+                //    {
+                //        usu.isBloqueado = true;
+                //        MessageBox.Show("Tuviste 3 Intentos, tu usuario fue Bloqueado" + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //        break;
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //        usu.intentosFallidos++;
+                //        break;
+                //    }
+                //}
+                //else
+                //{
+                //    encontrado = true;
+                //    Logueado = usu;
+                //    break;
+                //}
+                #endregion
+            }
 
             return encontrado;
         }

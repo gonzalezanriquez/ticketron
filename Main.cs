@@ -4,6 +4,7 @@
     {
         private Cine miCine;
         private int selectedUser;
+        public TransfDelegado transferencia;
 
         public Main(Cine cine)
         {
@@ -31,6 +32,6 @@
             }
         }
 
-
+        public delegate void TransfDelegado();
     }
 }

@@ -14,23 +14,26 @@ namespace TP1_GrupoB
     public partial class Bienvenida : Form
     {
         private Cine miCine;
-      
-        public TransfDelegado transferencia;
-        
+
+        public leandro transferencia;
+
         public Bienvenida(Cine cin)
         {
             miCine = cin;
             InitializeComponent();
         }
 
-               
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
-   
 
 
 
 
-    public delegate void TransfDelegado();
-    
+
+    public delegate void leandro();
+
 }
