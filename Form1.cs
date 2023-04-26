@@ -14,11 +14,9 @@ namespace TP1_GrupoB
     {
         private Cine cine;
         private Login hijoLogin;
-        private Main hijoMain;
+        private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
-
-
-        /*constructor*/
+       
         public Form1()
         {
             InitializeComponent();
@@ -30,55 +28,48 @@ namespace TP1_GrupoB
             hijoLogin = new Login(cine);
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
-            hijoLogin.transferencia += TrasnfDelegado;
+            hijoLogin.transferencia += TrasnLogin;
             hijoLogin.Show();
+
 
             hijoBienvenida = new Bienvenida(cine);
             hijoBienvenida.MdiParent = this;
             hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
-            hijoBienvenida.transferencia += TrasnfDelegado;
-
-
-
-
-
-
-
-
-        }
-
-        private void TrasnfDelegado()
-        {
-
-           
-                MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                hijoLogin.Close();
-
-
-                hijoBienvenida = new Bienvenida(cine);
-                hijoBienvenida.MdiParent = this;
-                hijoBienvenida.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor*/
-                hijoBienvenida.Show();
-            
-            
-                hijoBienvenida.Close();
-         
-
-           
-
-           
-            
-             
-        }
-
-
-
-
+            hijoBienvenida.transferencia += TrasnfBienvenida;
         
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            //hijoUsuarios = new Usuarios(cine);
+            //hijoUsuarios.MdiParent = this;
+            //hijoUsuarios.Dock = DockStyle.Fill;
+            //hijoUsuarios.transferencia += TrasnfUsuarios;  
+
 
         }
+
+        private void TrasnLogin()/*le paso este metodo a login para que cierre la ventana y abra BIenvenida*/
+        {           
+            MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            hijoLogin.Close();
+            hijoBienvenida.Show();   
+        }
+
+
+        private void TrasnfBienvenida()/*le paso este metodo a bienvenida para que cierre la ventana y abra Usuarios*/
+        {
+            hijoBienvenida.Close();
+            hijoUsuarios.Show();
+                        
+        }
+
+        private void TrasnfUsuarios()/*le paso este metodo a bienvenida para que cierre la ventana y abra Usuarios*/
+        {
+            hijoUsuarios.Close();
+            hijoBienvenida.Show();/*para volver a INICIO*/
+        }
+
+
+
+        private void Form1_Load(object sender, EventArgs e) {  }
     }
 }

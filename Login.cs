@@ -3,7 +3,8 @@ namespace TP1_GrupoB
     public partial class Login : Form
     {
         private Cine miCine;
-        public TransfDelegado transferencia;
+        public TrasnLogin transferencia;
+
 
         public Login(Cine cin)
         {
@@ -25,11 +26,11 @@ namespace TP1_GrupoB
             if (mail != null && mail != "" && pass != null && pass != "")
             {
 
-                if(miCine.iniciarSesion(mail, pass))
+                if (miCine.iniciarSesion(mail, pass))
                 {
                     this.transferencia();
                 }
-               
+
             }
             else
             {
@@ -39,7 +40,8 @@ namespace TP1_GrupoB
 
 
 
-        public delegate void TransfDelegado();
+        public delegate void TrasnLogin();
+
 
 
 

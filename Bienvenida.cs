@@ -15,7 +15,7 @@ namespace TP1_GrupoB
     {
         private Cine miCine;
 
-        public leandro transferencia;
+        public TrasnfBienvenida transferencia;
 
         public Bienvenida(Cine cin)
         {
@@ -25,7 +25,9 @@ namespace TP1_GrupoB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            this.transferencia();
+          
+        
         }
     }
 
@@ -34,6 +36,6 @@ namespace TP1_GrupoB
 
 
 
-    public delegate void leandro();
+    public delegate void TrasnfBienvenida();
 
 }

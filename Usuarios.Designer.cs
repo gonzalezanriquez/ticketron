@@ -1,6 +1,6 @@
 ﻿namespace TP1_GrupoB
 {
-    partial class Main
+    partial class Usuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             label1 = new Label();
             dataGridView1 = new DataGridView();
             idUsuario = new DataGridViewTextBoxColumn();
@@ -37,11 +37,12 @@
             apellido = new DataGridViewTextBoxColumn();
             mail = new DataGridViewTextBoxColumn();
             password = new DataGridViewTextBoxColumn();
+            isAdmin = new DataGridViewTextBoxColumn();
             botonMostrarUsuarios = new Button();
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
             label2 = new Label();
-            isAdmin = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -102,6 +103,13 @@
             password.HeaderText = "Contraseña";
             password.Name = "password";
             // 
+            // isAdmin
+            // 
+            isAdmin.Frozen = true;
+            isAdmin.HeaderText = "Administrador";
+            isAdmin.Name = "isAdmin";
+            isAdmin.ReadOnly = true;
+            // 
             // botonMostrarUsuarios
             // 
             botonMostrarUsuarios.AutoSize = true;
@@ -144,18 +152,22 @@
             label2.TabIndex = 5;
             label2.Text = "Usuario Actual:";
             // 
-            // isAdmin
+            // button1
             // 
-            isAdmin.Frozen = true;
-            isAdmin.HeaderText = "Administrador";
-            isAdmin.Name = "isAdmin";
-            isAdmin.ReadOnly = true;
+            button1.Location = new Point(613, 92);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 6;
+            button1.Text = "VOLVER";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // Main
+            // Usuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(tituloUsuarios);
             Controls.Add(pictureBox1);
@@ -163,7 +175,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Main";
+            Name = "Usuarios";
             Text = "Main";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -186,5 +198,6 @@
         private Label tituloUsuarios;
         private Label label2;
         private DataGridViewTextBoxColumn isAdmin;
+        private Button button1;
     }
 }

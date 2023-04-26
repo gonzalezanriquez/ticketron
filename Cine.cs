@@ -27,11 +27,7 @@ namespace TP1_GrupoB
             funciones= new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
-
         }
-
-
-
         //Agregar usuarios
         public bool agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
             
@@ -41,7 +37,7 @@ namespace TP1_GrupoB
             
         }
 
-
+        #region revisar
         /* Ejemplo de la clase version 2
         
         public void agregarUsuario(Usuario dni, Usuario nombre, Usuario apellido, Usuario mail, Usuario contrasenia) {
@@ -51,78 +47,55 @@ namespace TP1_GrupoB
             otro.id = IdUsuarios;
         }
         */
+        #endregion
 
         // Iniciar Sesion
 
+        #region inicioSesion
         public bool iniciarSesion(string mail, string contrasenia)
         {
             bool encontrado = false;
             foreach (Usuario usu in usuarios)
             {
-                encontrado = false;
-                
-                if(usu.mail.Equals(mail) && usu.contrasenia.Equals(contrasenia))
+
+                if (!usu.mail.Equals(mail))
                 {
-                    encontrado = true;
+                    continue;
+                }
+
+                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 4)
+                {
                     Logueado = usu;
-                    break;
+                    return true;
+
+
+
                 }
-                else
+
+                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
-                    MessageBox.Show("PUTO " , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    break;
+                    MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    usu.intentosFallidos++;
+
+                    return false;
                 }
 
-                #region revisar
-
-                //}
-                //if (usu.isBloqueado)
-                //{
-                //    MessageBox.Show("EL USUARIO FUE BLOQUEADO. " + usu.isBloqueado + " " + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                //    break;
-                //}
-                //else if (usu.mail.Equals(mail))
-                //{
-                //    MessageBox.Show("Usuario Correcto - " + usu.mail + "- " + mail, "Ticketron", MessageBoxButtons.OK);
-                //    break;
-                //}
-                //else if (!usu.mail.Equals(mail))
-                //{
-                //    MessageBox.Show("Usuario Incorrecto - " + usu.mail + "- " +mail , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
-                //}
-                //else if (!usu.contrasenia.Equals(contrasenia))
-                //{
-                //    if (usu.intentosFallidos > 3)
-                //    {
-                //        usu.isBloqueado = true;
-                //        MessageBox.Show("Tuviste 3 Intentos, tu usuario fue Bloqueado" + usu.nombre, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                //        break;
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                //        usu.intentosFallidos++;
-                //        break;
-                //    }
-                //}
-                //else
-                //{
-                //    encontrado = true;
-                //    Logueado = usu;
-                //    break;
-                //}
-                #endregion
+                if (usu.isBloqueado == true || usu.intentosFallidos >= 3)
+                {
+                    MessageBox.Show("Usuario bloqueado, pruebe con otro", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
             }
-
+            MessageBox.Show("Usuario no encontrado ", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             return encontrado;
         }
-    
+
+# endregion
 
 
-    #region Métodos
-    //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
-    public List<Usuario> obtenerUsuarios() { 
+        #region Métodos
+        //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
+        public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
         }
         public List<Funcion> obtenerFuncion() { 
