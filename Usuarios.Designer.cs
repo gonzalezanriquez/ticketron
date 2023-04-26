@@ -42,7 +42,8 @@
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
             label2 = new Label();
-            button1 = new Button();
+            VolverButton = new Button();
+            volver_button = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -152,22 +153,29 @@
             label2.TabIndex = 5;
             label2.Text = "Usuario Actual:";
             // 
-            // button1
+            // VolverButton
             // 
-            button1.Location = new Point(613, 92);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "VOLVER";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            VolverButton.Location = new Point(0, 0);
+            VolverButton.Name = "VolverButton";
+            VolverButton.Size = new Size(75, 23);
+            VolverButton.TabIndex = 0;
+            // 
+            // volver_button
+            // 
+            volver_button.Location = new Point(563, 214);
+            volver_button.Name = "volver_button";
+            volver_button.Size = new Size(75, 23);
+            volver_button.TabIndex = 6;
+            volver_button.Text = "VOLVER";
+            volver_button.UseVisualStyleBackColor = true;
+            volver_button.Click += volver_button_Click;
             // 
             // Usuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
-            Controls.Add(button1);
+            Controls.Add(volver_button);
             Controls.Add(label2);
             Controls.Add(tituloUsuarios);
             Controls.Add(pictureBox1);
@@ -198,6 +206,7 @@
         private Label tituloUsuarios;
         private Label label2;
         private DataGridViewTextBoxColumn isAdmin;
-        private Button button1;
+        private Button VolverButton;
+        private Button volver_button;
     }
 }

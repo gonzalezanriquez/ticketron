@@ -3,21 +3,20 @@
     public partial class Usuarios : Form
     {
         private Cine miCine;
-        private int selectedUser;
-        public TrasnfUsuarios transferencia;
+        public Usuarios_Bienvendia transferencia;
 
         public Usuarios(Cine cine)
         {
             InitializeComponent();
             miCine = cine;
-            label1.Text = cine.nombreLogueado();
+            label1.Text = miCine.nombreLogueado();
         }
 
 
 
         private void botonMostrarUsuarios_Click(object sender, EventArgs e)
         {
-            this.transferencia();
+
             refreshData();
         }
 
@@ -29,16 +28,16 @@
             foreach (Usuario u in miCine.obtenerUsuarios())
             {
 
-                dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni.ToString(), u.nombre, u.apellido, u.mail, u.contrasenia, u.isAdmin.ToString() });
+                dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni.ToString(), u.apellido, u.apellido, u.mail, u.contrasenia, u.isAdmin.ToString() });
 
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void volver_button_Click(object sender, EventArgs e)
         {
             this.transferencia();
         }
 
-        public delegate void TrasnfUsuarios();
+        public delegate void Usuarios_Bienvendia();
     }
 }

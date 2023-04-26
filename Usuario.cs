@@ -12,8 +12,8 @@ namespace TP1_GrupoB
         #region atributos
         public int id { get; set; }
         public int dni { get; set; }
-        public string nombre { get; set; }
         public string apellido { get; set; }
+        public string nombre { get; set; }
         public string mail { get; set; }
         public string contrasenia { get; set; }
         public int intentosFallidos { get; set; }

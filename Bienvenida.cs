@@ -14,21 +14,23 @@ namespace TP1_GrupoB
     public partial class Bienvenida : Form
     {
         private Cine miCine;
-
-        public TrasnfBienvenida transferencia;
+        public Bienvenida_a_Usuarios transferencia;     
 
         public Bienvenida(Cine cin)
         {
-            miCine = cin;
             InitializeComponent();
+            miCine = cin;
         }
 
+
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            this.transferencia();
-          
+            this.transferencia();            
         
         }
+
+        public delegate void Bienvenida_a_Usuarios();
     }
 
 
@@ -36,6 +38,5 @@ namespace TP1_GrupoB
 
 
 
-    public delegate void TrasnfBienvenida();
 
 }

@@ -3,7 +3,7 @@ namespace TP1_GrupoB
     public partial class Login : Form
     {
         private Cine miCine;
-        public TrasnLogin transferencia;
+        public TLogin transferencia;
 
 
         public Login(Cine cin)
@@ -40,7 +40,7 @@ namespace TP1_GrupoB
 
 
 
-        public delegate void TrasnLogin();
+        public delegate void TLogin();
 
 
 
