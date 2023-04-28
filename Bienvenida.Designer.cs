@@ -103,8 +103,9 @@
             tituloBienvenida.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             tituloBienvenida.Location = new Point(37, 38);
             tituloBienvenida.Name = "tituloBienvenida";
-            tituloBienvenida.Size = new Size(0, 25);
+            tituloBienvenida.Size = new Size(255, 25);
             tituloBienvenida.TabIndex = 6;
+            tituloBienvenida.Text = "SECCION ADMINISTRADOR";
             // 
             // Bienvenida
             // 

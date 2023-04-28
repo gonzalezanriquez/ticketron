@@ -24,7 +24,7 @@ namespace TP1_GrupoB
         {
             InitializeComponent();
             miCine = cine;
-            tituloBienvenida.Text = "Hola, " + miCine.nombreLogueado() + ". Ticketron te da la Bienvenida";
+           
         }
 
 

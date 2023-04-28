@@ -150,6 +150,7 @@ namespace TP1_GrupoB
                     usu.dni = dni;
                     usu.mail = mail;
                     usu.contrasenia = contrasenia;
+                    idUsuarios--;
                     return true;
                 }
             }
@@ -166,7 +167,7 @@ namespace TP1_GrupoB
                     peli.sinopsis = sinopsis;
                     peli.poster = poster;
                     peli.duracion = duracion;
-                   
+                    idPeliculas--;
                     return true;
                 }
             }
@@ -183,6 +184,7 @@ namespace TP1_GrupoB
                     sal.id = id;
                     sal.ubicacion = ubicacion;
                     sal.capacidad = capacidad;
+                    idSalas--;
                     return true;
                 }
             }

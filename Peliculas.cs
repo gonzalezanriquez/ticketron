@@ -103,6 +103,22 @@ namespace TP1_GrupoB
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (selectedFilm != 1)
+            {
+                miCine.eliminarPeliculas(int.Parse(boxId.Text));
+                MessageBox.Show("Pelicula Eliminada con Éxito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar alguna pelicula para eliminarla", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            
+        }
+    }
+
         public delegate void Peliculas_Bienvenida();
     }
 
