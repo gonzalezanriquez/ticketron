@@ -32,14 +32,14 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int Id, string Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {
+        public Usuario(int Id, string Dni, string Nombre, string Apellido, string Mail,string Contrasenia,bool IsAdmin) {
             id =Id;
             dni = Dni;
             nombre = Nombre;
             apellido = Apellido;
             mail = Mail;
             contrasenia = Contrasenia;
-            isAdmin = true;
+            isAdmin = IsAdmin;
             intentosFallidos=1;
             isBloqueado = false;
             List<Funcion> misFunciones = new List<Funcion>();
