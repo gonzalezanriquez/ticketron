@@ -15,8 +15,16 @@ namespace TP1_GrupoB
         public DateTime fecha { get; set; }
         public int cantClientes { get; set; }
         public double costo { get; set; }
-
-        public Funcion() { 
+        
+        public Funcion(int id, int cantClientes, double costo, DateTime Fecha, Pelicula pelicula,  Sala miSala)
+        {
+            this.id = id;
+            this.cantClientes = cantClientes;
+            this.costo = costo;
+            this.fecha = fecha;
+            this.pelicula = pelicula;
+            this.miSala = miSala;
+            
         }
 
     }

@@ -4,11 +4,14 @@ namespace TP1_GrupoB
     {
         private Cine miCine;
         public TLogin transferencia;
+        public TLogin transferencia2;
+        public TLogin transferencia3;
+        public TLogin transferencia4;
 
 
-        public Login(Cine cin)
+        public Login(Cine cine)
         {
-            miCine = cin;
+            miCine = cine;
             InitializeComponent();
         }
 

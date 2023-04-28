@@ -14,7 +14,13 @@ namespace TP1_GrupoB
 
         public List<Funcion> misFunciones = new List<Funcion>();
 
-        public Sala() { 
+        public Sala(int id, string ubicacion, int capacidad)
+        {
+            this.id = id;
+            this.ubicacion = ubicacion;
+            this.capacidad = capacidad;
+
+            List<Funcion> misFunciones = new List<Funcion>();
         }
 
 
