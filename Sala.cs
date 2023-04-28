@@ -19,6 +19,7 @@ namespace TP1_GrupoB
             this.id = id;
             this.ubicacion = ubicacion;
             this.capacidad = capacidad;
+
             List<Funcion> misFunciones = new List<Funcion>();
         }
 

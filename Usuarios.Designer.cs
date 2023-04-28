@@ -31,13 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            idUsuario = new DataGridViewTextBoxColumn();
-            dni = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            apellido = new DataGridViewTextBoxColumn();
-            mail = new DataGridViewTextBoxColumn();
-            password = new DataGridViewTextBoxColumn();
-            isAdmin = new DataGridViewTextBoxColumn();
             botonMostrarUsuarios = new Button();
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
@@ -47,18 +40,25 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            textBox1 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox2 = new TextBox();
+            boxDni = new TextBox();
+            boxNombre = new TextBox();
+            boxApellido = new TextBox();
+            boxContrasenia = new TextBox();
+            boxMail = new TextBox();
+            boxId = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            idUsuario = new DataGridViewTextBoxColumn();
+            dni = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            apellido = new DataGridViewTextBoxColumn();
+            mail = new DataGridViewTextBoxColumn();
+            password = new DataGridViewTextBoxColumn();
+            isAdmin = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -84,56 +84,12 @@
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
-            // idUsuario
-            // 
-            idUsuario.Frozen = true;
-            idUsuario.HeaderText = "Id";
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            // 
-            // dni
-            // 
-            dni.Frozen = true;
-            dni.HeaderText = "DNI";
-            dni.Name = "dni";
-            // 
-            // nombre
-            // 
-            nombre.Frozen = true;
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            // 
-            // apellido
-            // 
-            apellido.Frozen = true;
-            apellido.HeaderText = "Apellido";
-            apellido.Name = "apellido";
-            // 
-            // mail
-            // 
-            mail.Frozen = true;
-            mail.HeaderText = "Mail";
-            mail.Name = "mail";
-            // 
-            // password
-            // 
-            password.Frozen = true;
-            password.HeaderText = "Contraseña";
-            password.Name = "password";
-            // 
-            // isAdmin
-            // 
-            isAdmin.Frozen = true;
-            isAdmin.HeaderText = "Administrador";
-            isAdmin.Name = "isAdmin";
-            isAdmin.ReadOnly = true;
-            // 
             // botonMostrarUsuarios
             // 
             botonMostrarUsuarios.AutoSize = true;
             botonMostrarUsuarios.BackColor = Color.Orange;
             botonMostrarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            botonMostrarUsuarios.Location = new Point(761, 243);
+            botonMostrarUsuarios.Location = new Point(32, 252);
             botonMostrarUsuarios.Name = "botonMostrarUsuarios";
             botonMostrarUsuarios.Size = new Size(233, 35);
             botonMostrarUsuarios.TabIndex = 2;
@@ -179,17 +135,18 @@
             // 
             // volver_button
             // 
-            volver_button.Location = new Point(564, 242);
+            volver_button.BackColor = Color.DarkSalmon;
+            volver_button.Location = new Point(761, 248);
             volver_button.Name = "volver_button";
-            volver_button.Size = new Size(75, 23);
+            volver_button.Size = new Size(233, 35);
             volver_button.TabIndex = 6;
             volver_button.Text = "VOLVER";
-            volver_button.UseVisualStyleBackColor = true;
+            volver_button.UseVisualStyleBackColor = false;
             volver_button.Click += volver_button_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(551, 97);
+            button1.Location = new Point(172, 205);
             button1.Name = "button1";
             button1.Size = new Size(97, 23);
             button1.TabIndex = 7;
@@ -199,7 +156,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(551, 140);
+            button2.Location = new Point(318, 205);
             button2.Name = "button2";
             button2.Size = new Size(97, 23);
             button2.TabIndex = 8;
@@ -209,7 +166,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(551, 185);
+            button3.Location = new Point(466, 205);
             button3.Name = "button3";
             button3.Size = new Size(97, 23);
             button3.TabIndex = 9;
@@ -217,52 +174,54 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // textBox1
+            // boxDni
             // 
-            textBox1.Location = new Point(153, 126);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 10;
+            boxDni.Location = new Point(150, 129);
+            boxDni.Name = "boxDni";
+            boxDni.Size = new Size(158, 23);
+            boxDni.TabIndex = 10;
             // 
-            // textBox3
+            // boxNombre
             // 
-            textBox3.Location = new Point(153, 155);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 12;
+            boxNombre.Location = new Point(150, 158);
+            boxNombre.Name = "boxNombre";
+            boxNombre.Size = new Size(158, 23);
+            boxNombre.TabIndex = 12;
             // 
-            // textBox4
+            // boxApellido
             // 
-            textBox4.Location = new Point(153, 184);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 13;
+            boxApellido.Location = new Point(453, 100);
+            boxApellido.Name = "boxApellido";
+            boxApellido.Size = new Size(158, 23);
+            boxApellido.TabIndex = 13;
             // 
-            // textBox5
+            // boxContrasenia
             // 
-            textBox5.Location = new Point(153, 242);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 14;
+            boxContrasenia.Location = new Point(453, 158);
+            boxContrasenia.Name = "boxContrasenia";
+            boxContrasenia.Size = new Size(158, 23);
+            boxContrasenia.TabIndex = 14;
             // 
-            // textBox6
+            // boxMail
             // 
-            textBox6.Location = new Point(153, 213);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 15;
+            boxMail.Location = new Point(453, 129);
+            boxMail.Name = "boxMail";
+            boxMail.Size = new Size(158, 23);
+            boxMail.TabIndex = 15;
             // 
-            // textBox2
+            // boxId
             // 
-            textBox2.Location = new Point(153, 97);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 16;
+            boxId.BackColor = SystemColors.Menu;
+            boxId.Enabled = false;
+            boxId.Location = new Point(150, 100);
+            boxId.Name = "boxId";
+            boxId.Size = new Size(32, 23);
+            boxId.TabIndex = 16;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(129, 100);
+            label3.Location = new Point(88, 108);
             label3.Name = "label3";
             label3.Size = new Size(18, 15);
             label3.TabIndex = 17;
@@ -271,7 +230,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(120, 129);
+            label4.Location = new Point(88, 140);
             label4.Name = "label4";
             label4.Size = new Size(27, 15);
             label4.TabIndex = 18;
@@ -280,7 +239,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(91, 163);
+            label5.Location = new Point(88, 166);
             label5.Name = "label5";
             label5.Size = new Size(56, 15);
             label5.TabIndex = 19;
@@ -289,7 +248,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(87, 188);
+            label6.Location = new Point(364, 108);
             label6.Name = "label6";
             label6.Size = new Size(60, 15);
             label6.TabIndex = 20;
@@ -298,7 +257,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(112, 221);
+            label7.Location = new Point(364, 137);
             label7.Name = "label7";
             label7.Size = new Size(35, 15);
             label7.TabIndex = 21;
@@ -307,11 +266,56 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(64, 245);
+            label8.Location = new Point(364, 169);
             label8.Name = "label8";
             label8.Size = new Size(83, 15);
             label8.TabIndex = 22;
             label8.Text = "CONTRASEÑA";
+            // 
+            // idUsuario
+            // 
+            idUsuario.Frozen = true;
+            idUsuario.HeaderText = "Id";
+            idUsuario.Name = "idUsuario";
+            idUsuario.ReadOnly = true;
+            idUsuario.Visible = false;
+            // 
+            // dni
+            // 
+            dni.Frozen = true;
+            dni.HeaderText = "DNI";
+            dni.Name = "dni";
+            // 
+            // nombre
+            // 
+            nombre.Frozen = true;
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            // 
+            // apellido
+            // 
+            apellido.Frozen = true;
+            apellido.HeaderText = "Apellido";
+            apellido.Name = "apellido";
+            // 
+            // mail
+            // 
+            mail.Frozen = true;
+            mail.HeaderText = "Mail";
+            mail.Name = "mail";
+            // 
+            // password
+            // 
+            password.Frozen = true;
+            password.HeaderText = "Contraseña";
+            password.Name = "password";
+            // 
+            // isAdmin
+            // 
+            isAdmin.Frozen = true;
+            isAdmin.HeaderText = "Administrador";
+            isAdmin.Name = "isAdmin";
+            isAdmin.ReadOnly = true;
             // 
             // Usuarios
             // 
@@ -324,12 +328,12 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox1);
+            Controls.Add(boxId);
+            Controls.Add(boxMail);
+            Controls.Add(boxContrasenia);
+            Controls.Add(boxApellido);
+            Controls.Add(boxNombre);
+            Controls.Add(boxDni);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -353,33 +357,33 @@
 
         private Label label1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn idUsuario;
-        private DataGridViewTextBoxColumn dni;
-        private DataGridViewTextBoxColumn nombre;
-        private DataGridViewTextBoxColumn apellido;
-        private DataGridViewTextBoxColumn mail;
-        private DataGridViewTextBoxColumn password;
         private Button botonMostrarUsuarios;
         private PictureBox pictureBox1;
         private Label tituloUsuarios;
         private Label label2;
-        private DataGridViewTextBoxColumn isAdmin;
         private Button VolverButton;
         private Button volver_button;
         private Button button1;
         private Button button2;
         private Button button3;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox2;
+        private TextBox boxDni;
+        private TextBox boxNombre;
+        private TextBox boxApellido;
+        private TextBox boxContrasenia;
+        private TextBox boxMail;
+        private TextBox boxId;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
         private Label label8;
+        private DataGridViewTextBoxColumn idUsuario;
+        private DataGridViewTextBoxColumn dni;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn apellido;
+        private DataGridViewTextBoxColumn mail;
+        private DataGridViewTextBoxColumn password;
+        private DataGridViewTextBoxColumn isAdmin;
     }
 }

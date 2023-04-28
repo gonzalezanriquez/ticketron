@@ -39,53 +39,8 @@ namespace TP1_GrupoB
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
         }
-        //Agregar usuarios
-        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia) {
-            
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia));
-            idUsuarios++;
-            return true;    
-            
-        }
-
-        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, Pelicula pelicula,Sala miSala)
-        {
-
-            funciones.Add(new Funcion(idFunciones, cantClientes, costo ,fecha, pelicula, miSala));
-            idFunciones++;
-            return true;
-
-        }
-
-        public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
-        {
-
-            peliculas.Add(new Pelicula(idPeliculas, nombre, sinopsis , poster , duracion));
-            idPeliculas++;
-            return true;
-
-        }
-
-        public bool agregarSala(string ubicacion, int capacidad)
-        {
-
-            salas.Add(new Sala(idSalas,ubicacion,capacidad));
-            idSalas++;
-            return true;
-
-        }
-
-        #region revisar
-        /* Ejemplo de la clase version 2
-        
-        public void agregarUsuario(Usuario dni, Usuario nombre, Usuario apellido, Usuario mail, Usuario contrasenia) {
-            Usuario otro = new Usuario(mail.dni, mail.nombre, mail.apellido, mail.mail, mail.contrasenia);
-            usuarios.Add(otro);
-            IdUsuarios++;
-            otro.id = IdUsuarios;
-        }
-        */
-        #endregion
+  
+       
 
         // Iniciar Sesion
 
@@ -147,7 +102,43 @@ namespace TP1_GrupoB
         }
         #endregion
 
-        //Modificar Usuarios
+
+
+
+        #region METODOS AGREGAR
+        //Agregar 
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia)
+        {
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia));
+            idUsuarios++;
+            return true;
+        }
+
+        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, Pelicula pelicula, Sala miSala)
+        {
+            funciones.Add(new Funcion(idFunciones, cantClientes, costo, fecha, pelicula, miSala));
+            idFunciones++;
+            return true;
+        }
+
+        public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
+        {
+            peliculas.Add(new Pelicula(idPeliculas, nombre, sinopsis, poster, duracion));
+            idPeliculas++;
+            return true;
+        }
+
+        public bool agregarSala(string ubicacion, int capacidad)
+        {
+            salas.Add(new Sala(idSalas, ubicacion, capacidad));
+            idSalas++;
+            return true;
+        }
+#endregion
+
+        #region METODOS MODIFICAR
+
+        //MODIFICAR
         public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia)
         {
             foreach (Usuario usu in usuarios)
@@ -165,7 +156,61 @@ namespace TP1_GrupoB
             return false;
         }
 
+        public bool modificarPelicula(int id, string nombre, string sinopsis, string poster, int duracion)
+        {
+            foreach (Pelicula peli in peliculas)
+            {
+                if (peli.id == id)
+                {
+                    peli.nombre = nombre;
+                    peli.sinopsis = sinopsis;
+                    peli.poster = poster;
+                    peli.duracion = duracion;
+                   
+                    return true;
+                }
+            }
+            return false;
+        }
 
+
+        public bool modificarSala(int id, string ubicacion, int capacidad)
+        {
+            foreach (Sala sal in salas)
+            {
+                if (sal.id == id)
+                {
+                    sal.id = id;
+                    sal.ubicacion = ubicacion;
+                    sal.capacidad = capacidad;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool modificaFuncion(int id, string nombre, string sinopsis, string poster, int duracion)
+        {
+            foreach (Pelicula peli in peliculas)
+            {
+                if (peli.id == id)
+                {
+                    peli.nombre = nombre;
+                    peli.sinopsis = sinopsis;
+                    peli.poster = poster;
+                    peli.duracion = duracion;
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+        #endregion
+
+        #region METODOS ELIMINAR
         //Eliminar usuarios
         public bool eliminarUsuario(int id)
         {
@@ -179,6 +224,49 @@ namespace TP1_GrupoB
             }
             return false;
         }
+
+        public bool eliminarPeliculas(int id)
+        {
+            foreach (Pelicula peli in peliculas)
+            {
+                if (peli.id == id)
+                {
+                    peliculas.Remove(peli);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool eliminarSalas(int id)
+        {
+            foreach (Sala sal in salas)
+            {
+                if (sal.id == id)
+                {
+                    salas.Remove(sal);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public bool eliminarFunciones(int id)
+        {
+            foreach (Funcion fun in funciones)
+            {
+                if (fun.id == id)
+                {
+                    funciones.Remove(fun);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        #endregion
 
         //Logueado ahora
         public string nombreLogueado()

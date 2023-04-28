@@ -49,36 +49,31 @@
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id = dataGridView1[0, e.RowIndex].Value.ToString();
-            string dni = dataGridView1[1, e.RowIndex].Value.ToString();
-            string nombre = dataGridView1[2, e.RowIndex].Value.ToString();
-            string apellido = dataGridView1[3, e.RowIndex].Value.ToString();
-            string mail = dataGridView1[4, e.RowIndex].Value.ToString();
-            string contrasenia = dataGridView1[5, e.RowIndex].Value.ToString();
-
-            textBox1.Text = id;
-            textBox2.Text = dni;
-            textBox3.Text = nombre;
-            textBox4.Text = apellido;
-            textBox5.Text = mail;
-            textBox6.Text = contrasenia;
-            selectedUser = int.Parse(id);
+            boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            boxDni.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            boxNombre.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            boxApellido.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+            boxContrasenia.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            boxMail.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+                       
+            selectedUser = int.Parse(boxId.Text);
         }
 
         //AGREGAR
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" || textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null || textBox5.Text == null || textBox6.Text == null)
+            if (boxDni.Text == "" || boxId.Text == "" || boxNombre.Text == "" || boxApellido.Text == "" || boxContrasenia.Text == "" || boxMail.Text == "" || boxDni.Text == null || boxId.Text == null || boxNombre.Text == null || boxApellido.Text == null || boxContrasenia.Text == null || boxMail.Text == null)
             {
                 MessageBox.Show("Debe rellenar los datos para agregar al usuario");
             }
             else
-                if (miCine.agregarUsuario(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text))
+                if (miCine.agregarUsuario(boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text))
             {
                 MessageBox.Show("Agregado con exito");
-            } else
+            }
+            else
                 MessageBox.Show("Problemas al agregar");
-            
+
         }
 
         //MODIFICAR
@@ -86,10 +81,11 @@
         {
             if (selectedUser != -1)
             {
-                if (miCine.modificarUsuario(selectedUser, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text))
+                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text))
                 {
                     MessageBox.Show("Modificado con exito");
-                }else
+                }
+                else
                     MessageBox.Show("No se pudo modificar");
             }
             else
