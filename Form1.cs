@@ -66,6 +66,9 @@ namespace TP1_GrupoB
             cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
                 
 
+          
+
+
             Open_Login();
 
 

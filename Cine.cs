@@ -167,7 +167,7 @@ namespace TP1_GrupoB
                     peli.sinopsis = sinopsis;
                     peli.poster = poster;
                     peli.duracion = duracion;
-                    idPeliculas--;
+                  
                     return true;
                 }
             }
@@ -282,7 +282,7 @@ namespace TP1_GrupoB
 
                 Boolean compra = false;
 
-                if (cantidad + f.cantClientes < f.miSala.capacidad)
+                if (cantidad +f.cantClientes < f.miSala.capacidad)
                 {
                     MessageBox.Show("Compra exitosa");
                 }
@@ -302,6 +302,8 @@ namespace TP1_GrupoB
                     break;
 
                 }
+
+                
                 MessageBox.Show("La compra fue exitosa");
                 MessageBox.Show("SE COMPRARON: " + cantidad + "ENTRADAS");
                 Logueado.credito = Logueado.credito - f.costo;
