@@ -39,7 +39,7 @@ namespace TP1_GrupoB
             apellido = Apellido;
             mail = Mail;
             contrasenia = Contrasenia;
-            isAdmin = false;
+            isAdmin = true;
             intentosFallidos=1;
             isBloqueado = false;
             List<Funcion> misFunciones = new List<Funcion>();

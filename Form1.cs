@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static TP1_GrupoB.Form2;
+
 
 namespace TP1_GrupoB
 {
@@ -24,7 +24,7 @@ namespace TP1_GrupoB
         private Login hijoLogin;
         private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
-        private Form2 hijoForm2;
+        private Inicio hijoInicio;
 
 
         public Form1()
@@ -77,16 +77,29 @@ namespace TP1_GrupoB
 
             hijoLogin.Close();
 
+            Open_Inicio();
+
+            hijoInicio.transf1 += Inicio_a_Bienvenida;
+
+
+
+
+
+
+        }
+  
+        private void Inicio_a_Bienvenida()
+        {
+            hijoInicio.Close();
             Open_Bienvenida();
-        
+
             hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
             hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
             hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
             hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
             hijoBienvenida.Show();
-         
-
         }
+
 
         #region Peliculas
         private void Bienvenida_a_Peliculas()
@@ -194,6 +207,16 @@ namespace TP1_GrupoB
         #endregion
 
         /*----------------------------------------------------------------*/
+        
+        private void Open_Inicio()
+        {
+            hijoInicio = new Inicio(cine);
+            hijoInicio.MdiParent= this;
+            hijoInicio.Dock = DockStyle.Fill;
+            hijoInicio.Show();
+        }
+        
+        
         private void Open_Bienvenida()
         {
             hijoBienvenida = new Bienvenida(cine);
