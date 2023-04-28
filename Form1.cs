@@ -34,9 +34,9 @@ namespace TP1_GrupoB
 
             
             
-            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234");
-            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456");
-            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890");
+            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",true);
+            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456",false);
+            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890", false);
 
             cine.agregarPelicula( "El mago con patas", "Una pelicula muy buena recomendada para entendidos", "Poster1", 200);
             cine.agregarPelicula( "El perro sin patas", "Una pelicula muy mala no vengan a verla", "Poster2", 150);

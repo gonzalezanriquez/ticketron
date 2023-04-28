@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            idUsuario = new DataGridViewTextBoxColumn();
+            dni = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            apellido = new DataGridViewTextBoxColumn();
+            mail = new DataGridViewTextBoxColumn();
+            password = new DataGridViewTextBoxColumn();
+            isAdmin = new DataGridViewTextBoxColumn();
             botonMostrarUsuarios = new Button();
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
@@ -52,13 +59,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            idUsuario = new DataGridViewTextBoxColumn();
-            dni = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            apellido = new DataGridViewTextBoxColumn();
-            mail = new DataGridViewTextBoxColumn();
-            password = new DataGridViewTextBoxColumn();
-            isAdmin = new DataGridViewTextBoxColumn();
+            checkBoxIsAdmin = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -83,6 +84,52 @@
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // idUsuario
+            // 
+            idUsuario.Frozen = true;
+            idUsuario.HeaderText = "Id";
+            idUsuario.Name = "idUsuario";
+            idUsuario.ReadOnly = true;
+            idUsuario.Visible = false;
+            // 
+            // dni
+            // 
+            dni.Frozen = true;
+            dni.HeaderText = "DNI";
+            dni.Name = "dni";
+            // 
+            // nombre
+            // 
+            nombre.Frozen = true;
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            // 
+            // apellido
+            // 
+            apellido.Frozen = true;
+            apellido.HeaderText = "Apellido";
+            apellido.Name = "apellido";
+            // 
+            // mail
+            // 
+            mail.Frozen = true;
+            mail.HeaderText = "Mail";
+            mail.Name = "mail";
+            // 
+            // password
+            // 
+            password.Frozen = true;
+            password.HeaderText = "Contraseña";
+            password.Name = "password";
+            // 
+            // isAdmin
+            // 
+            isAdmin.Frozen = true;
+            isAdmin.HeaderText = "Administrador";
+            isAdmin.Name = "isAdmin";
+            isAdmin.ReadOnly = true;
+            isAdmin.Resizable = DataGridViewTriState.True;
             // 
             // botonMostrarUsuarios
             // 
@@ -146,7 +193,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(172, 205);
+            button1.Location = new Point(95, 205);
             button1.Name = "button1";
             button1.Size = new Size(97, 23);
             button1.TabIndex = 7;
@@ -156,7 +203,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(318, 205);
+            button2.Location = new Point(241, 205);
             button2.Name = "button2";
             button2.Size = new Size(97, 23);
             button2.TabIndex = 8;
@@ -166,7 +213,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(466, 205);
+            button3.Location = new Point(389, 205);
             button3.Name = "button3";
             button3.Size = new Size(97, 23);
             button3.TabIndex = 9;
@@ -266,62 +313,28 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(364, 169);
+            label8.Location = new Point(364, 166);
             label8.Name = "label8";
             label8.Size = new Size(83, 15);
             label8.TabIndex = 22;
             label8.Text = "CONTRASEÑA";
             // 
-            // idUsuario
+            // checkBoxIsAdmin
             // 
-            idUsuario.Frozen = true;
-            idUsuario.HeaderText = "Id";
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            idUsuario.Visible = false;
-            // 
-            // dni
-            // 
-            dni.Frozen = true;
-            dni.HeaderText = "DNI";
-            dni.Name = "dni";
-            // 
-            // nombre
-            // 
-            nombre.Frozen = true;
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            // 
-            // apellido
-            // 
-            apellido.Frozen = true;
-            apellido.HeaderText = "Apellido";
-            apellido.Name = "apellido";
-            // 
-            // mail
-            // 
-            mail.Frozen = true;
-            mail.HeaderText = "Mail";
-            mail.Name = "mail";
-            // 
-            // password
-            // 
-            password.Frozen = true;
-            password.HeaderText = "Contraseña";
-            password.Name = "password";
-            // 
-            // isAdmin
-            // 
-            isAdmin.Frozen = true;
-            isAdmin.HeaderText = "Administrador";
-            isAdmin.Name = "isAdmin";
-            isAdmin.ReadOnly = true;
+            checkBoxIsAdmin.AutoSize = true;
+            checkBoxIsAdmin.Location = new Point(509, 209);
+            checkBoxIsAdmin.Name = "checkBoxIsAdmin";
+            checkBoxIsAdmin.Size = new Size(102, 19);
+            checkBoxIsAdmin.TabIndex = 23;
+            checkBoxIsAdmin.Text = "Administrador";
+            checkBoxIsAdmin.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(checkBoxIsAdmin);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -378,6 +391,7 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private CheckBox checkBoxIsAdmin;
         private DataGridViewTextBoxColumn idUsuario;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn nombre;

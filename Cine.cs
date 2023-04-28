@@ -31,10 +31,10 @@ namespace TP1_GrupoB
         public Cine()
         {
             usuarios= new List<Usuario>();
-            idUsuarios= 0;
-            idFunciones = 0;
-            idPeliculas = 0;
-            idSalas = 0;
+            idUsuarios= 1;
+            idFunciones = 1;
+            idPeliculas = 1;
+            idSalas = 1;
             funciones = new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
@@ -107,9 +107,9 @@ namespace TP1_GrupoB
 
         #region METODOS AGREGAR
         //Agregar 
-        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia)
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
         {
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia));
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
             idUsuarios++;
             return true;
         }
