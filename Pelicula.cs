@@ -12,10 +12,12 @@ namespace TP1_GrupoB
         public int id { get; set; }
         public string nombre { get; set; }
         public string sinopsis { get; set; }
-        public string poster { get; set; }              
+        public string poster { get; set; }
+
+        public List<Funcion> misFunciones = new List<Funcion>();
         public int duracion { get; set; } /* en minutos */
 
-        public Pelicula(int id, string nombre, string sinopsis, string poster, int duracion )
+        public Pelicula(int id, string nombre, string sinopsis, string poster, int duracion)
         {
             this.id = id;
             this.nombre = nombre;

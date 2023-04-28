@@ -11,7 +11,7 @@ namespace TP1_GrupoB
         // falta misFunciones lista
         #region atributos
         public int id { get; set; }
-        public int dni { get; set; }
+        public string dni { get; set; }
         public string apellido { get; set; }
         public string nombre { get; set; }
         public string mail { get; set; }
@@ -32,7 +32,7 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int Id, int Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {
+        public Usuario(int Id, string Dni, string Nombre, string Apellido, string Mail,string Contrasenia) {
             id =Id;
             dni = Dni;
             nombre = Nombre;
@@ -42,6 +42,7 @@ namespace TP1_GrupoB
             isAdmin = false;
             intentosFallidos=1;
             isBloqueado = false;
+            List<Funcion> misFunciones = new List<Funcion>();
 
         }
 

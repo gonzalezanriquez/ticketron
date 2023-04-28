@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.CompilerServices;
@@ -14,6 +16,12 @@ namespace TP1_GrupoB
         #region atributos
         public List<Usuario> usuarios {  get; set; }
         public int idUsuarios{ get; set; }
+
+        public int idFunciones { get; set; }
+
+        public int idPeliculas{ get; set; }
+
+        public int idSalas { get; set; }
         public List<Funcion> funciones { get; set; }
         public List<Sala> salas { get; set; }
         public List<Pelicula> peliculas { get; set; }
@@ -23,18 +31,48 @@ namespace TP1_GrupoB
         public Cine()
         {
             usuarios= new List<Usuario>();
-            idUsuarios= 2;
-            funciones= new List<Funcion>();
+            idUsuarios= 0;
+            idFunciones = 0;
+            idPeliculas = 0;
+            idSalas = 0;
+            funciones = new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
         }
         //Agregar usuarios
-        public bool agregarUsuario(int dni, string nombre, string apellido, string mail, string contrasenia) {
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia) {
             
             usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia));
             idUsuarios++;
             return true;    
             
+        }
+
+        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, Pelicula pelicula,Sala miSala)
+        {
+
+            funciones.Add(new Funcion(idFunciones, cantClientes, costo ,fecha, pelicula, miSala));
+            idFunciones++;
+            return true;
+
+        }
+
+        public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
+        {
+
+            peliculas.Add(new Pelicula(idPeliculas, nombre, sinopsis , poster , duracion));
+            idPeliculas++;
+            return true;
+
+        }
+
+        public bool agregarSala(string ubicacion, int capacidad)
+        {
+
+            salas.Add(new Sala(idSalas,ubicacion,capacidad));
+            idSalas++;
+            return true;
+
         }
 
         #region revisar
@@ -110,12 +148,15 @@ namespace TP1_GrupoB
         #endregion
 
         //Modificar Usuarios
-        public bool modificarUsuario(int id, string mail, string contrasenia)
+        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia)
         {
             foreach (Usuario usu in usuarios)
             {
                 if (usu.id == id)
                 {
+                    usu.nombre = nombre;
+                    usu.apellido = apellido;
+                    usu.dni = dni;
                     usu.mail = mail;
                     usu.contrasenia = contrasenia;
                     return true;
@@ -145,9 +186,49 @@ namespace TP1_GrupoB
             return Logueado.nombre;
         }
 
+        public bool comprarEntrada(Usuario Logueado, decimal cantidad)
+        {
+            foreach (Funcion f in funciones) {
 
+                Boolean compra = false;
 
+                if (cantidad + f.cantClientes < f.miSala.capacidad)
+                {
+                    MessageBox.Show("Compra exitosa");
+                }
+                    MessageBox.Show("Disculpe la sala esta llena");
 
+                if (Logueado.credito > f.costo) {
+
+                    MessageBox.Show("Tiene saldo disponible para realizar la compra");
+                    compra = true;
+                }
+                    MessageBox.Show("No tiene saldo suficiente para realiza la compra");
+                    compra = false;
+
+                if (!compra)
+                {
+                    MessageBox.Show("No se realizo la compra");
+                    break;
+
+                }
+                MessageBox.Show("La compra fue exitosa");
+                MessageBox.Show("SE COMPRARON: " + cantidad + "ENTRADAS");
+                Logueado.credito = Logueado.credito - f.costo;
+                f.clientes.Add(Logueado);
+                //Logueado.misFunciones.Add(id);
+                f.cantClientes = f.cantClientes + (int)cantidad;
+
+                    
+                
+            
+            
+            
+            
+            
+            }
+            return true;
+        }
 
         /*
 
@@ -158,7 +239,7 @@ namespace TP1_GrupoB
        // CargarCredito(int idUsuario, double importe){
         } 
 
-       // ComprarEntrada(int idUsuario, int cant){
+        ComprarEntrada(int idUsuario, int cant){
         }
 
        // DevolverEntrada(){
