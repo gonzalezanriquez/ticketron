@@ -88,17 +88,7 @@ namespace TP1_GrupoB
             hijoInicio.transf3 += inicioAcliente;
         }
 
-        private void TRegistro() {
-            hijoLogin.Close();
-            Open_Registro();
-
-            /*
-            hijoInicio.transf1 += Inicio_a_Bienvenida;
-            hijoInicio.transf2 = cierreSesion;
-            hijoInicio.transf3 = inicioAcliente;
-            */
-        
-        }
+     
 
       
         private void Inicio_a_Bienvenida()
@@ -312,6 +302,7 @@ namespace TP1_GrupoB
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
             hijoLogin.transferencia += TLogin;
+            hijoLogin.verRegistro += Open_Registro;
 
             hijoLogin.Show();
         }
@@ -321,11 +312,35 @@ namespace TP1_GrupoB
             hijoRegistro= new Registro(cine);
             hijoRegistro.MdiParent = this;
             hijoRegistro.Dock = DockStyle.Fill;
-            hijoRegistro.transferencia+= TRegistro;
+            hijoRegistro.volverAtras += VolverAtras;
+            hijoRegistro.verSeccionAdmin += VerSeccionAdmin;
+            hijoRegistro.verSeccionCliente += VerSeccionCliente;
             hijoRegistro.Show();
         }
 
+        private void VolverAtras()
+        {
+            hijoRegistro.Close();
+            hijoLogin.Show();
+        }
 
+        private void VerSeccionAdmin()
+        {
+            hijoRegistro.Close();
+            hijoBienvenida = new Bienvenida(cine);
+            hijoBienvenida.MdiParent = this;
+            hijoBienvenida.Dock = DockStyle.Fill;
+            hijoBienvenida.Show();
+        }
+
+        private void VerSeccionCliente()
+        {
+            hijoRegistro.Close();
+            hijoFunciones = new Funciones(cine);
+            hijoFunciones.MdiParent = this;
+            hijoFunciones.Dock = DockStyle.Fill;
+            hijoFunciones.Show();
+        }
 
         private void Form1_Load(object sender, EventArgs e) {  }
     }
