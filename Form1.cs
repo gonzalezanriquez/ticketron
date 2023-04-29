@@ -207,6 +207,9 @@ namespace TP1_GrupoB
 
         }
 
+
+     
+
         #endregion
 
         /*----------------------------------------------------------------*/
@@ -266,9 +269,7 @@ namespace TP1_GrupoB
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
             hijoLogin.transferencia += TLogin;
-            hijoLogin.transferencia2 += TLogin;
-            hijoLogin.transferencia3 += TLogin;
-            hijoLogin.transferencia4 += TLogin;
+
             hijoLogin.Show();
         }
 
