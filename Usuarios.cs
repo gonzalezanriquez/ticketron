@@ -80,7 +80,7 @@
         {
             if (selectedUser != -1)
             {
-                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text))
+                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text, checkBoxIsAdmin.Checked))
                 {
                     MessageBox.Show("Modificado con exito");
                 }

@@ -16,6 +16,7 @@ namespace TP1_GrupoB
     {
         public Bienvenida_a_Inicio transf1;
         public cierreSesion transf2;
+        public inicioAcliente transf3;
 
         private Cine miCine;
         public Inicio(Cine cine)
@@ -28,8 +29,7 @@ namespace TP1_GrupoB
 
 
 
-        public delegate void Bienvenida_a_Inicio();
-        public delegate void cierreSesion();
+ 
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace TP1_GrupoB
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            this.transf3();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -63,4 +63,9 @@ namespace TP1_GrupoB
             this.transf2();
         }
     }
+
+
+    public delegate void Bienvenida_a_Inicio();
+    public delegate void cierreSesion();
+    public delegate void inicioAcliente();
 }

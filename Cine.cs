@@ -46,36 +46,41 @@ namespace TP1_GrupoB
         // Iniciar Sesion
 
         #region inicioSesion
-        public bool iniciarSesion(string mail, string contrasenia)
+
+
+        public Tuple<int, int> iniciarSesion(string mail, string contrasenia)
         {
-            bool encontrado = false;
+            int flag = 0;
+
             foreach (Usuario usu in usuarios)
             {
-                if (!usu.mail.Equals(mail))
+                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase))
                 {
+                    flag = 4;
                     continue;
                 }
-                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 4)
+                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && !usu.isBloqueado)
                 {
                     Logueado = usu;
-                    return true;                }
+                    flag = 1;
+                    return Tuple.Create(flag, 0);
+                }
 
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
-                    MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     usu.intentosFallidos++;
-
-                    return false;
+                    flag = 2;
+                    return Tuple.Create(flag, usu.intentosFallidos);               
                 }
 
-                if (usu.isBloqueado == true || usu.intentosFallidos >= 3)
-                {
-                    MessageBox.Show("Usuario bloqueado, pruebe con otro", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return false;
+                if (usu.isBloqueado == true || usu.intentosFallidos > 3)
+                {                   
+                    flag = 3;
+                    return Tuple.Create(flag, 0);
                 }
+               
             }
-            MessageBox.Show("Usuario no encontrado ", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            return encontrado;
+            return Tuple.Create(flag, 0); ;
         }
 
 
@@ -181,7 +186,7 @@ namespace TP1_GrupoB
         #region METODOS MODIFICAR
 
         //MODIFICAR
-        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia)
+        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
         {
             foreach (Usuario usu in usuarios)
             {
@@ -192,6 +197,7 @@ namespace TP1_GrupoB
                     usu.dni = dni;
                     usu.mail = mail;
                     usu.contrasenia = contrasenia;
+                    usu.isAdmin = isAdmin;
                     idUsuarios--;
                     return true;
                 }

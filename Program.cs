@@ -14,7 +14,9 @@ namespace TP1_GrupoB
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
+
             Application.Run(new Form1());
+
         }
     }
 }

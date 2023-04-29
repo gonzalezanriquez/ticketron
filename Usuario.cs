@@ -40,7 +40,7 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
             isAdmin = IsAdmin;
-            intentosFallidos=1;
+            intentosFallidos=0;
             isBloqueado = false;
             List<Funcion> misFunciones = new List<Funcion>();
 

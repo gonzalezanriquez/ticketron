@@ -14,7 +14,7 @@ namespace TP1_GrupoB
     public partial class Funciones : Form
     {
         private Cine miCine;
-        public Funciones_Bienvenida transferencia2;
+        public Funciones_Inicio transferencia2;
 
         public Funciones(Cine cine)
         {
@@ -87,7 +87,7 @@ namespace TP1_GrupoB
         }
         #endregion
 
-        public delegate void Funciones_Bienvenida();
+        public delegate void Funciones_Inicio();
 
     }
 

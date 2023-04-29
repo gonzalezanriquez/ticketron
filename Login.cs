@@ -20,7 +20,7 @@ namespace TP1_GrupoB
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
 
             string mail = labelUsuario.Text;
@@ -29,10 +29,32 @@ namespace TP1_GrupoB
             if (mail != null && mail != "" && pass != null && pass != "")
             {
 
-                if (miCine.iniciarSesion(mail, pass))
+                switch (miCine.iniciarSesion(mail, pass))
                 {
-                    this.transferencia();
+                    case var tuple when tuple.Item1 == 1:
+
+                        this.transferencia();
+
+                        break;
+                    case var tuple when tuple.Item1 == 2:
+                        MessageBox.Show("Contraseña Incorrecta. Intento N°: " + tuple.Item2, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+                    case var tuple when tuple.Item1 == 3:
+                        MessageBox.Show("Usuario bloqueado, pruebe con otro", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+                    case var tuple when tuple.Item1 == 4:
+
+                        MessageBox.Show("Usuario no encontrado. Ingrese un usuario valido ", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+
                 }
+
+
+
+
 
             }
             else
@@ -41,7 +63,10 @@ namespace TP1_GrupoB
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+        }
 
         public delegate void TLogin();
 
