@@ -22,6 +22,7 @@ namespace TP1_GrupoB
         private Salas hijoSalas;
         private Funciones hijoFunciones;
         private Login hijoLogin;
+        private Registro hijoRegistro;
         private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
         private Inicio hijoInicio;
@@ -86,7 +87,20 @@ namespace TP1_GrupoB
             hijoInicio.transf2 += cierreSesion;
             hijoInicio.transf3 += inicioAcliente;
         }
-  
+
+        private void TRegistro() {
+            hijoLogin.Close();
+            Open_Registro();
+
+            /*
+            hijoInicio.transf1 += Inicio_a_Bienvenida;
+            hijoInicio.transf2 = cierreSesion;
+            hijoInicio.transf3 = inicioAcliente;
+            */
+        
+        }
+
+      
         private void Inicio_a_Bienvenida()
         {
             hijoInicio.Close();
@@ -144,6 +158,8 @@ namespace TP1_GrupoB
 
 
         }
+
+
 
 
         private void funiconesAinicio()
@@ -298,6 +314,15 @@ namespace TP1_GrupoB
             hijoLogin.transferencia += TLogin;
 
             hijoLogin.Show();
+        }
+
+        private void Open_Registro()
+        {
+            hijoRegistro= new Registro(cine);
+            hijoRegistro.MdiParent = this;
+            hijoRegistro.Dock = DockStyle.Fill;
+            hijoRegistro.transferencia+= TRegistro;
+            hijoRegistro.Show();
         }
 
 

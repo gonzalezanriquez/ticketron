@@ -65,7 +65,9 @@ namespace TP1_GrupoB
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
+            this.transferencia();
+        
         }
 
         public delegate void TLogin();
