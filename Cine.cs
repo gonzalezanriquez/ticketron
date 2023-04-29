@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace TP1_GrupoB
 {
@@ -50,20 +51,14 @@ namespace TP1_GrupoB
             bool encontrado = false;
             foreach (Usuario usu in usuarios)
             {
-
                 if (!usu.mail.Equals(mail))
                 {
                     continue;
                 }
-
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 4)
                 {
                     Logueado = usu;
-                    return true;
-
-
-
-                }
+                    return true;                }
 
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
@@ -83,7 +78,22 @@ namespace TP1_GrupoB
             return encontrado;
         }
 
+
+
+
+
 # endregion
+
+
+        public void cerrarSesion()
+        {
+            Logueado = null;
+        }
+
+
+
+
+
 
 
         #region Métodos
@@ -134,7 +144,39 @@ namespace TP1_GrupoB
             idSalas++;
             return true;
         }
-#endregion
+
+        public bool depositarCredito(int id, double credito, double monto)
+        {
+            bool encontrado = false;
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+                    usu.credito = credito;
+
+                    if (monto <= 0)
+                    {  
+                        credito = credito + 0;
+                    }
+                    else
+                    {
+                        credito = credito + monto;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            return encontrado;
+        }
+
+
+
+
+        #endregion
 
         #region METODOS MODIFICAR
 
@@ -270,12 +312,19 @@ namespace TP1_GrupoB
 
         #endregion
 
+
+
         //Logueado ahora
         public string nombreLogueado()
         {
             return Logueado.nombre;
+            
         }
 
+
+
+
+        #region METODO COMPRA DE ENTRADAS
         public bool comprarEntrada(Usuario Logueado, decimal cantidad)
         {
             foreach (Funcion f in funciones) {
@@ -309,34 +358,14 @@ namespace TP1_GrupoB
                 Logueado.credito = Logueado.credito - f.costo;
                 f.clientes.Add(Logueado);
                 //Logueado.misFunciones.Add(id);
-                f.cantClientes = f.cantClientes + (int)cantidad;
-
-                    
-                
-            
-            
-            
-            
-            
+                f.cantClientes = f.cantClientes + (int)cantidad;          
             }
             return true;
         }
-
+        #endregion
         /*
 
-       // Cerrar Sesion(){}
-
-       // ABM Entidades()
-
-       // CargarCredito(int idUsuario, double importe){
-        } 
-
-        ComprarEntrada(int idUsuario, int cant){
-        }
-
-       // DevolverEntrada(){
-        }
-
+       // Cerrar Sesion(){}      
 
        // BuscarFuncion(string Ubicacion, Date Fecha, double Costo, string pelicula): List<Funcion>  
 

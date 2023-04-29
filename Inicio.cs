@@ -15,6 +15,7 @@ namespace TP1_GrupoB
     public partial class Inicio : Form
     {
         public Bienvenida_a_Inicio transf1;
+        public cierreSesion transf2;
 
         private Cine miCine;
         public Inicio(Cine cine)
@@ -28,6 +29,7 @@ namespace TP1_GrupoB
 
 
         public delegate void Bienvenida_a_Inicio();
+        public delegate void cierreSesion();
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -41,19 +43,24 @@ namespace TP1_GrupoB
                 }
                 else
                 {
-                    MessageBox.Show("Lamentablemente no puedes acceder. Necesitas ser Administrador" , "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Lamentablemente no puedes acceder. Necesitas ser Administrador", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 }
-                
+
             }
 
 
-           
+
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.transf2();
         }
     }
 }

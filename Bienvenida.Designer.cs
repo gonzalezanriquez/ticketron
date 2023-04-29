@@ -35,6 +35,7 @@
             button3 = new Button();
             button4 = new Button();
             tituloBienvenida = new Label();
+            btnCerrarSesion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // 
             button1.BackColor = Color.IndianRed;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(124, 237);
+            button1.Location = new Point(123, 216);
             button1.Name = "button1";
             button1.Size = new Size(249, 43);
             button1.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             button2.BackColor = Color.Orange;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(124, 292);
+            button2.Location = new Point(123, 432);
             button2.Name = "button2";
             button2.Size = new Size(249, 43);
             button2.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             button3.BackColor = SystemColors.ActiveCaption;
             button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(124, 348);
+            button3.Location = new Point(123, 265);
             button3.Name = "button3";
             button3.Size = new Size(249, 43);
             button3.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             button4.BackColor = Color.DarkSeaGreen;
             button4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(124, 403);
+            button4.Location = new Point(123, 320);
             button4.Name = "button4";
             button4.Size = new Size(249, 43);
             button4.TabIndex = 5;
@@ -107,11 +108,24 @@
             tituloBienvenida.TabIndex = 6;
             tituloBienvenida.Text = "SECCION ADMINISTRADOR";
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.DimGray;
+            btnCerrarSesion.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrarSesion.Location = new Point(787, 577);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(145, 43);
+            btnCerrarSesion.TabIndex = 7;
+            btnCerrarSesion.Text = "CERRAR SESION";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // Bienvenida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnCerrarSesion);
             Controls.Add(tituloBienvenida);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -135,5 +149,6 @@
         private Button button3;
         private Button button4;
         private Label tituloBienvenida;
+        private Button btnCerrarSesion;
     }
 }
