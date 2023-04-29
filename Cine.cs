@@ -322,6 +322,47 @@ namespace TP1_GrupoB
             return true;
         }
 
+        //Agregar saldo, a verificar
+        public bool depositarCredito(int id, double credito, double monto)
+        {
+            bool encontrado = false;
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+
+                    usu.credito = credito;
+
+
+                    if (monto <= 0)
+                    {
+
+                        credito = credito + 0;
+
+                    }
+                    else
+                    {
+
+                        credito = credito + monto;
+
+                    }
+                    return true;
+
+                }
+                else
+                {
+
+                    return false;
+
+                }
+
+            }
+            return encontrado;
+
+        }
+
+
+
         /*
 
        // Cerrar Sesion(){}
