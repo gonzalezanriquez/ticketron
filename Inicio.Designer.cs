@@ -33,6 +33,7 @@
             pictureBox1 = new PictureBox();
             btnAdmin = new Button();
             tituloInicio = new Label();
+            btnCerrarSesion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -78,11 +79,24 @@
             tituloInicio.TabIndex = 10;
             tituloInicio.Text = "SECCION PELICULAS";
             // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.SteelBlue;
+            btnCerrarSesion.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrarSesion.Location = new Point(641, 473);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(233, 35);
+            btnCerrarSesion.TabIndex = 11;
+            btnCerrarSesion.Text = "CERRAR SESION";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 623);
+            Controls.Add(btnCerrarSesion);
             Controls.Add(tituloInicio);
             Controls.Add(btnAdmin);
             Controls.Add(pictureBox1);
@@ -101,5 +115,6 @@
         private PictureBox pictureBox1;
         private Button btnAdmin;
         private Label tituloInicio;
+        private Button btnCerrarSesion;
     }
 }

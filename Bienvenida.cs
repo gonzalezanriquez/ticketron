@@ -19,12 +19,13 @@ namespace TP1_GrupoB
         public Bienvenida_a_Funciones transferencia2;
         public Bienvenida_a_Peliculas transferencia3;
         public Bienvenida_a_Salas transferencia4;
+        public cierreSesion transferencia5;
 
         public Bienvenida(Cine cine)
         {
             InitializeComponent();
             miCine = cine;
-           
+
         }
 
 
@@ -55,11 +56,16 @@ namespace TP1_GrupoB
 
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.transferencia5();
+        }
 
         public delegate void Bienvenida_a_Usuarios();
         public delegate void Bienvenida_a_Funciones();
         public delegate void Bienvenida_a_Peliculas();
         public delegate void Bienvenida_a_Salas();
+        public delegate void cierreSesion();
 
     }
 

@@ -64,7 +64,7 @@ namespace TP1_GrupoB
             cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
             cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
             cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-                
+              
 
           
 
@@ -79,16 +79,10 @@ namespace TP1_GrupoB
             MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             hijoLogin.Close();
-
             Open_Inicio();
 
             hijoInicio.transf1 += Inicio_a_Bienvenida;
-
-
-
-
-
-
+            hijoInicio.transf2 += cierreSesion;
         }
   
         private void Inicio_a_Bienvenida()
@@ -100,10 +94,17 @@ namespace TP1_GrupoB
             hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
             hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
             hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
+            hijoBienvenida.transferencia5 += cierreSesion;
             hijoBienvenida.Show();
         }
 
-
+        private void cierreSesion()
+        {
+            cine.cerrarSesion();
+            Open_Login();
+        }
+        
+        
         #region Peliculas
         private void Bienvenida_a_Peliculas()
         {
