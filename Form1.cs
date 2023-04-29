@@ -25,6 +25,7 @@ namespace TP1_GrupoB
         private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
         private Inicio hijoInicio;
+        
 
 
         public Form1()
@@ -83,6 +84,7 @@ namespace TP1_GrupoB
 
             hijoInicio.transf1 += Inicio_a_Bienvenida;
             hijoInicio.transf2 += cierreSesion;
+            hijoInicio.transf3 += inicioAcliente;
         }
   
         private void Inicio_a_Bienvenida()
@@ -131,6 +133,29 @@ namespace TP1_GrupoB
         }
 
         #endregion
+
+
+
+        private void inicioAcliente()
+        {
+            hijoInicio.Close();
+            Open_Funciones();
+            hijoFunciones.transferencia2 += funiconesAinicio;
+
+
+        }
+
+
+        private void funiconesAinicio()
+        {
+            hijoFunciones.Close();
+            Open_Inicio();
+
+        }
+
+
+
+
 
         #region Funciones
         private void Bienvenida_a_Funciones()
@@ -183,7 +208,7 @@ namespace TP1_GrupoB
 
         #endregion 
 
-        #region Usuarios
+        #region MDI CHILDREN
         private void Bienvenida_a_Usuarios()
         {
             hijoBienvenida.Close();
@@ -238,6 +263,7 @@ namespace TP1_GrupoB
             hijoFunciones = new Funciones(cine);
             hijoFunciones.MdiParent = this;
             hijoFunciones.Dock = DockStyle.Fill;
+            hijoFunciones.Show();
             
         }
 

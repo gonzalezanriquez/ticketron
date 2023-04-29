@@ -35,7 +35,8 @@
             labelUsuario = new TextBox();
             labelContrasenia = new TextBox();
             label1 = new Label();
-            button1 = new Button();
+            btnLogin = new Button();
+            btnRegister = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(72, 151);
+            pictureBox1.Location = new Point(97, 171);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(351, 312);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -54,7 +55,7 @@
             // 
             titulo.AutoSize = true;
             titulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            titulo.Location = new Point(589, 179);
+            titulo.Location = new Point(614, 199);
             titulo.Name = "titulo";
             titulo.Size = new Size(255, 25);
             titulo.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             mail.AutoSize = true;
             mail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            mail.Location = new Point(646, 241);
+            mail.Location = new Point(671, 261);
             mail.Name = "mail";
             mail.Size = new Size(138, 21);
             mail.TabIndex = 2;
@@ -72,14 +73,14 @@
             // 
             // labelUsuario
             // 
-            labelUsuario.Location = new Point(589, 283);
+            labelUsuario.Location = new Point(614, 303);
             labelUsuario.Name = "labelUsuario";
             labelUsuario.Size = new Size(255, 23);
             labelUsuario.TabIndex = 3;
             // 
             // labelContrasenia
             // 
-            labelContrasenia.Location = new Point(589, 367);
+            labelContrasenia.Location = new Point(614, 387);
             labelContrasenia.Name = "labelContrasenia";
             labelContrasenia.Size = new Size(255, 23);
             labelContrasenia.TabIndex = 5;
@@ -89,31 +90,46 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(672, 334);
+            label1.Location = new Point(697, 354);
             label1.Name = "label1";
             label1.Size = new Size(89, 21);
             label1.TabIndex = 4;
             label1.Text = "Contraseña";
             // 
-            // button1
+            // btnLogin
             // 
-            button1.BackColor = Color.DarkOrange;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(669, 426);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 37);
-            button1.TabIndex = 6;
-            button1.Text = "INGRESAR";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnLogin.BackColor = Color.DarkOrange;
+            btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogin.ForeColor = SystemColors.ControlLightLight;
+            btnLogin.Location = new Point(631, 446);
+            btnLogin.Name = "btnLogin";
+            btnLogin.RightToLeft = RightToLeft.Yes;
+            btnLogin.Size = new Size(106, 37);
+            btnLogin.TabIndex = 6;
+            btnLogin.Text = "INGRESAR";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // btnRegister
+            // 
+            btnRegister.BackColor = Color.SteelBlue;
+            btnRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRegister.ForeColor = SystemColors.ControlLightLight;
+            btnRegister.Location = new Point(763, 446);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(106, 37);
+            btnRegister.TabIndex = 7;
+            btnRegister.Text = "REGISTRARSE";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += button2_Click;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
-            Controls.Add(button1);
+            Controls.Add(btnRegister);
+            Controls.Add(btnLogin);
             Controls.Add(labelContrasenia);
             Controls.Add(label1);
             Controls.Add(labelUsuario);
@@ -139,6 +155,7 @@
         private TextBox labelUsuario;
         private TextBox labelContrasenia;
         private Label label1;
-        private Button button1;
+        private Button btnLogin;
+        private Button btnRegister;
     }
 }
