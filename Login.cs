@@ -7,6 +7,7 @@ namespace TP1_GrupoB
         public TLogin transferencia2;
         public TLogin transferencia3;
         public TLogin transferencia4;
+        public Open_Registro verRegistro;
 
 
         public Login(Cine cine)
@@ -66,9 +67,12 @@ namespace TP1_GrupoB
         private void button2_Click(object sender, EventArgs e)
         {
 
+            this.verRegistro();
+        
         }
 
         public delegate void TLogin();
+        public delegate void Open_Registro();
 
 
 

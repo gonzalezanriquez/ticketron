@@ -22,6 +22,7 @@ namespace TP1_GrupoB
         private Salas hijoSalas;
         private Funciones hijoFunciones;
         private Login hijoLogin;
+        private Registro hijoRegistro;
         private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
         private Inicio hijoInicio;
@@ -86,7 +87,10 @@ namespace TP1_GrupoB
             hijoInicio.transf2 += cierreSesion;
             hijoInicio.transf3 += inicioAcliente;
         }
-  
+
+     
+
+      
         private void Inicio_a_Bienvenida()
         {
             hijoInicio.Close();
@@ -144,6 +148,8 @@ namespace TP1_GrupoB
 
 
         }
+
+
 
 
         private void funiconesAinicio()
@@ -296,11 +302,45 @@ namespace TP1_GrupoB
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
             hijoLogin.transferencia += TLogin;
+            hijoLogin.verRegistro += Open_Registro;
 
             hijoLogin.Show();
         }
 
+        private void Open_Registro()
+        {
+            hijoRegistro= new Registro(cine);
+            hijoRegistro.MdiParent = this;
+            hijoRegistro.Dock = DockStyle.Fill;
+            hijoRegistro.volverAtras += VolverAtras;
+            hijoRegistro.verSeccionAdmin += VerSeccionAdmin;
+            hijoRegistro.verSeccionCliente += VerSeccionCliente;
+            hijoRegistro.Show();
+        }
 
+        private void VolverAtras()
+        {
+            hijoRegistro.Close();
+            hijoLogin.Show();
+        }
+
+        private void VerSeccionAdmin()
+        {
+            hijoRegistro.Close();
+            hijoBienvenida = new Bienvenida(cine);
+            hijoBienvenida.MdiParent = this;
+            hijoBienvenida.Dock = DockStyle.Fill;
+            hijoBienvenida.Show();
+        }
+
+        private void VerSeccionCliente()
+        {
+            hijoRegistro.Close();
+            hijoFunciones = new Funciones(cine);
+            hijoFunciones.MdiParent = this;
+            hijoFunciones.Dock = DockStyle.Fill;
+            hijoFunciones.Show();
+        }
 
         private void Form1_Load(object sender, EventArgs e) {  }
     }
