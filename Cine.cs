@@ -129,12 +129,47 @@ namespace TP1_GrupoB
             return true;
         }
 
-        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, Pelicula pelicula, Sala miSala)
+        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, int idPelicula, int idSala)
         {
-            funciones.Add(new Funcion(idFunciones, cantClientes, costo, fecha, pelicula, miSala));
-            idFunciones++;
-            return true;
+
+            Sala miSala = null;
+            foreach (Sala sal in salas)
+            {
+                if (sal.id == idSala)
+                {
+                    miSala = sal;
+                    break;
+                }
+            }
+
+            Pelicula miPelicula = null;
+            foreach (Pelicula peli in peliculas)
+            {
+                if (peli.id == idPelicula)
+                {
+                    miPelicula = peli;
+                    break;
+                }
+            }
+
+
+            if (miSala != null || miPelicula != null)
+            {
+                Funcion miFuncion = new Funcion(idFunciones, cantClientes, costo, fecha, miPelicula, miSala);
+                miPelicula.misFunciones.Add(miFuncion);
+                miSala.misFunciones.Add(miFuncion);               
+                funciones.Add(new Funcion(idFunciones, cantClientes, costo, fecha, miPelicula, miSala));
+                idFunciones++;
+                return true;
+            }
+            else
+            {
+                return false;
+            }            
         }
+
+
+
 
         public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
         {

@@ -51,21 +51,23 @@ namespace TP1_GrupoB
             cine.agregarSala("CaballitoE", 70);
 
 
-            cine.agregarFuncion( 300, 50, DateTime.Today, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
+           
+
+            cine.agregarFuncion( 300, 50, DateTime.Today, 1,2);
+            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
+            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
+            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
+            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
+            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
+            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
+            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
+            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
+            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
+            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
+            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
+            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
+            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
+            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
               
 
           
