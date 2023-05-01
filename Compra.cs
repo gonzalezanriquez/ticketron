@@ -19,6 +19,7 @@ namespace TP1_GrupoB
         {
             InitializeComponent();
             this.miCine = miCine;
+            label1.Text = miCine.nombreLogueado();
         }
 
         public delegate void CompraToCliente();
