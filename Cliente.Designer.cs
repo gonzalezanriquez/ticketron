@@ -29,27 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cliente));
-            btnCerrarSesion = new Button();
             tituloClientes = new Label();
             btnComprar = new Button();
             pictureBox1 = new PictureBox();
             btnCompras = new Button();
             label2 = new Label();
             label1 = new Label();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // btnCerrarSesion
-            // 
-            btnCerrarSesion.BackColor = Color.SteelBlue;
-            btnCerrarSesion.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerrarSesion.Location = new Point(95, 482);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(233, 35);
-            btnCerrarSesion.TabIndex = 16;
-            btnCerrarSesion.Text = "CERRAR SESION";
-            btnCerrarSesion.UseVisualStyleBackColor = false;
-            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // tituloClientes
             // 
@@ -66,7 +54,7 @@
             btnComprar.BackColor = Color.DarkRed;
             btnComprar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnComprar.ForeColor = SystemColors.ButtonFace;
-            btnComprar.Location = new Point(95, 226);
+            btnComprar.Location = new Point(106, 267);
             btnComprar.Name = "btnComprar";
             btnComprar.Size = new Size(233, 35);
             btnComprar.TabIndex = 14;
@@ -77,7 +65,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(475, 150);
+            pictureBox1.Location = new Point(463, 127);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(454, 367);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -88,7 +76,7 @@
             // 
             btnCompras.BackColor = Color.Orange;
             btnCompras.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCompras.Location = new Point(95, 293);
+            btnCompras.Location = new Point(106, 334);
             btnCompras.Name = "btnCompras";
             btnCompras.Size = new Size(233, 35);
             btnCompras.TabIndex = 12;
@@ -114,14 +102,26 @@
             label1.TabIndex = 17;
             label1.Text = "label1";
             // 
+            // btnVolver
+            // 
+            btnVolver.BackColor = Color.ForestGreen;
+            btnVolver.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVolver.Location = new Point(744, 534);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(173, 35);
+            btnVolver.TabIndex = 19;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // Cliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 623);
+            Controls.Add(btnVolver);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnCerrarSesion);
             Controls.Add(tituloClientes);
             Controls.Add(btnComprar);
             Controls.Add(pictureBox1);
@@ -135,13 +135,12 @@
         }
 
         #endregion
-
-        private Button btnCerrarSesion;
         private Label tituloClientes;
         private Button btnComprar;
         private PictureBox pictureBox1;
         private Button btnCompras;
         private Label label2;
         private Label label1;
+        private Button btnVolver;
     }
 }

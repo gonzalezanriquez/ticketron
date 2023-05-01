@@ -16,6 +16,9 @@ namespace TP1_GrupoB
     {
         Cine miCine;
         public ClienteToCompra t1;
+        public ClienteToListCompras t2;
+        public ClienteToInicio t3;
+
 
         public Cliente(Cine cine)
         {
@@ -26,20 +29,23 @@ namespace TP1_GrupoB
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-
+            this.t1();
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
         {
-
+            this.t2();
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
+
+
+        private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            this.t3();
         }
-
 
         public delegate void ClienteToCompra();
+        public delegate void ClienteToListCompras();
+        public delegate void ClienteToInicio();
     }
 }

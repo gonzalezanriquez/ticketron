@@ -13,27 +13,22 @@ namespace TP1_GrupoB
 {
     public partial class ListCompras : Form
     {
-        Cine miCine;
-        ClienteToListCompras t1;
+        private Cine miCine;
+        public ListComprasToCliente t1;
 
         public ListCompras(Cine cine)
         {
             miCine = cine;
             InitializeComponent();
         }
-
-
-
-
-
-        
+                
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.t1();
         }
 
-        public delegate void ClienteToListCompras();
+        public delegate void ListComprasToCliente();
 
     }
 }

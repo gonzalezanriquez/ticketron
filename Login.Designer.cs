@@ -37,6 +37,7 @@
             label1 = new Label();
             btnLogin = new Button();
             btnRegister = new Button();
+            btnRegistrarse = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -121,13 +122,24 @@
             btnRegister.TabIndex = 7;
             btnRegister.Text = "REGISTRARSE";
             btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += button2_Click;
+            btnRegister.Click += btnRegister_Click;
+            // 
+            // btnRegistrarse
+            // 
+            btnRegistrarse.Location = new Point(774, 536);
+            btnRegistrarse.Name = "btnRegistrarse";
+            btnRegistrarse.Size = new Size(75, 23);
+            btnRegistrarse.TabIndex = 8;
+            btnRegistrarse.Text = "button1";
+            btnRegistrarse.UseVisualStyleBackColor = true;
+            btnRegistrarse.Click += btnRegistrarse_Click;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnRegistrarse);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);
             Controls.Add(labelContrasenia);
@@ -157,5 +169,6 @@
         private Label label1;
         private Button btnLogin;
         private Button btnRegister;
+        private Button btnRegistrarse;
     }
 }

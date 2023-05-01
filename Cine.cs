@@ -149,12 +149,30 @@ namespace TP1_GrupoB
                 }
             }
 
+
+            
+
             if (miSala != null || miPelicula != null)
             {
-                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35,costo);
-                miPelicula.misFunciones.Add(miFuncion);
+
+                int cantClientes=0;
+
+                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, cantClientes, costo);
+
+                miPelicula.misFunciones.Add(miFuncion);                
                 miSala.misFunciones.Add(miFuncion);
-                misUsuarios.misFunciones.Add(miFuncion);               
+
+
+        
+                if (comprarEntrada(misUsuarios,))
+                {
+                    misUsuarios.misFunciones.Add(miFuncion);
+                    cantClientes++;
+                    miSala.capacidad--;
+
+
+                }                
+
 
                 funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));
                 idFunciones++;                               
@@ -376,7 +394,7 @@ namespace TP1_GrupoB
 
 
         #region METODO COMPRA DE ENTRADAS
-        public bool comprarEntrada(Usuario Logueado, decimal cantidad)
+        public bool comprarEntrada(Usuario Logueado, int cantidad)
         {
             foreach (Funcion f in funciones) {
 
@@ -384,32 +402,30 @@ namespace TP1_GrupoB
 
                 if (cantidad +f.cantClientes < f.miSala.capacidad)
                 {
-                    MessageBox.Show("Compra exitosa");
+                   
                 }
-                    MessageBox.Show("Disculpe la sala esta llena");
+                   
 
                 if (Logueado.credito > f.costo) {
 
-                    MessageBox.Show("Tiene saldo disponible para realizar la compra");
                     compra = true;
                 }
-                    MessageBox.Show("No tiene saldo suficiente para realiza la compra");
+                   ;
                     compra = false;
 
                 if (!compra)
                 {
-                    MessageBox.Show("No se realizo la compra");
+                 
                     break;
 
                 }
 
                 
-                MessageBox.Show("La compra fue exitosa");
-                MessageBox.Show("SE COMPRARON: " + cantidad + "ENTRADAS");
+             
                 Logueado.credito = Logueado.credito - f.costo;
                 f.clientes.Add(Logueado);
-                //Logueado.misFunciones.Add(id);
-                f.cantClientes = f.cantClientes + (int)cantidad;          
+
+                f.cantClientes = f.cantClientes + cantidad;          
             }
             return true;
         }

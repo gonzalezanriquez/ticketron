@@ -81,7 +81,7 @@
             btnVolver.TabIndex = 0;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
-            btnVolver.Click += volver_button_Click;
+            btnVolver.Click += btnVolver_Click;
             // 
             // dataGridView1
             // 
@@ -92,8 +92,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(962, 334);
             dataGridView1.TabIndex = 1;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
             // 
             // ID
             // 
@@ -142,7 +141,7 @@
             btnMostrar.TabIndex = 2;
             btnMostrar.Text = "MOSTRAR FUNCIONES";
             btnMostrar.UseVisualStyleBackColor = false;
-            btnMostrar.Click += button1_Click;
+            btnMostrar.Click += btnMostrar_Click;
             // 
             // pictureBox1
             // 
@@ -184,17 +183,14 @@
             // 
             // boxFecha
             // 
-            boxFecha.CustomFormat = "dd-mmmm-yyyy hh:mm TT";
             boxFecha.Format = DateTimePickerFormat.Custom;
+            boxFecha.CustomFormat = "dddd MM yyyy hh:mm:ss";
             boxFecha.Location = new Point(343, 51);
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
             boxFecha.Name = "boxFecha";
-            boxFecha.ShowCheckBox = false;
-            boxFecha.ShowUpDown = false;
             boxFecha.Size = new Size(232, 23);
             boxFecha.TabIndex = 9;
- 
             // 
             // label7
             // 
@@ -256,6 +252,7 @@
             btnEliminar.TabIndex = 26;
             btnEliminar.Text = "ELIMINAR";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 

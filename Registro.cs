@@ -62,10 +62,10 @@ namespace TP1_GrupoB
         {
             this.t1();
         }
-        
-        
+
+
         public delegate void registroTologin();
 
-  
+
     }
 }

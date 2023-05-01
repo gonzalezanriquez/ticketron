@@ -13,7 +13,8 @@ namespace TP1_GrupoB
     public partial class Compra : Form
     {
         Cine miCine;
-        CompraToCliente t1;
+        public CompraToCliente t1;
+
         public Compra(Cine miCine)
         {
             InitializeComponent();
@@ -21,5 +22,25 @@ namespace TP1_GrupoB
         }
 
         public delegate void CompraToCliente();
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

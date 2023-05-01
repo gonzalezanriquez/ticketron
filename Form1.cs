@@ -148,6 +148,12 @@ namespace TP1_GrupoB
             Open_Compra();
         }
 
+        private void ClienteToInicio()
+        {
+            hijoCliente.Close();
+            Open_Inicio();
+        }
+
         private void CompraToCliente()
         {
             hijoCompra.Close();
@@ -174,8 +180,9 @@ namespace TP1_GrupoB
             Open_Login();
         }
 
-        
+
         #endregion
+
 
 
 
@@ -259,16 +266,9 @@ namespace TP1_GrupoB
             hijoCliente.MdiParent = this;
             hijoCliente.Dock = DockStyle.Fill;
             hijoCliente.t1 += ClienteToCompra;
+            hijoCliente.t2 += ClienteToListCompras;
+            hijoCliente.t3 += ClienteToInicio;
             hijoCliente.Show();
-        }
-
-        private void Open_ListCompras()
-        {
-            hijoListCompras = new ListCompras(cine);
-            hijoListCompras.MdiParent = this;
-            hijoListCompras.Dock = DockStyle.Fill;
-           // hijoListCompras.t1 += ClienteToListCompras;
-            hijoListCompras.Show();
         }
 
         private void Open_Compra()
@@ -276,8 +276,17 @@ namespace TP1_GrupoB
             hijoCompra = new Compra(cine);
             hijoCompra.MdiParent = this;
             hijoCompra.Dock = DockStyle.Fill;
-       //     hijoCompra.t1 += CompraToCliente;
+            hijoCompra.t1 += CompraToCliente;
             hijoCompra.Show();
+        }
+        private void Open_ListCompras()
+        {
+            hijoListCompras = new ListCompras(cine);
+            hijoListCompras.MdiParent = this;
+            hijoListCompras.Dock = DockStyle.Fill;
+            hijoListCompras.t1 += ListComprasToCliente;
+           
+            hijoListCompras.Show();
         }
 
         #endregion

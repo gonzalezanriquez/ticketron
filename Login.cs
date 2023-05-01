@@ -3,10 +3,9 @@ namespace TP1_GrupoB
     public partial class Login : Form
     {
         private Cine miCine;
-
-        public loginToRegistro t2;
         public loginToInicio t1;
-        
+        public loginToRegistro t2;
+
 
 
 
@@ -64,9 +63,14 @@ namespace TP1_GrupoB
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.t2();        
+            this.t2();
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            this.t2();
         }
 
         public delegate void loginToInicio();

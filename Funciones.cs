@@ -13,7 +13,7 @@ namespace TP1_GrupoB
 {
     public partial class Funciones : Form
     {
-        private Cine miCine;
+        public Cine miCine;
         public FuncionesToAdmin t1;
         private int selectedFuncion;
         public List<Usuario> usuarios;
@@ -29,74 +29,42 @@ namespace TP1_GrupoB
             selectedFuncion = -1;
             label1.Text = miCine.nombreLogueado();
 
-
-        }
-        // NumericUpDown para contar la cantidad de entradas a comprar (VALOR EN DECIMAL CASTEAR EN INT)
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            InitializeComponent();
         }
 
-        //Region cargar lista en la tabla
-        #region
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            refreshData();
-        }
-
-        private void refreshData()
-        {
-
-            dataGridView1.Rows.Clear();
-
-            foreach (Funcion f in miCine.obtenerFuncion())
+ 
+            private void btnMostrar_Click(object sender, EventArgs e)
             {
-                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
-
+            refreshData();
             }
-        }
 
-        #endregion
+      
 
-        // Boton de volver
-        #region
-        private void volver_button_Click(object sender, EventArgs e)
-        {
-            this.t1();
-        }
-        #endregion
-
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            miCine.comprarEntrada(miCine.Logueado, numericUpDown1.Value);
-        }
-
-        #region Tabla
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
-            boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-            boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-            boxFecha.Value = DateTime.Parse(dataGridView1[3, e.RowIndex].Value.ToString());
-            selectedFuncion = int.Parse(boxId.Text);
-            boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            private void refreshData()
+            {
+                dataGridView1.Rows.Clear();
+                foreach (Funcion f in miCine.obtenerFuncion())
+                {
+                    dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
+                }  
+             }
 
 
-        }
-        #endregion
+
+
+            private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+            {
+                boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+                boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+                boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
+                selectedFuncion = int.Parse(boxId.Text);
+                boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            }
+
+       
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
 
             if (boxPelicula.Text == "" || boxSala.Text == "" || boxFecha.Text == "" || boxCosto.Text == "" ||
                 boxPelicula.Text == null || boxSala.Text == null || boxFecha.Text == "" || boxCosto == null)
@@ -105,16 +73,13 @@ namespace TP1_GrupoB
             }
             else
 
-            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, DateTime.Parse(boxFecha.Text), int.Parse(boxCosto.Text)))
+            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, Convert.ToDateTime(boxFecha.Text), int.Parse(boxCosto.Text)))
             {
                 MessageBox.Show("Funcion Agregada de manera Exitosa", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("Se proujo un problema al intentar agreagar la Funcion", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
         }
-
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -133,7 +98,29 @@ namespace TP1_GrupoB
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (selectedFuncion != -1)
+            {
+                if (miCine.eliminarUsuario(selectedFuncion))
+                {
+                    MessageBox.Show("Funcion eliminada con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("La Funcion no se pudo eliminar", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Se debe seleccionar una Funcion", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
+  
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.t1();
+        }
 
         private void Funciones_Load(object sender, EventArgs e)
         {
@@ -149,7 +136,6 @@ namespace TP1_GrupoB
         }
 
         public delegate void FuncionesToAdmin();
-
     }
 
 }
