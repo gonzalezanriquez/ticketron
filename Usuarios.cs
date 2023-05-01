@@ -7,6 +7,13 @@
         public Usuarios_Bienvenida transferencia;
         public bool isA;
 
+        public static string ERRORUSUARIO = "Debe rellenar los datos para agregar al usuario";
+        private static  int RETIRO = 2;
+        private static  int DEPOSITO = 3;
+        private static  int SALIR = 4;
+       
+
+
         public Usuarios(Cine cine)
         {
             InitializeComponent();
@@ -61,7 +68,9 @@
         {
             if (boxDni.Text == "" || boxNombre.Text == "" || boxApellido.Text == "" || boxContrasenia.Text == "" || boxMail.Text == "" || boxNombre.Text == null || boxApellido.Text == null || boxContrasenia.Text == null || boxMail.Text == null)
             {
-                MessageBox.Show("Debe rellenar los datos para agregar al usuario");
+                MessageBox.Show(ERRORUSUARIO);
+
+                
             }
             else
                 MessageBox.Show((checkBoxIsAdmin.Text));

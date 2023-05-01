@@ -26,25 +26,27 @@ namespace TP1_GrupoB
         private Usuarios hijoUsuarios;
         private Bienvenida hijoBienvenida;
         private Inicio hijoInicio;
-        
+     
+        public static string ERRORUSUARIO = "Debe rellenar los datos para agregar al usuario";
 
 
         public Form1()
         {   
             cine = new Cine();
             InitializeComponent();
+            
+            DateTime fecha = new DateTime(25,8,2,8,9,10 );
+            
 
-            
-            
             cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",true);
             cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456",false);
-            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890", false);
+            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890",  false);
 
             cine.agregarPelicula( "El mago con patas", "Una pelicula muy buena recomendada para entendidos", "Poster1", 200);
             cine.agregarPelicula( "El perro sin patas", "Una pelicula muy mala no vengan a verla", "Poster2", 150);
             cine.agregarPelicula( "El baul acolchonado", "Una pelicula de calidad intermedia para los fanaticos de los baules", "Poster1", 170);
 
-            cine.agregarSala( "CaballitoA", 30);
+            cine.agregarSala("CaballitoA", 30);
             cine.agregarSala("CaballitoB", 40);
             cine.agregarSala("CaballitoC", 50);
             cine.agregarSala("CaballitoD", 60);
@@ -53,24 +55,25 @@ namespace TP1_GrupoB
 
            
 
-            cine.agregarFuncion( 300, 50, DateTime.Today, 1,2);
-            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
-            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
-            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
-            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
-            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
-            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
-            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
-            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
-            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
-            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
-            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
-            cine.agregarFuncion(300, 50, DateTime.Now, 1,2);
-            cine.agregarFuncion(400, 70, DateTime.Now, 1,2);
-            cine.agregarFuncion(500, 90, DateTime.Now, 1,2);
-              
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(2,3,fecha, 300);
+            //cine.agregarFuncion(3,1,fecha, 300);
+            //cine.agregarFuncion(1,1,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            //cine.agregarFuncion(1,2,fecha, 300);
+            
 
-          
+
+
 
 
             Open_Login();

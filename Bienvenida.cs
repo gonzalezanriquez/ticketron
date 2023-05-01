@@ -26,6 +26,7 @@ namespace TP1_GrupoB
             InitializeComponent();
             miCine = cine;
 
+
         }
 
 

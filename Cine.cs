@@ -1,10 +1,12 @@
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net.Mail;
+using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +41,7 @@ namespace TP1_GrupoB
             funciones = new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
+        
         }
   
        
@@ -128,14 +131,14 @@ namespace TP1_GrupoB
             idUsuarios++;
             return true;
         }
-
-        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, int idPelicula, int idSala)
+        int puto;
+        public bool agregarFuncion(string ubicacionSala, string tituloPelicula, DateTime fechadouble, int costo)
         {
 
             Sala miSala = null;
             foreach (Sala sal in salas)
             {
-                if (sal.id == idSala)
+                if (sal.ubicacion == ubicacionSala)
                 {
                     miSala = sal;
                     break;
@@ -143,9 +146,10 @@ namespace TP1_GrupoB
             }
 
             Pelicula miPelicula = null;
+
             foreach (Pelicula peli in peliculas)
             {
-                if (peli.id == idPelicula)
+                if (peli.nombre == tituloPelicula)
                 {
                     miPelicula = peli;
                     break;
@@ -153,19 +157,47 @@ namespace TP1_GrupoB
             }
 
 
+            Usuario misUsuarios = null;
+
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu ==Logueado)
+                {
+                    misUsuarios = usu;
+                    break;
+                }
+            }
+
+
+
+
+
+
             if (miSala != null || miPelicula != null)
             {
-                Funcion miFuncion = new Funcion(idFunciones, cantClientes, costo, fecha, miPelicula, miSala);
+                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35,costo);
                 miPelicula.misFunciones.Add(miFuncion);
-                miSala.misFunciones.Add(miFuncion);               
-                funciones.Add(new Funcion(idFunciones, cantClientes, costo, fecha, miPelicula, miSala));
+                miSala.misFunciones.Add(miFuncion);
+                misUsuarios.misFunciones.Add(miFuncion);
+               
+
+                funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));
                 idFunciones++;
+
+                
+
                 return true;
             }
             else
             {
                 return false;
-            }            
+            }
+
+
+            
+
+
+
         }
 
 
@@ -274,16 +306,51 @@ namespace TP1_GrupoB
             return false;
         }
 
-        public bool modificaFuncion(int id, string nombre, string sinopsis, string poster, int duracion)
+        public bool modificaFuncion(int id, string ubicacionSala, string  tituloPelicula, DateTime fechadouble, int costo)
         {
+            Sala miSala = null;
+            foreach (Sala sal in salas)
+            {
+                if (sal.ubicacion == ubicacionSala)
+                {
+                    miSala = sal;
+                    break;
+                }
+            }
+
+            Pelicula miPelicula = null;
+
             foreach (Pelicula peli in peliculas)
             {
-                if (peli.id == id)
+                if (peli.nombre == tituloPelicula)
                 {
-                    peli.nombre = nombre;
-                    peli.sinopsis = sinopsis;
-                    peli.poster = poster;
-                    peli.duracion = duracion;
+                    miPelicula = peli;
+                    break;
+                }
+            }
+
+
+            Usuario misUsuarios = null;
+
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu == Logueado)
+                {
+                    misUsuarios = usu;
+                    break;
+                }
+            }
+
+
+            foreach (Funcion funcion in funciones)
+            {
+                if (funcion.id == id)
+                {
+                    funcion.id = id;
+                    funcion.miSala= miSala;
+                    funcion.pelicula = miPelicula;
+                    funcion.fecha = fechadouble;
+                    funcion.costo = costo;
 
                     return true;
                 }

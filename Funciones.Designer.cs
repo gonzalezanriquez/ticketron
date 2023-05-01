@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Funciones));
-            VOLVER = new Button();
+            btnVolver = new Button();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             CantClientes = new DataGridViewTextBoxColumn();
@@ -40,7 +40,7 @@
             Sala = new DataGridViewTextBoxColumn();
             cineBindingSource = new BindingSource(components);
             funcionBindingSource = new BindingSource(components);
-            button1 = new Button();
+            btnMostrar = new Button();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             tituloFunciones = new Label();
@@ -52,30 +52,36 @@
             label3 = new Label();
             boxId = new TextBox();
             boxCosto = new TextBox();
-            boxPelicula = new TextBox();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            boxSala = new TextBox();
+            btnEliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             label5 = new Label();
             panelEdicion = new Panel();
+            this.boxSala = new ComboBox();
+            boxPelicula = new ComboBox();
+            salasBindingSource1 = new BindingSource(components);
+            cineBindingSource1 = new BindingSource(components);
+            salasBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cineBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)funcionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelEdicion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)salasBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cineBindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)salasBindingSource).BeginInit();
             SuspendLayout();
             // 
-            // VOLVER
+            // btnVolver
             // 
-            VOLVER.BackColor = Color.IndianRed;
-            VOLVER.Location = new Point(761, 253);
-            VOLVER.Name = "VOLVER";
-            VOLVER.Size = new Size(233, 35);
-            VOLVER.TabIndex = 0;
-            VOLVER.Text = "VOLVER";
-            VOLVER.UseVisualStyleBackColor = false;
-            VOLVER.Click += volver_button_Click;
+            btnVolver.BackColor = Color.IndianRed;
+            btnVolver.Location = new Point(761, 253);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(233, 35);
+            btnVolver.TabIndex = 0;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += volver_button_Click;
             // 
             // dataGridView1
             // 
@@ -127,16 +133,16 @@
             // 
             funcionBindingSource.DataSource = typeof(Funcion);
             // 
-            // button1
+            // btnMostrar
             // 
-            button1.BackColor = Color.DarkOrange;
-            button1.Location = new Point(32, 262);
-            button1.Name = "button1";
-            button1.Size = new Size(233, 35);
-            button1.TabIndex = 2;
-            button1.Text = "MOSTRAR FUNCIONES";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnMostrar.BackColor = Color.DarkOrange;
+            btnMostrar.Location = new Point(32, 262);
+            btnMostrar.Name = "btnMostrar";
+            btnMostrar.Size = new Size(233, 35);
+            btnMostrar.TabIndex = 2;
+            btnMostrar.Text = "MOSTRAR FUNCIONES";
+            btnMostrar.UseVisualStyleBackColor = false;
+            btnMostrar.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -238,46 +244,34 @@
             boxCosto.Size = new Size(232, 23);
             boxCosto.TabIndex = 31;
             // 
-            // boxPelicula
+            // btnEliminar
             // 
-            boxPelicula.Location = new Point(89, 51);
-            boxPelicula.Name = "boxPelicula";
-            boxPelicula.Size = new Size(158, 23);
-            boxPelicula.TabIndex = 27;
+            btnEliminar.Location = new Point(478, 125);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(97, 24);
+            btnEliminar.TabIndex = 26;
+            btnEliminar.Text = "ELIMINAR";
+            btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnModificar
             // 
-            button3.Location = new Point(478, 125);
-            button3.Name = "button3";
-            button3.Size = new Size(97, 24);
-            button3.TabIndex = 26;
-            button3.Text = "ELIMINAR";
-            button3.UseVisualStyleBackColor = true;
+            btnModificar.Location = new Point(330, 125);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(97, 24);
+            btnModificar.TabIndex = 25;
+            btnModificar.Text = "MODIFICAR";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
-            // button4
+            // btnAgregar
             // 
-            button4.Location = new Point(330, 125);
-            button4.Name = "button4";
-            button4.Size = new Size(97, 24);
-            button4.TabIndex = 25;
-            button4.Text = "MODIFICAR";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(184, 125);
-            button5.Name = "button5";
-            button5.Size = new Size(97, 24);
-            button5.TabIndex = 24;
-            button5.Text = "AGREGAR";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // boxSala
-            // 
-            boxSala.Location = new Point(89, 80);
-            boxSala.Name = "boxSala";
-            boxSala.Size = new Size(158, 23);
-            boxSala.TabIndex = 28;
+            btnAgregar.Location = new Point(184, 125);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(97, 24);
+            btnAgregar.TabIndex = 24;
+            btnAgregar.Text = "AGREGAR";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // label5
             // 
@@ -290,23 +284,53 @@
             // 
             // panelEdicion
             // 
-            panelEdicion.Controls.Add(label3);
+            panelEdicion.Controls.Add(this.boxSala);
             panelEdicion.Controls.Add(boxPelicula);
+            panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
             panelEdicion.Controls.Add(boxCosto);
             panelEdicion.Controls.Add(boxFecha);
-            panelEdicion.Controls.Add(boxSala);
             panelEdicion.Controls.Add(label6);
             panelEdicion.Controls.Add(boxId);
-            panelEdicion.Controls.Add(button5);
-            panelEdicion.Controls.Add(button3);
+            panelEdicion.Controls.Add(btnAgregar);
+            panelEdicion.Controls.Add(btnEliminar);
             panelEdicion.Controls.Add(label5);
             panelEdicion.Controls.Add(label4);
-            panelEdicion.Controls.Add(button4);
+            panelEdicion.Controls.Add(btnModificar);
             panelEdicion.Location = new Point(36, 95);
             panelEdicion.Name = "panelEdicion";
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 39;
+            // 
+            // boxSala
+            // 
+            this.boxSala.FormattingEnabled = true;
+            this.boxSala.Location = new Point(89, 83);
+            this.boxSala.Name = "boxSala";
+            this.boxSala.Size = new Size(192, 23);
+            this.boxSala.TabIndex = 39;
+            // 
+            // boxPelicula
+            // 
+            boxPelicula.FormattingEnabled = true;
+            boxPelicula.Location = new Point(89, 54);
+            boxPelicula.Name = "boxPelicula";
+            boxPelicula.Size = new Size(192, 23);
+            boxPelicula.TabIndex = 38;
+            // 
+            // salasBindingSource1
+            // 
+            salasBindingSource1.DataMember = "salas";
+            salasBindingSource1.DataSource = cineBindingSource1;
+            // 
+            // cineBindingSource1
+            // 
+            cineBindingSource1.DataSource = typeof(Cine);
+            // 
+            // salasBindingSource
+            // 
+            salasBindingSource.DataMember = "salas";
+            salasBindingSource.DataSource = cineBindingSource1;
             // 
             // Funciones
             // 
@@ -318,25 +342,29 @@
             Controls.Add(tituloFunciones);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(btnMostrar);
             Controls.Add(dataGridView1);
-            Controls.Add(VOLVER);
+            Controls.Add(btnVolver);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Funciones";
             Text = "Funciones";
+            Load += Funciones_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)cineBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)funcionBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelEdicion.ResumeLayout(false);
             panelEdicion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)salasBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cineBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)salasBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button VOLVER;
+        private Button btnVolver;
         private DataGridView dataGridView1;
         private BindingSource cineBindingSource;
         private BindingSource funcionBindingSource;
@@ -344,7 +372,7 @@
         private DataGridViewTextBoxColumn CantClientes;
         private DataGridViewTextBoxColumn Costo;
         private DataGridViewTextBoxColumn Fecha;
-        private Button button1;
+        private Button btnMostrar;
         private Button button2;
         private NumericUpDown numericUpDown1;
         private DataGridViewTextBoxColumn Pelicula;
@@ -365,12 +393,19 @@
         private TextBox boxContrasenia;
         private TextBox boxApellido;
         private TextBox boxNombre;
-        private TextBox boxPelicula;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private TextBox boxSala;
+
+
+        private Button btnEliminar;
+        private Button btnModificar;
+        private Button btnAgregar;
+      
         private Label label5;
         private Panel panelEdicion;
+        private BindingSource cineBindingSource1;
+        private BindingSource salasBindingSource;
+        private BindingSource salasBindingSource1;
+
+        private ComboBox boxSala;
+        private ComboBox boxPelicula;
     }
 }
