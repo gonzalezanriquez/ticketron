@@ -35,7 +35,7 @@ namespace TP1_GrupoB
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            this.t1();
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

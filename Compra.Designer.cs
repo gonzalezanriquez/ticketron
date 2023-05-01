@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            BoxSala = new TextBox();
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -50,10 +53,7 @@
             Pelicula = new DataGridViewTextBoxColumn();
             Sala = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
-            BoxSala = new TextBox();
-            //this.boxPelicula = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            boxPelis = new TextBox();
             panelEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -61,9 +61,9 @@
             // 
             // panelEdicion
             // 
+            panelEdicion.Controls.Add(boxPelis);
             panelEdicion.Controls.Add(textBox2);
             panelEdicion.Controls.Add(textBox1);
-           // panelEdicion.Controls.Add(this.boxPelicula);
             panelEdicion.Controls.Add(BoxSala);
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
@@ -76,6 +76,33 @@
             panelEdicion.Name = "panelEdicion";
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Menu;
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(351, 54);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(192, 23);
+            textBox2.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Menu;
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(351, 22);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(192, 23);
+            textBox1.TabIndex = 48;
+            // 
+            // BoxSala
+            // 
+            BoxSala.BackColor = SystemColors.Menu;
+            BoxSala.Enabled = false;
+            BoxSala.Location = new Point(89, 85);
+            BoxSala.Name = "BoxSala";
+            BoxSala.Size = new Size(192, 23);
+            BoxSala.TabIndex = 38;
             // 
             // label3
             // 
@@ -108,7 +135,7 @@
             // 
             boxId.BackColor = SystemColors.Menu;
             boxId.Enabled = false;
-            boxId.Location = new Point(89, 22);
+            boxId.Location = new Point(89, 23);
             boxId.Name = "boxId";
             boxId.Size = new Size(192, 23);
             boxId.TabIndex = 32;
@@ -242,41 +269,14 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // BoxSala
+            // boxPelis
             // 
-            BoxSala.BackColor = SystemColors.Menu;
-            BoxSala.Enabled = false;
-            BoxSala.Location = new Point(89, 85);
-            BoxSala.Name = "BoxSala";
-            BoxSala.Size = new Size(192, 23);
-            BoxSala.TabIndex = 38;
-            // 
-            // boxPelicula
-            // 
-            this.boxPelicula.BackColor = SystemColors.Menu;
-            this.boxPelicula.Enabled = false;
-            this.boxPelicula.Location = new Point(89, 54);
-            this.boxPelicula.Name = "boxPelicula";
-            this.boxPelicula.Size = new Size(192, 23);
-            this.boxPelicula.TabIndex = 39;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(351, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 23);
-            textBox1.TabIndex = 48;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = SystemColors.Menu;
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(351, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 23);
-            textBox2.TabIndex = 49;
+            boxPelis.BackColor = SystemColors.Menu;
+            boxPelis.Enabled = false;
+            boxPelis.Location = new Point(89, 56);
+            boxPelis.Name = "boxPelis";
+            boxPelis.Size = new Size(192, 23);
+            boxPelis.TabIndex = 48;
             // 
             // Compra
             // 
@@ -333,6 +333,7 @@
         private TextBox boxPelicula;
         private TextBox BoxSala;
         private ComboBox boxSala;
-      //  private ComboBox boxPelicula;
+        private TextBox boxPelis;
+        //  private ComboBox boxPelicula;
     }
 }

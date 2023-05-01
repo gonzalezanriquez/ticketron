@@ -29,19 +29,23 @@ namespace TP1_GrupoB
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
+         
+        }
+        /*IR A LISTADO DE COMPRAS*/
+        private void btnBuyTickets_Click(object sender, EventArgs e)
+        {
             this.t1();
         }
-
-        private void btnCompras_Click(object sender, EventArgs e)
-        {
-            this.t2();
-        }
-
 
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.t3();
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            this.t2();
         }
 
         public delegate void ClienteToCompra();
