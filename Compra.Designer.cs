@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            boxPelicula = new TextBox();
+            BoxSala = new TextBox();
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -44,23 +48,22 @@
             btnMostrar = new Button();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
-            CantClientes = new DataGridViewTextBoxColumn();
-            Costo = new DataGridViewTextBoxColumn();
-            Fecha = new DataGridViewTextBoxColumn();
-            Pelicula = new DataGridViewTextBoxColumn();
-            Sala = new DataGridViewTextBoxColumn();
+            ColPelicula = new DataGridViewTextBoxColumn();
+            ColSala = new DataGridViewTextBoxColumn();
+            ColFecha = new DataGridViewTextBoxColumn();
+            ColCosto = new DataGridViewTextBoxColumn();
+            ColCantClientes = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
-            BoxSala = new TextBox();
-            boxPelicula = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            numericUpDown1 = new NumericUpDown();
             panelEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // panelEdicion
             // 
+            panelEdicion.Controls.Add(numericUpDown1);
             panelEdicion.Controls.Add(textBox2);
             panelEdicion.Controls.Add(textBox1);
             panelEdicion.Controls.Add(boxPelicula);
@@ -76,6 +79,42 @@
             panelEdicion.Name = "panelEdicion";
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Menu;
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(351, 54);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(192, 23);
+            textBox2.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Menu;
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(351, 22);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(192, 23);
+            textBox1.TabIndex = 48;
+            // 
+            // boxPelicula
+            // 
+            boxPelicula.BackColor = SystemColors.Menu;
+            boxPelicula.Enabled = false;
+            boxPelicula.Location = new Point(89, 54);
+            boxPelicula.Name = "boxPelicula";
+            boxPelicula.Size = new Size(192, 23);
+            boxPelicula.TabIndex = 39;
+            // 
+            // BoxSala
+            // 
+            BoxSala.BackColor = SystemColors.Menu;
+            BoxSala.Enabled = false;
+            BoxSala.Location = new Point(89, 85);
+            BoxSala.Name = "BoxSala";
+            BoxSala.Size = new Size(192, 23);
+            BoxSala.TabIndex = 38;
             // 
             // label3
             // 
@@ -193,7 +232,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, CantClientes, Costo, Fecha, Pelicula, Sala });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, ColPelicula, ColSala, ColFecha, ColCosto, ColCantClientes });
             dataGridView1.Location = new Point(29, 298);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -206,30 +245,30 @@
             ID.HeaderText = "ID";
             ID.Name = "ID";
             // 
-            // CantClientes
+            // ColPelicula
             // 
-            CantClientes.HeaderText = "CantClientes";
-            CantClientes.Name = "CantClientes";
+            ColPelicula.HeaderText = "Pelicula";
+            ColPelicula.Name = "ColPelicula";
             // 
-            // Costo
+            // ColSala
             // 
-            Costo.HeaderText = "Costo";
-            Costo.Name = "Costo";
+            ColSala.HeaderText = "Sala";
+            ColSala.Name = "ColSala";
             // 
-            // Fecha
+            // ColFecha
             // 
-            Fecha.HeaderText = "Fecha";
-            Fecha.Name = "Fecha";
+            ColFecha.HeaderText = "Fecha";
+            ColFecha.Name = "ColFecha";
             // 
-            // Pelicula
+            // ColCosto
             // 
-            Pelicula.HeaderText = "Pelicula";
-            Pelicula.Name = "Pelicula";
+            ColCosto.HeaderText = "Costo";
+            ColCosto.Name = "ColCosto";
             // 
-            // Sala
+            // ColCantClientes
             // 
-            Sala.HeaderText = "Sala";
-            Sala.Name = "Sala";
+            ColCantClientes.HeaderText = "Cant Clientes";
+            ColCantClientes.Name = "ColCantClientes";
             // 
             // btnVolver
             // 
@@ -242,41 +281,12 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // BoxSala
+            // numericUpDown1
             // 
-            BoxSala.BackColor = SystemColors.Menu;
-            BoxSala.Enabled = false;
-            BoxSala.Location = new Point(89, 85);
-            BoxSala.Name = "BoxSala";
-            BoxSala.Size = new Size(192, 23);
-            BoxSala.TabIndex = 38;
-            // 
-            // boxPelicula
-            // 
-            boxPelicula.BackColor = SystemColors.Menu;
-            boxPelicula.Enabled = false;
-            boxPelicula.Location = new Point(89, 54);
-            boxPelicula.Name = "boxPelicula";
-            boxPelicula.Size = new Size(192, 23);
-            boxPelicula.TabIndex = 39;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(351, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 23);
-            textBox1.TabIndex = 48;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = SystemColors.Menu;
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(351, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 23);
-            textBox2.TabIndex = 49;
+            numericUpDown1.Location = new Point(446, 99);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(97, 23);
+            numericUpDown1.TabIndex = 48;
             // 
             // Compra
             // 
@@ -298,6 +308,7 @@
             panelEdicion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,18 +332,19 @@
         private PictureBox pictureBox1;
         private Button btnMostrar;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn CantClientes;
-        private DataGridViewTextBoxColumn Costo;
-        private DataGridViewTextBoxColumn Fecha;
-        private DataGridViewTextBoxColumn Pelicula;
-        private DataGridViewTextBoxColumn Sala;
         private Button btnVolver;
         private TextBox textBox2;
         private TextBox textBox1;
         private TextBox boxPelicula;
         private TextBox BoxSala;
         private ComboBox boxSala;
-      //  private ComboBox boxPelicula;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ColPelicula;
+        private DataGridViewTextBoxColumn ColSala;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColCosto;
+        private DataGridViewTextBoxColumn ColCantClientes;
+        private NumericUpDown numericUpDown1;
+        //  private ComboBox boxPelicula;
     }
 }

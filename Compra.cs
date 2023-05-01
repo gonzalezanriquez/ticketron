@@ -23,20 +23,33 @@ namespace TP1_GrupoB
 
         public delegate void CompraToCliente();
 
+        private void refreshData()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (Funcion f in miCine.obtenerFuncion())
+            {
+                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+            }
+        }
+
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-
+            refreshData();
         }
+
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
+            miCine.comprarEntrada(miCine.Logueado, 12, 1);
 
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            this.t1();
         }
+
+
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

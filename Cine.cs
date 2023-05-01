@@ -394,40 +394,49 @@ namespace TP1_GrupoB
 
 
         #region METODO COMPRA DE ENTRADAS
-        public bool comprarEntrada(Usuario Logueado, int cantidad)
+        public bool comprarEntrada(Usuario Logueado, int cantidad, int idFuncion)
         {
             foreach (Funcion f in funciones) {
 
                 Boolean compra = false;
 
-                if (cantidad +f.cantClientes < f.miSala.capacidad)
+                if (idFuncion == f.id)
                 {
-                   
-                }
-                   
+                    if (cantidad + f.cantClientes < f.miSala.capacidad)
+                    {
 
-                if (Logueado.credito > f.costo) {
+                    }
 
-                    compra = true;
-                }
+
+                    if (Logueado.credito > f.costo)
+                    {
+
+                        compra = true;
+                    }
                    ;
                     compra = false;
 
-                if (!compra)
-                {
-                 
-                    break;
+                    if (!compra)
+                    {
 
+                        break;
+
+                    }
+
+
+
+                    Logueado.credito = Logueado.credito - f.costo;
+                    f.clientes.Add(Logueado);
+
+                    f.cantClientes = f.cantClientes + cantidad;
+                    return true; 
                 }
 
-                
-             
-                Logueado.credito = Logueado.credito - f.costo;
-                f.clientes.Add(Logueado);
-
-                f.cantClientes = f.cantClientes + cantidad;          
+                return false;
+       
             }
-            return true;
+            return false;
+            
         }
         #endregion
 
