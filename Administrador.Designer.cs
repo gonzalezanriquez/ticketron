@@ -36,6 +36,7 @@
             btnSalas = new Button();
             tituloBienvenida = new Label();
             btnCerrarSesion = new Button();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -120,11 +121,24 @@
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
+            // btnVolver
+            // 
+            btnVolver.BackColor = Color.DimGray;
+            btnVolver.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVolver.Location = new Point(561, 577);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(145, 43);
+            btnVolver.TabIndex = 8;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // Administrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnVolver);
             Controls.Add(btnCerrarSesion);
             Controls.Add(tituloBienvenida);
             Controls.Add(btnSalas);
@@ -135,7 +149,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Administrador";
             Text = "Bienvenida";
-
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -154,5 +167,6 @@
         private Button btnFunciones;
         private Button btnPeliculas;
         private Button btnSalas;
+        private Button btnVolver;
     }
 }

@@ -21,6 +21,7 @@ namespace TP1_GrupoB
         public Bienvenida_a_Salas transferencia4;
         public cierreSesion transferencia5;
 
+
         public Administrador(Cine cine)
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace TP1_GrupoB
         {
             this.transferencia();
         }
-      
+
         private void btnPeliculas_Click(object sender, EventArgs e)
         {
             this.transferencia3();
@@ -58,11 +59,17 @@ namespace TP1_GrupoB
             this.transferencia5();
         }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         public delegate void Bienvenida_a_Usuarios();
         public delegate void Bienvenida_a_Funciones();
         public delegate void Bienvenida_a_Peliculas();
         public delegate void Bienvenida_a_Salas();
         public delegate void cierreSesion();
+        public delegate void volver();
 
     }
 

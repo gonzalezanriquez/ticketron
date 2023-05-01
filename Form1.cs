@@ -89,14 +89,46 @@ namespace TP1_GrupoB
             Open_Cliente();
         }
 
-
-  
-
-
-
-
-
-      
+        private void AdminToUsuarios()
+        {
+            hijoAdministrador.Close();
+            Open_Cliente();
+        }
+        private void AdminToPeliculas()
+        {
+            hijoAdministrador.Close();
+            Open_Peliculas();
+        }
+        private void AdminToSalas()
+        {
+            hijoAdministrador.Close();
+            Open_Salas();
+        }
+        private void AdminToFunciones()
+        {
+            hijoAdministrador.Close();
+            Open_Funciones();
+        }
+        private void UsuariosToAdmin()
+        {
+            hijoUsuarios.Close();
+            Open_Admin();
+        }
+        private void PeliculasToAdmin()
+        {
+            hijoPeliculas.Close();
+            Open_Admin();
+        }
+        private void SalasToAdmin()
+        {
+            hijoSalas.Close();
+            Open_Admin();
+        }
+        private void FuncionesToAdmin()
+        {
+            hijoFunciones.Close();
+            Open_Admin();
+        }
 
         private void cierreSesion()
         {
