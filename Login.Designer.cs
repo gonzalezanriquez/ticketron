@@ -37,7 +37,6 @@
             label1 = new Label();
             btnLogin = new Button();
             btnRegister = new Button();
-            btnRegistrarse = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -102,7 +101,7 @@
             btnLogin.BackColor = Color.DarkOrange;
             btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogin.ForeColor = SystemColors.ControlLightLight;
-            btnLogin.Location = new Point(631, 446);
+            btnLogin.Location = new Point(623, 446);
             btnLogin.Name = "btnLogin";
             btnLogin.RightToLeft = RightToLeft.Yes;
             btnLogin.Size = new Size(106, 37);
@@ -116,7 +115,7 @@
             btnRegister.BackColor = Color.SteelBlue;
             btnRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnRegister.ForeColor = SystemColors.ControlLightLight;
-            btnRegister.Location = new Point(763, 446);
+            btnRegister.Location = new Point(755, 446);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(106, 37);
             btnRegister.TabIndex = 7;
@@ -124,22 +123,11 @@
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
-            // btnRegistrarse
-            // 
-            btnRegistrarse.Location = new Point(774, 536);
-            btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(75, 23);
-            btnRegistrarse.TabIndex = 8;
-            btnRegistrarse.Text = "button1";
-            btnRegistrarse.UseVisualStyleBackColor = true;
-            btnRegistrarse.Click += btnRegistrarse_Click;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
-            Controls.Add(btnRegistrarse);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);
             Controls.Add(labelContrasenia);
@@ -169,6 +157,5 @@
         private Label label1;
         private Button btnLogin;
         private Button btnRegister;
-        private Button btnRegistrarse;
     }
 }

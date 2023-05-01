@@ -77,7 +77,7 @@
             labelUsuario.Location = new Point(91, 212);
             labelUsuario.Name = "labelUsuario";
             labelUsuario.Size = new Size(203, 23);
-            labelUsuario.TabIndex = 10;
+            labelUsuario.TabIndex = 1;
             // 
             // mail
             // 
@@ -94,7 +94,7 @@
             textBox1.Location = new Point(91, 379);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(203, 23);
-            textBox1.TabIndex = 12;
+            textBox1.TabIndex = 3;
             // 
             // label1
             // 
@@ -111,7 +111,7 @@
             textBox2.Location = new Point(91, 297);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(203, 23);
-            textBox2.TabIndex = 14;
+            textBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -128,7 +128,7 @@
             textBox3.Location = new Point(326, 212);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(203, 23);
-            textBox3.TabIndex = 16;
+            textBox3.TabIndex = 4;
             // 
             // label3
             // 
@@ -145,7 +145,7 @@
             textBox4.Location = new Point(326, 297);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(203, 23);
-            textBox4.TabIndex = 18;
+            textBox4.TabIndex = 5;
             // 
             // label4
             // 
@@ -162,7 +162,8 @@
             textBox5.Location = new Point(326, 379);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(203, 23);
-            textBox5.TabIndex = 20;
+            textBox5.TabIndex = 6;
+            textBox5.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -182,7 +183,7 @@
             button1.Location = new Point(326, 495);
             button1.Name = "button1";
             button1.Size = new Size(203, 37);
-            button1.TabIndex = 21;
+            button1.TabIndex = 9;
             button1.Text = "VOLVER";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -193,7 +194,7 @@
             checkBox1.Location = new Point(249, 443);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(116, 19);
-            checkBox1.TabIndex = 22;
+            checkBox1.TabIndex = 7;
             checkBox1.Text = "Es Administrador";
             checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -230,7 +231,7 @@
             Controls.Add(btnRegister);
             Controls.Add(titulo);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Registro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
