@@ -81,7 +81,7 @@ namespace TP1_GrupoB
         private void registroTologin()
         {
             hijoRegistro.Close();
-            Open_Inicio();
+            Open_Login();
         }
 
 
@@ -202,7 +202,7 @@ namespace TP1_GrupoB
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill;
             hijoLogin.t1 += loginToInicio;
-            hijoLogin.t2 += cierreSesion;
+            hijoLogin.t2 += loginToRegistro;            
             hijoLogin.Show();
         }
         private void Open_Inicio()

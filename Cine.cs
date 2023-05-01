@@ -164,14 +164,14 @@ namespace TP1_GrupoB
 
 
         
-                if (comprarEntrada(misUsuarios,))
-                {
-                    misUsuarios.misFunciones.Add(miFuncion);
-                    cantClientes++;
-                    miSala.capacidad--;
+                ////if (comprarEntrada(misUsuarios,))
+                ////{
+                ////    misUsuarios.misFunciones.Add(miFuncion);
+                ////    cantClientes++;
+                ////    miSala.capacidad--;
 
 
-                }                
+                ////}                
 
 
                 funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));

@@ -5,6 +5,7 @@ namespace TP1_GrupoB
         private Cine miCine;
         public loginToInicio t1;
         public loginToRegistro t2;
+       
 
 
 
