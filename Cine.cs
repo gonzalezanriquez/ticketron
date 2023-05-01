@@ -17,7 +17,9 @@ namespace TP1_GrupoB
     public class Cine
     {
         #region atributos
-        public List<Usuario> usuarios {  get; set; }
+        public List<Usuario> clientes {  get; set; }
+
+        public List<Usuario> usuarios { get; set; }
         public int idUsuarios{ get; set; }
         public int idFunciones { get; set; }
         public int idPeliculas{ get; set; }
@@ -30,8 +32,9 @@ namespace TP1_GrupoB
 
         public Cine()
         {
-            usuarios= new List<Usuario>();
-            idUsuarios= 1;
+            clientes = new List<Usuario>();
+            usuarios = new List<Usuario>();
+            idUsuarios = 1;
             idFunciones = 1;
             idPeliculas = 1;
             idSalas = 1;
@@ -112,7 +115,7 @@ namespace TP1_GrupoB
             idUsuarios++;
             return true;
         }
-        int puto;
+        
         public bool agregarFuncion(string ubicacionSala, string tituloPelicula, DateTime fechadouble, int costo)
         {
 
@@ -152,28 +155,16 @@ namespace TP1_GrupoB
 
             
 
-            if (miSala != null || miPelicula != null)
+            if (miSala != null || miPelicula != null || misUsuarios != null)
             {
 
                 int cantClientes=0;
 
                 Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, cantClientes, costo);
 
-                miPelicula.misFunciones.Add(miFuncion);                
+                miPelicula.misFunciones.Add(miFuncion);
                 miSala.misFunciones.Add(miFuncion);
-
-
-        
-                ////if (comprarEntrada(misUsuarios,))
-                ////{
-                ////    misUsuarios.misFunciones.Add(miFuncion);
-                ////    cantClientes++;
-                ////    miSala.capacidad--;
-
-
-                ////}                
-
-
+                //misUsuarios.misFunciones.Add(miFuncion);
                 funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));
                 idFunciones++;                               
 
@@ -399,6 +390,7 @@ namespace TP1_GrupoB
             foreach (Funcion f in funciones) {
 
                 Boolean compra = false;
+                
 
                 if (idFuncion == f.id)
                 {
@@ -427,10 +419,12 @@ namespace TP1_GrupoB
 
                     if (cantidad < f.miSala.capacidad && f.costo <= Logueado.credito)
                     {
-                        compra = true;
-                        MessageBox.Show("SE HIZO LA COMPRA :D");
+                        
                         Logueado.credito = Logueado.credito - f.costo;
                         f.clientes.Add(Logueado);
+                        MessageBox.Show("SE HIZO LA COMPRA :D" + Logueado.credito);
+                        compra = true;
+
 
                     }
                     else {

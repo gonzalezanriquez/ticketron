@@ -41,6 +41,7 @@ namespace TP1_GrupoB
             contrasenia = Contrasenia;
             isAdmin = IsAdmin;
             intentosFallidos=0;
+            credito = 1000.00;
             isBloqueado = false;
             List<Funcion> misFunciones = new List<Funcion>();
 
