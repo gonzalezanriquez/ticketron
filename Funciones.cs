@@ -16,7 +16,7 @@ namespace TP1_GrupoB
         private Cine miCine;
         public Funciones_Inicio transferencia2;
         private int selectedFuncion;
-        public Mensajes msj;
+ 
         public List<Usuario> usuarios;
         public Salas sala;
       
