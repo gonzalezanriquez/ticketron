@@ -184,7 +184,7 @@
             // boxFecha
             // 
             boxFecha.Format = DateTimePickerFormat.Custom;
-            boxFecha.CustomFormat = "dddd MM yyyy hh:mm:ss";
+            boxFecha.CustomFormat = "dd MM yyyy hh:mm:ss";
             boxFecha.Location = new Point(343, 51);
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
