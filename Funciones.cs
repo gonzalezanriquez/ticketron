@@ -59,6 +59,7 @@ namespace TP1_GrupoB
             boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
             selectedFuncion = int.Parse(boxId.Text);
             boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            var clientes = dataGridView1[5, e.RowIndex].Value.ToString();
         }
 
 
