@@ -51,7 +51,7 @@
             Sala = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
             BoxSala = new TextBox();
-            //this.boxPelicula = new TextBox();
+            boxPelicula = new TextBox();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             panelEdicion.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             panelEdicion.Controls.Add(textBox2);
             panelEdicion.Controls.Add(textBox1);
-           // panelEdicion.Controls.Add(this.boxPelicula);
+            panelEdicion.Controls.Add(boxPelicula);
             panelEdicion.Controls.Add(BoxSala);
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
@@ -253,12 +253,12 @@
             // 
             // boxPelicula
             // 
-            this.boxPelicula.BackColor = SystemColors.Menu;
-            this.boxPelicula.Enabled = false;
-            this.boxPelicula.Location = new Point(89, 54);
-            this.boxPelicula.Name = "boxPelicula";
-            this.boxPelicula.Size = new Size(192, 23);
-            this.boxPelicula.TabIndex = 39;
+            boxPelicula.BackColor = SystemColors.Menu;
+            boxPelicula.Enabled = false;
+            boxPelicula.Location = new Point(89, 54);
+            boxPelicula.Name = "boxPelicula";
+            boxPelicula.Size = new Size(192, 23);
+            boxPelicula.TabIndex = 39;
             // 
             // textBox1
             // 

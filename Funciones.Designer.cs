@@ -32,12 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Funciones));
             btnVolver = new Button();
             dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            CantClientes = new DataGridViewTextBoxColumn();
-            Costo = new DataGridViewTextBoxColumn();
-            Fecha = new DataGridViewTextBoxColumn();
-            Pelicula = new DataGridViewTextBoxColumn();
-            Sala = new DataGridViewTextBoxColumn();
             cineBindingSource = new BindingSource(components);
             funcionBindingSource = new BindingSource(components);
             btnMostrar = new Button();
@@ -62,6 +56,19 @@
             salasBindingSource1 = new BindingSource(components);
             cineBindingSource1 = new BindingSource(components);
             salasBindingSource = new BindingSource(components);
+            ID = new DataGridViewTextBoxColumn();
+            Pelicula = new DataGridViewTextBoxColumn();
+            IDs = new DataGridViewTextBoxColumn();
+            Peliculas = new DataGridViewTextBoxColumn();
+            Salas = new DataGridViewTextBoxColumn();
+            Fechas = new DataGridViewTextBoxColumn();
+            Costos = new DataGridViewTextBoxColumn();
+            ColID = new DataGridViewTextBoxColumn();
+            ColPelicula = new DataGridViewTextBoxColumn();
+            ColSala = new DataGridViewTextBoxColumn();
+            ColFecha = new DataGridViewTextBoxColumn();
+            ColCosto = new DataGridViewTextBoxColumn();
+            ColClientes = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cineBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)funcionBindingSource).BeginInit();
@@ -86,43 +93,13 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, CantClientes, Costo, Fecha, Pelicula, Sala });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
             dataGridView1.Location = new Point(32, 303);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(962, 334);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // CantClientes
-            // 
-            CantClientes.HeaderText = "CantClientes";
-            CantClientes.Name = "CantClientes";
-            // 
-            // Costo
-            // 
-            Costo.HeaderText = "Costo";
-            Costo.Name = "Costo";
-            // 
-            // Fecha
-            // 
-            Fecha.HeaderText = "Fecha";
-            Fecha.Name = "Fecha";
-            // 
-            // Pelicula
-            // 
-            Pelicula.HeaderText = "Pelicula";
-            Pelicula.Name = "Pelicula";
-            // 
-            // Sala
-            // 
-            Sala.HeaderText = "Sala";
-            Sala.Name = "Sala";
             // 
             // cineBindingSource
             // 
@@ -183,8 +160,8 @@
             // 
             // boxFecha
             // 
-            boxFecha.Format = DateTimePickerFormat.Custom;
             boxFecha.CustomFormat = "dd MM yyyy hh:mm:ss";
+            boxFecha.Format = DateTimePickerFormat.Custom;
             boxFecha.Location = new Point(343, 51);
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
@@ -333,6 +310,71 @@
             salasBindingSource.DataMember = "salas";
             salasBindingSource.DataSource = cineBindingSource1;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // Pelicula
+            // 
+            Pelicula.HeaderText = "Pelicula";
+            Pelicula.Name = "Pelicula";
+            // 
+            // IDs
+            // 
+            IDs.HeaderText = "IDs";
+            IDs.Name = "IDs";
+            // 
+            // Peliculas
+            // 
+            Peliculas.HeaderText = "Peliculas";
+            Peliculas.Name = "Peliculas";
+            // 
+            // Salas
+            // 
+            Salas.HeaderText = "Salas";
+            Salas.Name = "Salas";
+            // 
+            // Fechas
+            // 
+            Fechas.HeaderText = "Fechas";
+            Fechas.Name = "Fechas";
+            // 
+            // Costos
+            // 
+            Costos.HeaderText = "Costos";
+            Costos.Name = "Costos";
+            // 
+            // ColID
+            // 
+            ColID.HeaderText = "ID";
+            ColID.Name = "ColID";
+            // 
+            // ColPelicula
+            // 
+            ColPelicula.HeaderText = "Pelicula";
+            ColPelicula.Name = "ColPelicula";
+            // 
+            // ColSala
+            // 
+            ColSala.HeaderText = "Sala";
+            ColSala.Name = "ColSala";
+            // 
+            // ColFecha
+            // 
+            ColFecha.HeaderText = "Fecha";
+            ColFecha.Name = "ColFecha";
+            // 
+            // ColCosto
+            // 
+            ColCosto.HeaderText = "Costo";
+            ColCosto.Name = "ColCosto";
+            // 
+            // ColClientes
+            // 
+            ColClientes.HeaderText = "Cant Clientes";
+            ColClientes.Name = "ColClientes";
+            // 
             // Funciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -369,15 +411,9 @@
         private DataGridView dataGridView1;
         private BindingSource cineBindingSource;
         private BindingSource funcionBindingSource;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn CantClientes;
-        private DataGridViewTextBoxColumn Costo;
-        private DataGridViewTextBoxColumn Fecha;
         private Button btnMostrar;
         private Button button2;
         private NumericUpDown numericUpDown1;
-        private DataGridViewTextBoxColumn Pelicula;
-        private DataGridViewTextBoxColumn Sala;
         private PictureBox pictureBox1;
         private Label label2;
         private Label tituloFunciones;
@@ -408,5 +444,18 @@
 
         private ComboBox boxSala;
         private ComboBox boxPelicula;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Pelicula;
+        private DataGridViewTextBoxColumn IDs;
+        private DataGridViewTextBoxColumn Peliculas;
+        private DataGridViewTextBoxColumn Salas;
+        private DataGridViewTextBoxColumn Fechas;
+        private DataGridViewTextBoxColumn Costos;
+        private DataGridViewTextBoxColumn ColID;
+        private DataGridViewTextBoxColumn ColPelicula;
+        private DataGridViewTextBoxColumn ColSala;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColCosto;
+        private DataGridViewTextBoxColumn ColClientes;
     }
 }
