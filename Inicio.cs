@@ -23,35 +23,26 @@ namespace TP1_GrupoB
         {
             InitializeComponent();
             miCine = cine;
-            tituloInicio.Text = "Hola, " + miCine.nombreLogueado() + ". Ticketron te da la Bienvenida";
+            tituloInicio.Text = "Hola, " + miCine.nombreLogueado() + ". Ticketron te da la Bienvenida ";
         }
-
-
-
-
-
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            foreach (Usuario usu in miCine.obtenerUsuarios())
+            if (miCine.Logueado.isAdmin)
             {
-
-                if (usu.isAdmin)
-                {
-                    MessageBox.Show("sdsad " + usu.isAdmin);
-                    this.t1();
-                    break;
-                }
-                else
-                {
-                    MessageBox.Show("sdsad " + usu.isAdmin);
-                    MessageBox.Show("Lamentablemente no puedes acceder. Necesitas ser Administrador", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
-                }
-
+              
+                this.t1();
+                
+            }
+            else
+            {
+             
+                MessageBox.Show("Lamentablemente no puedes acceder. Necesitas ser Administrador", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              
             }
 
 
+          
 
         }
 

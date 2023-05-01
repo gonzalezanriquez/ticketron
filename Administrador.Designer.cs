@@ -44,7 +44,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(466, 163);
+            pictureBox1.Location = new Point(463, 142);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(512, 364);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -54,7 +54,7 @@
             // btnUsuarios
             // 
             btnUsuarios.BackColor = Color.IndianRed;
-            btnUsuarios.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsuarios.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnUsuarios.Location = new Point(130, 237);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Size = new Size(249, 43);
@@ -66,7 +66,7 @@
             // btnFunciones
             // 
             btnFunciones.BackColor = Color.Orange;
-            btnFunciones.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFunciones.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnFunciones.Location = new Point(130, 390);
             btnFunciones.Name = "btnFunciones";
             btnFunciones.Size = new Size(249, 43);
@@ -78,7 +78,7 @@
             // btnPeliculas
             // 
             btnPeliculas.BackColor = SystemColors.ActiveCaption;
-            btnPeliculas.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPeliculas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnPeliculas.Location = new Point(130, 286);
             btnPeliculas.Name = "btnPeliculas";
             btnPeliculas.Size = new Size(249, 43);
@@ -90,7 +90,7 @@
             // btnSalas
             // 
             btnSalas.BackColor = Color.DarkSeaGreen;
-            btnSalas.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalas.Location = new Point(130, 341);
             btnSalas.Name = "btnSalas";
             btnSalas.Size = new Size(249, 43);
@@ -111,11 +111,11 @@
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.BackColor = Color.DimGray;
-            btnCerrarSesion.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerrarSesion.Location = new Point(787, 577);
+            btnCerrarSesion.BackColor = Color.DarkOrange;
+            btnCerrarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrarSesion.Location = new Point(728, 512);
             btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(145, 43);
+            btnCerrarSesion.Size = new Size(145, 36);
             btnCerrarSesion.TabIndex = 7;
             btnCerrarSesion.Text = "CERRAR SESION";
             btnCerrarSesion.UseVisualStyleBackColor = false;
@@ -123,11 +123,12 @@
             // 
             // btnVolver
             // 
-            btnVolver.BackColor = Color.DimGray;
-            btnVolver.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVolver.Location = new Point(561, 577);
+            btnVolver.BackColor = Color.Maroon;
+            btnVolver.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVolver.ForeColor = SystemColors.ButtonHighlight;
+            btnVolver.Location = new Point(577, 512);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(145, 43);
+            btnVolver.Size = new Size(145, 36);
             btnVolver.TabIndex = 8;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = false;
