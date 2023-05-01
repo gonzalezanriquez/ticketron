@@ -57,7 +57,7 @@
             btnAgregar = new Button();
             label5 = new Label();
             panelEdicion = new Panel();
-            this.boxSala = new ComboBox();
+            boxSala = new ComboBox();
             boxPelicula = new ComboBox();
             salasBindingSource1 = new BindingSource(components);
             cineBindingSource1 = new BindingSource(components);
@@ -184,13 +184,14 @@
             // 
             // boxFecha
             // 
+            boxFecha.CustomFormat = "ddddd, MMMM dd, yyyy hh:mm:ss tt";
             boxFecha.Location = new Point(343, 51);
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
             boxFecha.Name = "boxFecha";
             boxFecha.Size = new Size(232, 23);
             boxFecha.TabIndex = 9;
-            boxFecha.Value = new DateTime(2023, 4, 30, 14, 2, 54, 0);
+            boxFecha.Value = new DateTime(2023, 4, 30, 0, 0, 0, 0);
             // 
             // label7
             // 
@@ -234,7 +235,7 @@
             boxId.Enabled = false;
             boxId.Location = new Point(89, 22);
             boxId.Name = "boxId";
-            boxId.Size = new Size(32, 23);
+            boxId.Size = new Size(192, 23);
             boxId.TabIndex = 32;
             // 
             // boxCosto
@@ -284,7 +285,7 @@
             // 
             // panelEdicion
             // 
-            panelEdicion.Controls.Add(this.boxSala);
+            panelEdicion.Controls.Add(boxSala);
             panelEdicion.Controls.Add(boxPelicula);
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
@@ -304,11 +305,11 @@
             // 
             // boxSala
             // 
-            this.boxSala.FormattingEnabled = true;
-            this.boxSala.Location = new Point(89, 83);
-            this.boxSala.Name = "boxSala";
-            this.boxSala.Size = new Size(192, 23);
-            this.boxSala.TabIndex = 39;
+            boxSala.FormattingEnabled = true;
+            boxSala.Location = new Point(89, 83);
+            boxSala.Name = "boxSala";
+            boxSala.Size = new Size(192, 23);
+            boxSala.TabIndex = 39;
             // 
             // boxPelicula
             // 
@@ -398,7 +399,7 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
-      
+
         private Label label5;
         private Panel panelEdicion;
         private BindingSource cineBindingSource1;

@@ -30,31 +30,28 @@ namespace TP1_GrupoB
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUsuarios_Click(object sender, EventArgs e)
         {
             this.transferencia();
-
         }
-        private void button2_Click(object sender, EventArgs e)
+      
+        private void btnPeliculas_Click(object sender, EventArgs e)
+        {
+            this.transferencia3();
+        }
+
+        private void btnSalas_Click(object sender, EventArgs e)
+        {
+            this.transferencia4();
+        }
+
+        private void btnFunciones_Click(object sender, EventArgs e)
         {
             this.transferencia2();
 
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            this.transferencia3();
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.transferencia4();
-        }
-
-        private void Bienvenida_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {

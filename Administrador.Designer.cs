@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrador));
             pictureBox1 = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnUsuarios = new Button();
+            btnFunciones = new Button();
+            btnPeliculas = new Button();
+            btnSalas = new Button();
             tituloBienvenida = new Label();
             btnCerrarSesion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,53 +50,53 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnUsuarios
             // 
-            button1.BackColor = Color.IndianRed;
-            button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(123, 216);
-            button1.Name = "button1";
-            button1.Size = new Size(249, 43);
-            button1.TabIndex = 2;
-            button1.Text = "GESTION USUARIOS";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnUsuarios.BackColor = Color.IndianRed;
+            btnUsuarios.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsuarios.Location = new Point(130, 237);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(249, 43);
+            btnUsuarios.TabIndex = 2;
+            btnUsuarios.Text = "GESTION USUARIOS";
+            btnUsuarios.UseVisualStyleBackColor = false;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
-            // button2
+            // btnFunciones
             // 
-            button2.BackColor = Color.Orange;
-            button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(123, 432);
-            button2.Name = "button2";
-            button2.Size = new Size(249, 43);
-            button2.TabIndex = 3;
-            button2.Text = "GESTION  FUNCIONES";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnFunciones.BackColor = Color.Orange;
+            btnFunciones.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFunciones.Location = new Point(130, 390);
+            btnFunciones.Name = "btnFunciones";
+            btnFunciones.Size = new Size(249, 43);
+            btnFunciones.TabIndex = 3;
+            btnFunciones.Text = "GESTION FUNCIONES";
+            btnFunciones.UseVisualStyleBackColor = false;
+            btnFunciones.Click += btnFunciones_Click;
             // 
-            // button3
+            // btnPeliculas
             // 
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(123, 265);
-            button3.Name = "button3";
-            button3.Size = new Size(249, 43);
-            button3.TabIndex = 4;
-            button3.Text = "GESTION PELICULAS";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click_1;
+            btnPeliculas.BackColor = SystemColors.ActiveCaption;
+            btnPeliculas.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPeliculas.Location = new Point(130, 286);
+            btnPeliculas.Name = "btnPeliculas";
+            btnPeliculas.Size = new Size(249, 43);
+            btnPeliculas.TabIndex = 4;
+            btnPeliculas.Text = "GESTION PELICULAS";
+            btnPeliculas.UseVisualStyleBackColor = false;
+            btnPeliculas.Click += btnPeliculas_Click;
             // 
-            // button4
+            // btnSalas
             // 
-            button4.BackColor = Color.DarkSeaGreen;
-            button4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(123, 320);
-            button4.Name = "button4";
-            button4.Size = new Size(249, 43);
-            button4.TabIndex = 5;
-            button4.Text = "GESTION SALAS";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            btnSalas.BackColor = Color.DarkSeaGreen;
+            btnSalas.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalas.Location = new Point(130, 341);
+            btnSalas.Name = "btnSalas";
+            btnSalas.Size = new Size(249, 43);
+            btnSalas.TabIndex = 5;
+            btnSalas.Text = "GESTION SALAS";
+            btnSalas.UseVisualStyleBackColor = false;
+            btnSalas.Click += btnSalas_Click;
             // 
             // tituloBienvenida
             // 
@@ -120,22 +120,22 @@
             btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
-            // Bienvenida
+            // Administrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
             Controls.Add(btnCerrarSesion);
             Controls.Add(tituloBienvenida);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSalas);
+            Controls.Add(btnPeliculas);
+            Controls.Add(btnFunciones);
+            Controls.Add(btnUsuarios);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Bienvenida";
+            Name = "Administrador";
             Text = "Bienvenida";
-            Load += Bienvenida_Load;
+
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -150,5 +150,9 @@
         private Button button4;
         private Label tituloBienvenida;
         private Button btnCerrarSesion;
+        private Button btnUsuarios;
+        private Button btnFunciones;
+        private Button btnPeliculas;
+        private Button btnSalas;
     }
 }

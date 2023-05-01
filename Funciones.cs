@@ -16,10 +16,9 @@ namespace TP1_GrupoB
         private Cine miCine;
         public Funciones_Inicio transferencia2;
         private int selectedFuncion;
- 
         public List<Usuario> usuarios;
         public Salas sala;
-      
+
 
 
         public Funciones(Cine cine)
@@ -99,10 +98,10 @@ namespace TP1_GrupoB
         {
 
 
-            if (boxPelicula.Text == "" || boxSala.Text == "" || boxFecha.Text==""||boxCosto.Text==""||
-                boxPelicula.Text == null || boxSala.Text == null || boxFecha.Text == "" || boxCosto == null )
+            if (boxPelicula.Text == "" || boxSala.Text == "" || boxFecha.Text == "" || boxCosto.Text == "" ||
+                boxPelicula.Text == null || boxSala.Text == null || boxFecha.Text == "" || boxCosto == null)
             {
-                MessageBox.Show("Todos los campos deben estar completos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                MessageBox.Show("Todos los campos deben estar completos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
 
@@ -116,7 +115,7 @@ namespace TP1_GrupoB
 
         }
 
-        
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (selectedFuncion != -1)
@@ -140,7 +139,7 @@ namespace TP1_GrupoB
         {
             foreach (Sala salas in miCine.obtenerSalas())
             {
-             boxSala.Items.Add(salas.ubicacion);
+                boxSala.Items.Add(salas.ubicacion);
             }
 
             foreach (Pelicula pelis in miCine.obtenerPeliculas())

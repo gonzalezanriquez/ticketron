@@ -1,6 +1,6 @@
 ﻿namespace TP1_GrupoB
 {
-    partial class Form1
+    partial class Cliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // Form1
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 623);
-            IsMdiContainer = true;
-            Name = "Form1";
-            Text = "Ticketron. Disfruta del buen Cine";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Cliente";
         }
 
         #endregion
