@@ -73,7 +73,7 @@ namespace TP1_GrupoB
             }
             else
 
-            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, Convert.ToDateTime(boxFecha.Text), int.Parse(boxCosto.Text)))
+            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, DateTime.Parse(boxFecha.Text), int.Parse(boxCosto.Text)))
             {
                 MessageBox.Show("Funcion Agregada de manera Exitosa", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
