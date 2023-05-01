@@ -30,14 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            boxPelicula = new TextBox();
-            BoxSala = new TextBox();
+            boxFechas = new DateTimePicker();
+            boxCantidad = new NumericUpDown();
+            boxCostos = new TextBox();
+            boxPeliculas = new TextBox();
+            boxSalas = new TextBox();
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
-            boxId = new TextBox();
+            boxIds = new TextBox();
             btnComprar = new Button();
             label5 = new Label();
             label4 = new Label();
@@ -54,24 +55,23 @@
             ColCosto = new DataGridViewTextBoxColumn();
             ColCantClientes = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
-            numericUpDown1 = new NumericUpDown();
             panelEdicion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)boxCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // panelEdicion
             // 
-            panelEdicion.Controls.Add(numericUpDown1);
-            panelEdicion.Controls.Add(textBox2);
-            panelEdicion.Controls.Add(textBox1);
-            panelEdicion.Controls.Add(boxPelicula);
-            panelEdicion.Controls.Add(BoxSala);
+            panelEdicion.Controls.Add(boxFechas);
+            panelEdicion.Controls.Add(boxCantidad);
+            panelEdicion.Controls.Add(boxCostos);
+            panelEdicion.Controls.Add(boxPeliculas);
+            panelEdicion.Controls.Add(boxSalas);
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
             panelEdicion.Controls.Add(label6);
-            panelEdicion.Controls.Add(boxId);
+            panelEdicion.Controls.Add(boxIds);
             panelEdicion.Controls.Add(btnComprar);
             panelEdicion.Controls.Add(label5);
             panelEdicion.Controls.Add(label4);
@@ -80,41 +80,51 @@
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
             // 
-            // textBox2
+            // boxFechas
             // 
-            textBox2.BackColor = SystemColors.Menu;
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(351, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 23);
-            textBox2.TabIndex = 49;
+            boxFechas.CustomFormat = "dd MM yyyy hh:mm:ss";
+            boxFechas.Enabled = false;
+            boxFechas.Format = DateTimePickerFormat.Custom;
+            boxFechas.Location = new Point(351, 22);
+            boxFechas.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
+            boxFechas.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            boxFechas.Name = "boxFechas";
+            boxFechas.Size = new Size(192, 23);
+            boxFechas.TabIndex = 50;
             // 
-            // textBox1
+            // boxCantidad
             // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(351, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 23);
-            textBox1.TabIndex = 48;
+            boxCantidad.Location = new Point(446, 99);
+            boxCantidad.Name = "boxCantidad";
+            boxCantidad.Size = new Size(97, 23);
+            boxCantidad.TabIndex = 48;
             // 
-            // boxPelicula
+            // boxCostos
             // 
-            boxPelicula.BackColor = SystemColors.Menu;
-            boxPelicula.Enabled = false;
-            boxPelicula.Location = new Point(89, 54);
-            boxPelicula.Name = "boxPelicula";
-            boxPelicula.Size = new Size(192, 23);
-            boxPelicula.TabIndex = 39;
+            boxCostos.BackColor = SystemColors.Menu;
+            boxCostos.Enabled = false;
+            boxCostos.Location = new Point(351, 54);
+            boxCostos.Name = "boxCostos";
+            boxCostos.Size = new Size(192, 23);
+            boxCostos.TabIndex = 49;
             // 
-            // BoxSala
+            // boxPeliculas
             // 
-            BoxSala.BackColor = SystemColors.Menu;
-            BoxSala.Enabled = false;
-            BoxSala.Location = new Point(89, 85);
-            BoxSala.Name = "BoxSala";
-            BoxSala.Size = new Size(192, 23);
-            BoxSala.TabIndex = 38;
+            boxPeliculas.BackColor = SystemColors.Menu;
+            boxPeliculas.Enabled = false;
+            boxPeliculas.Location = new Point(89, 54);
+            boxPeliculas.Name = "boxPeliculas";
+            boxPeliculas.Size = new Size(192, 23);
+            boxPeliculas.TabIndex = 39;
+            // 
+            // boxSalas
+            // 
+            boxSalas.BackColor = SystemColors.Menu;
+            boxSalas.Enabled = false;
+            boxSalas.Location = new Point(89, 85);
+            boxSalas.Name = "boxSalas";
+            boxSalas.Size = new Size(192, 23);
+            boxSalas.TabIndex = 38;
             // 
             // label3
             // 
@@ -143,14 +153,14 @@
             label6.TabIndex = 36;
             label6.Text = "Fecha";
             // 
-            // boxId
+            // boxIds
             // 
-            boxId.BackColor = SystemColors.Menu;
-            boxId.Enabled = false;
-            boxId.Location = new Point(89, 22);
-            boxId.Name = "boxId";
-            boxId.Size = new Size(192, 23);
-            boxId.TabIndex = 32;
+            boxIds.BackColor = SystemColors.Menu;
+            boxIds.Enabled = false;
+            boxIds.Location = new Point(89, 22);
+            boxIds.Name = "boxIds";
+            boxIds.Size = new Size(192, 23);
+            boxIds.TabIndex = 32;
             // 
             // btnComprar
             // 
@@ -281,13 +291,6 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(446, 99);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(97, 23);
-            numericUpDown1.TabIndex = 48;
-            // 
             // Compra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -306,9 +309,9 @@
             Text = "Compra";
             panelEdicion.ResumeLayout(false);
             panelEdicion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)boxCantidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -345,6 +348,14 @@
         private DataGridViewTextBoxColumn ColCosto;
         private DataGridViewTextBoxColumn ColCantClientes;
         private NumericUpDown numericUpDown1;
+        private DateTimePicker boxFecha;
+        private TextBox BoxCosto;
+        private NumericUpDown boxCantidad;
+        private DateTimePicker boxFechas;
+        private TextBox boxCostos;
+        private TextBox boxPeliculas;
+        private TextBox boxSalas;
+        private TextBox boxIds;
         //  private ComboBox boxPelicula;
     }
 }

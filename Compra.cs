@@ -14,6 +14,7 @@ namespace TP1_GrupoB
     {
         Cine miCine;
         public CompraToCliente t1;
+        public int cant;
 
         public Compra(Cine miCine)
         {
@@ -40,7 +41,7 @@ namespace TP1_GrupoB
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            miCine.comprarEntrada(miCine.Logueado, 12, 1);
+            miCine.comprarEntrada(miCine.Logueado, cant, int.Parse(boxIds.Text));
 
         }
 
@@ -49,11 +50,19 @@ namespace TP1_GrupoB
             this.t1();
         }
 
-
+        private void boxCantidad_Button(object sender, EventArgs e)
+        {
+            cant = (int)boxCantidad.Value;
+        }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            boxIds.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            boxPeliculas.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            boxSalas.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            boxFechas.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
+            boxCostos.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            //selectedFuncion = int.Parse(boxId.Text);
         }
     }
 }

@@ -402,36 +402,52 @@ namespace TP1_GrupoB
 
                 if (idFuncion == f.id)
                 {
+                    /*
                     if (cantidad + f.cantClientes < f.miSala.capacidad)
                     {
-
+                        MessageBox.Show("aaaaa" + cantidad + " " + idFuncion + " " + Logueado.nombre);
                     }
 
 
                     if (Logueado.credito > f.costo)
                     {
-
+                        MessageBox.Show("vvvvvvvvvv" + cantidad + " " + idFuncion + " " + Logueado);
                         compra = true;
                     }
-                   ;
+                   
                     compra = false;
 
                     if (!compra)
                     {
-
+                        MessageBox.Show("ccccccccc" + cantidad + " " + idFuncion + " " + Logueado);
                         break;
 
                     }
+                    */
 
+                    if (cantidad < f.miSala.capacidad && f.costo <= Logueado.credito)
+                    {
+                        compra = true;
+                        MessageBox.Show("SE HIZO LA COMPRA :D");
+                        Logueado.credito = Logueado.credito - f.costo;
+                        f.clientes.Add(Logueado);
 
+                    }
+                    else {
 
+                        MessageBox.Show("Gracias por haber venido :(");
+                    }
+
+                    /*
+                    MessageBox.Show("dddddddddd" + cantidad + " " + idFuncion + " " + Logueado);
                     Logueado.credito = Logueado.credito - f.costo;
                     f.clientes.Add(Logueado);
 
                     f.cantClientes = f.cantClientes + cantidad;
                     return true; 
+                    */
                 }
-
+                
                 return false;
        
             }
