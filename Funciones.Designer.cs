@@ -211,7 +211,6 @@
 
 
             boxFecha.Margin = new Padding(4, 5, 4, 5);
-r
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
             boxFecha.Name = "boxFecha";

@@ -54,5 +54,5 @@ namespace TP1_GrupoB
 
         public delegate void ListComprasToCliente();
 
-    }
+    
 }
