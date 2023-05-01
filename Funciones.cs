@@ -31,37 +31,37 @@ namespace TP1_GrupoB
 
         }
 
- 
-            private void btnMostrar_Click(object sender, EventArgs e)
-            {
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
             refreshData();
-            }
+        }
 
-      
 
-            private void refreshData()
+
+        private void refreshData()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (Funcion f in miCine.obtenerFuncion())
             {
-                dataGridView1.Rows.Clear();
-                foreach (Funcion f in miCine.obtenerFuncion())
-                {
-                    dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
-                }  
-             }
-
-
-
-
-            private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-            {
-                boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
-                boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-                boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-                boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
-                selectedFuncion = int.Parse(boxId.Text);
-                boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
             }
+        }
 
-       
+
+
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+            boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+            boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
+            selectedFuncion = int.Parse(boxId.Text);
+            boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+        }
+
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -73,7 +73,7 @@ namespace TP1_GrupoB
             }
             else
 
-            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, Convert.ToDateTime(boxFecha.Text), int.Parse(boxCosto.Text)))
+            if (miCine.agregarFuncion(boxSala.Text, boxPelicula.Text, DateTime.Parse(boxFecha.Text), int.Parse(boxCosto.Text)))
             {
                 MessageBox.Show("Funcion Agregada de manera Exitosa", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -115,7 +115,7 @@ namespace TP1_GrupoB
             }
         }
 
-  
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -139,4 +139,3 @@ namespace TP1_GrupoB
     }
 
 }
-
