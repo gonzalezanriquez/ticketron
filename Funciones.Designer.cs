@@ -184,14 +184,17 @@
             // 
             // boxFecha
             // 
-            boxFecha.CustomFormat = "ddddd, MMMM dd, yyyy hh:mm:ss tt";
+            boxFecha.CustomFormat = "dd-mmmm-yyyy hh:mm TT";
+            boxFecha.Format = DateTimePickerFormat.Custom;
             boxFecha.Location = new Point(343, 51);
             boxFecha.MaxDate = new DateTime(2029, 12, 25, 23, 59, 59, 0);
             boxFecha.MinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0);
             boxFecha.Name = "boxFecha";
+            boxFecha.ShowCheckBox = false;
+            boxFecha.ShowUpDown = false;
             boxFecha.Size = new Size(232, 23);
             boxFecha.TabIndex = 9;
-            boxFecha.Value = new DateTime(2023, 4, 30, 0, 0, 0, 0);
+ 
             // 
             // label7
             // 

@@ -14,9 +14,9 @@ namespace TP1_GrupoB
 {
     public partial class Inicio : Form
     {
-        public Bienvenida_a_Inicio transf1;
-        public cierreSesion transf2;
-        public inicioAcliente transf3;
+        public inicioToAdmin t1;
+        public inicioToCliente t2;
+        public cierreSesion t3;
 
         private Cine miCine;
         public Inicio(Cine cine)
@@ -29,20 +29,22 @@ namespace TP1_GrupoB
 
 
 
- 
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
             foreach (Usuario usu in miCine.obtenerUsuarios())
             {
 
                 if (usu.isAdmin)
                 {
-                    this.transf1();
+                    MessageBox.Show("sdsad " + usu.isAdmin);
+                    this.t1();
                     break;
                 }
                 else
                 {
+                    MessageBox.Show("sdsad " + usu.isAdmin);
                     MessageBox.Show("Lamentablemente no puedes acceder. Necesitas ser Administrador", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 }
@@ -55,17 +57,21 @@ namespace TP1_GrupoB
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            this.transf3();
+            this.t2();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.transf2();
+            this.t3();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
-
-    public delegate void Bienvenida_a_Inicio();
+    public delegate void inicioToAdmin();
+    public delegate void inicioToCliente();
     public delegate void cierreSesion();
-    public delegate void inicioAcliente();
 }

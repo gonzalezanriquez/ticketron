@@ -209,7 +209,7 @@
             checkBox1.TabIndex = 22;
             checkBox1.Text = "Es Administrador";
             checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+
             // 
             // Registro
             // 

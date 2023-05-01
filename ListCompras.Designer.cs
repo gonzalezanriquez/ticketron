@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ListCompras";
+            btnVolver = new Button();
+            SuspendLayout();
+            // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(382, 216);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(75, 23);
+            btnVolver.TabIndex = 0;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
+            // ListCompras
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnVolver);
+            Name = "ListCompras";
+            Text = "ListCompras";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnVolver;
     }
 }

@@ -14,7 +14,7 @@ namespace TP1_GrupoB
     public partial class Peliculas : Form
     {
         private Cine miCine;
-        public Peliculas_Bienvenida transferencia3;
+        public PeliculasToAdmin t1;
         private int selectedFilm;
 
         public Peliculas(Cine cine)
@@ -45,7 +45,7 @@ namespace TP1_GrupoB
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.transferencia3();
+            this.t1();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -119,7 +119,7 @@ namespace TP1_GrupoB
         }
     }
 
-        public delegate void Peliculas_Bienvenida();
+        public delegate void PeliculasToAdmin();
     
 
 }

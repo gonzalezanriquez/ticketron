@@ -3,11 +3,11 @@ namespace TP1_GrupoB
     public partial class Login : Form
     {
         private Cine miCine;
-        public TLogin transferencia;
-        public TLogin transferencia2;
-        public TLogin transferencia3;
-        public TLogin transferencia4;
-        public Open_Registro verRegistro;
+
+        public loginToRegistro t2;
+        public loginToInicio t1;
+        
+
 
 
         public Login(Cine cine)
@@ -34,7 +34,7 @@ namespace TP1_GrupoB
                 {
                     case var tuple when tuple.Item1 == 1:
 
-                        this.transferencia();
+                        this.t1();
 
                         break;
                     case var tuple when tuple.Item1 == 2:
@@ -66,13 +66,11 @@ namespace TP1_GrupoB
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            this.verRegistro();
-        
+            this.t2();        
         }
 
-        public delegate void TLogin();
-        public delegate void Open_Registro();
+        public delegate void loginToInicio();
+        public delegate void loginToRegistro();
 
 
 

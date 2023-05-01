@@ -15,10 +15,9 @@ namespace TP1_GrupoB
     public partial class Registro : Form
     {
         private Cine miCine;
-        public Open_Registro verRegistro;
-        public VolverAtras volverAtras;
-        public VerSeccionAdmin verSeccionAdmin;
-        public VerSeccionCliente verSeccionCliente;
+
+        public registroTologin t1;
+
 
         public Registro(Cine cine)
         {
@@ -47,36 +46,26 @@ namespace TP1_GrupoB
             {
                 miCine.agregarUsuario(dni, nombre, apellido, mail, pass, isAdmin);
                 MessageBox.Show("Usuario registrado con exito.", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (checkBox1.Checked)
-                {
-                    isAdmin = true;
-                    this.verSeccionAdmin();
-                }
-                else
-                {
-                    this.verSeccionCliente();
-                }
+                this.t1();
             }
             else
             {
                 miCine.agregarUsuario(dni, nombre, apellido, mail, pass, isAdmin);
-                MessageBox.Show("Informacion incompleta. Intente de nuevo.", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe completar todos los campos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Usuario es Admin", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.volverAtras();
+            this.t1();
         }
+        
+        
+        public delegate void registroTologin();
 
-        public delegate void VolverAtras();
-        public delegate void VerSeccionAdmin();
-        public delegate void VerSeccionCliente();
+  
     }
 }

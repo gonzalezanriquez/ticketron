@@ -14,7 +14,7 @@ namespace TP1_GrupoB
     {
 
         private Cine miCine;
-        public Salas_Bienvenida transferencia4;
+        public SalasToAdmin t1;
         private int selectedSala;
 
         public Salas(Cine cine)
@@ -27,20 +27,15 @@ namespace TP1_GrupoB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.transferencia4();
+            this.t1();
         }
 
 
 
         private void botonMostrarSalas_Click(object sender, EventArgs e)
         {
-
-
             refreshData();
             selectedSala = -1;
-
-
-
         }
 
         private void refreshData()
@@ -49,9 +44,7 @@ namespace TP1_GrupoB
 
             foreach (Sala s in miCine.obtenerSalas())
             {
-
                 dataGridView1.Rows.Add(new string[] { s.id.ToString(), s.ubicacion, s.capacidad.ToString() });
-
             }
         }
 
@@ -112,6 +105,6 @@ namespace TP1_GrupoB
 
         }
     }
-    public delegate void Salas_Bienvenida();
+    public delegate void SalasToAdmin();
 }
 

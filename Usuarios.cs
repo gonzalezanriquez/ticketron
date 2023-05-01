@@ -4,23 +4,15 @@
     {
         private Cine miCine;
         private int selectedUser;
-        public Usuarios_Bienvenida transferencia;
-        public bool isA;
+        public UsuariosToAdmin t1;
 
-        public static string ERRORUSUARIO = "Debe rellenar los datos para agregar al usuario";
-        private static  int RETIRO = 2;
-        private static  int DEPOSITO = 3;
-        private static  int SALIR = 4;
-       
-
-
+        
         public Usuarios(Cine cine)
         {
             InitializeComponent();
             miCine = cine;
             label1.Text = miCine.nombreLogueado();
             selectedUser = -1;
-
         }
 
         private void botonMostrarUsuarios_Click(object sender, EventArgs e)
@@ -40,14 +32,10 @@
 
         private void volver_button_Click(object sender, EventArgs e)
         {
-            this.transferencia();
+            this.t1();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+      
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
@@ -68,19 +56,16 @@
         {
             if (boxDni.Text == "" || boxNombre.Text == "" || boxApellido.Text == "" || boxContrasenia.Text == "" || boxMail.Text == "" || boxNombre.Text == null || boxApellido.Text == null || boxContrasenia.Text == null || boxMail.Text == null)
             {
-                MessageBox.Show(ERRORUSUARIO);
+                MessageBox.Show("Debe completar todos los campos","Ticketron", MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 
             }
-            else
-                MessageBox.Show((checkBoxIsAdmin.Text));
-
-            if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, checkBoxIsAdmin.Checked))
+            else if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, checkBoxIsAdmin.Checked))
             {
-                MessageBox.Show("Agregado con exito");
+                MessageBox.Show("Usuario agregado con Exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("Problemas al agregar");
+                MessageBox.Show("Problemas al agregar", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
 
@@ -91,14 +76,14 @@
             {
                 if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text, checkBoxIsAdmin.Checked))
                 {
-                    MessageBox.Show("Modificado con exito");
+                    MessageBox.Show("Usuario Modificado con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("No se pudo modificar");
+                    MessageBox.Show("El usario no pudo ser modificado","Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Se debe seleccionar un usuario");
+                MessageBox.Show("Se debe seleccionar un usuario", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning );
             }
         }
         //ELIMINAR
@@ -108,19 +93,19 @@
             {
                 if (miCine.eliminarUsuario(selectedUser))
                 {
-                    MessageBox.Show("Eliminado con exito");
+                    MessageBox.Show("Usuario Eliminado con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("No se pudo eliminar");
+                    MessageBox.Show("El usario no pudo ser eliminado", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Se debe seleccionar un usuario");
+                MessageBox.Show("Se debe seleccionar un usuario", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning );
             }
         }
 
 
 
-        public delegate void Usuarios_Bienvenida();
+        public delegate void UsuariosToAdmin();
     }
 }

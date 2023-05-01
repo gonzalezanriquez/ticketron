@@ -15,11 +15,12 @@ namespace TP1_GrupoB
     public partial class Administrador : Form
     {
         private Cine miCine;
-        public Bienvenida_a_Usuarios transferencia;
-        public Bienvenida_a_Funciones transferencia2;
-        public Bienvenida_a_Peliculas transferencia3;
-        public Bienvenida_a_Salas transferencia4;
-        public cierreSesion transferencia5;
+        public AdminToUsuarios t1;
+        public AdminToPeliculas t2;
+        public AdminToSalas t3;
+        public AdminToFunciones t4;
+        public AdminToInicio t5;
+        public cierreSesion t6;
 
 
         public Administrador(Cine cine)
@@ -28,55 +29,44 @@ namespace TP1_GrupoB
             miCine = cine;
 
         }
-
-
-
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            this.transferencia();
+            this.t1();
         }
 
         private void btnPeliculas_Click(object sender, EventArgs e)
         {
-            this.transferencia3();
+            this.t2();
         }
 
         private void btnSalas_Click(object sender, EventArgs e)
         {
-            this.transferencia4();
+            this.t3();
         }
 
         private void btnFunciones_Click(object sender, EventArgs e)
         {
-            this.transferencia2();
+            this.t4();
 
-        }
-
-
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            this.transferencia5();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-           
+            this.t5();
         }
 
-        public delegate void Bienvenida_a_Usuarios();
-        public delegate void Bienvenida_a_Funciones();
-        public delegate void Bienvenida_a_Peliculas();
-        public delegate void Bienvenida_a_Salas();
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.t6();
+        }
+
+        public delegate void AdminToUsuarios();
+        public delegate void AdminToPeliculas();
+        public delegate void AdminToSalas();
+        public delegate void AdminToFunciones();
+        public delegate void AdminToInicio();
         public delegate void cierreSesion();
-        public delegate void volver();
 
     }
-
-
-
-
-
-
-
 }

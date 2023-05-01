@@ -67,17 +67,16 @@
             btnAdmin.TabIndex = 9;
             btnAdmin.Text = "ADMINISTRACION";
             btnAdmin.UseVisualStyleBackColor = false;
-            btnAdmin.Click += button2_Click;
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // tituloInicio
             // 
             tituloInicio.AutoSize = true;
             tituloInicio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloInicio.Location = new Point(68, 93);
+            tituloInicio.Location = new Point(68, 31);
             tituloInicio.Name = "tituloInicio";
-            tituloInicio.Size = new Size(194, 25);
+            tituloInicio.Size = new Size(0, 25);
             tituloInicio.TabIndex = 10;
-            tituloInicio.Text = "SECCION PELICULAS";
             // 
             // btnCerrarSesion
             // 
@@ -104,6 +103,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Inicio";
             Text = "Inicio";
+            Load += Inicio_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

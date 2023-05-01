@@ -19,11 +19,8 @@ namespace TP1_GrupoB
         #region atributos
         public List<Usuario> usuarios {  get; set; }
         public int idUsuarios{ get; set; }
-
         public int idFunciones { get; set; }
-
         public int idPeliculas{ get; set; }
-
         public int idSalas { get; set; }
         public List<Funcion> funciones { get; set; }
         public List<Sala> salas { get; set; }
@@ -44,12 +41,8 @@ namespace TP1_GrupoB
         
         }
   
-       
 
-        // Iniciar Sesion
-
-        #region inicioSesion
-
+        #region INICIAR SESION
 
         public Tuple<int, int> iniciarSesion(string mail, string contrasenia)
         {
@@ -93,19 +86,10 @@ namespace TP1_GrupoB
 # endregion
 
 
-        public void cerrarSesion()
-        {
-            Logueado = null;
-        }
 
 
-
-
-
-
-
-        #region Métodos
-        //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
+        #region LISTADOS
+      
         public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
         }
@@ -120,11 +104,8 @@ namespace TP1_GrupoB
         }
         #endregion
 
-
-
-
         #region METODOS AGREGAR
-        //Agregar 
+
         public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
         {
             usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
@@ -168,23 +149,15 @@ namespace TP1_GrupoB
                 }
             }
 
-
-
-
-
-
             if (miSala != null || miPelicula != null)
             {
                 Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35,costo);
                 miPelicula.misFunciones.Add(miFuncion);
                 miSala.misFunciones.Add(miFuncion);
-                misUsuarios.misFunciones.Add(miFuncion);
-               
+                misUsuarios.misFunciones.Add(miFuncion);               
 
                 funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));
-                idFunciones++;
-
-                
+                idFunciones++;                               
 
                 return true;
             }
@@ -192,16 +165,7 @@ namespace TP1_GrupoB
             {
                 return false;
             }
-
-
-            
-
-
-
         }
-
-
-
 
         public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
         {
@@ -216,35 +180,6 @@ namespace TP1_GrupoB
             idSalas++;
             return true;
         }
-
-        public bool depositarCredito(int id, double credito, double monto)
-        {
-            bool encontrado = false;
-            foreach (Usuario usu in usuarios)
-            {
-                if (usu.id == id)
-                {
-                    usu.credito = credito;
-
-                    if (monto <= 0)
-                    {  
-                        credito = credito + 0;
-                    }
-                    else
-                    {
-                        credito = credito + monto;
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-            return encontrado;
-        }
-
 
 
 
@@ -265,7 +200,6 @@ namespace TP1_GrupoB
                     usu.mail = mail;
                     usu.contrasenia = contrasenia;
                     usu.isAdmin = isAdmin;
-                    idUsuarios--;
                     return true;
                 }
             }
@@ -371,6 +305,7 @@ namespace TP1_GrupoB
                 if (usu.id == id)
                 {
                     usuarios.Remove(usu);
+                    idUsuarios--;
                     return true;
                 }
             }
@@ -384,6 +319,7 @@ namespace TP1_GrupoB
                 if (peli.id == id)
                 {
                     peliculas.Remove(peli);
+                    idPeliculas--;
                     return true;
                 }
             }
@@ -397,6 +333,7 @@ namespace TP1_GrupoB
                 if (sal.id == id)
                 {
                     salas.Remove(sal);
+                    idSalas--;
                     return true;
                 }
             }
@@ -411,6 +348,7 @@ namespace TP1_GrupoB
                 if (fun.id == id)
                 {
                     funciones.Remove(fun);
+                    idFunciones--;
                     return true;
                 }
             }
@@ -420,15 +358,20 @@ namespace TP1_GrupoB
 
         #endregion
 
+        #region CERRAR SESION
+        public void cerrarSesion()
+        {
+            Logueado = null;
+        }
+        #endregion
 
-
-        //Logueado ahora
+        #region LOGUEADO
         public string nombreLogueado()
         {
             return Logueado.nombre;
             
         }
-
+        #endregion
 
 
 
@@ -471,14 +414,34 @@ namespace TP1_GrupoB
             return true;
         }
         #endregion
-        /*
-
-       // Cerrar Sesion(){}      
-
-       // BuscarFuncion(string Ubicacion, Date Fecha, double Costo, string pelicula): List<Funcion>  
 
 
-       */
+        public bool depositarCredito(int id, double credito, double monto)
+        {
+            bool encontrado = false;
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+                    usu.credito = credito;
+
+                    if (monto <= 0)
+                    {
+                        credito = credito + 0;
+                    }
+                    else
+                    {
+                        credito = credito + monto;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return encontrado;
+        }
 
 
     }

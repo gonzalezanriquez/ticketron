@@ -78,6 +78,13 @@ namespace TP1_GrupoB
             Open_Registro();
         }
 
+        private void registroTologin()
+        {
+            hijoRegistro.Close();
+            Open_Inicio();
+        }
+
+
         private void inicioToAdmin()
         {
             hijoInicio.Close();
@@ -92,7 +99,7 @@ namespace TP1_GrupoB
         private void AdminToUsuarios()
         {
             hijoAdministrador.Close();
-            Open_Cliente();
+            Open_Usuarios();
         }
         private void AdminToPeliculas()
         {
@@ -108,6 +115,11 @@ namespace TP1_GrupoB
         {
             hijoAdministrador.Close();
             Open_Funciones();
+        }
+        private void AdminToInicio()
+        {
+            hijoAdministrador.Close();
+            Open_Inicio ();
         }
         private void UsuariosToAdmin()
         {
@@ -130,11 +142,39 @@ namespace TP1_GrupoB
             Open_Admin();
         }
 
+        private void ClienteToCompra()
+        {
+            hijoCliente.Close();
+            Open_Compra();
+        }
+
+        private void CompraToCliente()
+        {
+            hijoCompra.Close();
+            Open_Cliente();
+        }
+
+        private void ClienteToListCompras()
+        {
+            hijoCliente.Close();
+            Open_ListCompras();
+
+        }
+
+        private void ListComprasToCliente()
+        {
+            hijoListCompras.Close();
+            Open_Cliente();
+        }
+
+
         private void cierreSesion()
         {
             cine.cerrarSesion();
             Open_Login();
         }
+
+        
         #endregion
 
 
@@ -146,7 +186,7 @@ namespace TP1_GrupoB
             hijoRegistro = new Registro(cine);
             hijoRegistro.MdiParent = this;
             hijoRegistro.Dock = DockStyle.Fill;
-            hijoRegistro.t1 += toLogin;
+            hijoRegistro.t1 += registroTologin;
             hijoRegistro.Show();
         }
         private void Open_Login()
@@ -154,38 +194,39 @@ namespace TP1_GrupoB
             hijoLogin = new Login(cine);
             hijoLogin.MdiParent = this;
             hijoLogin.Dock = DockStyle.Fill;
-            hijoInicio.t1 += inicioToAdmin;
-            hijoInicio.t2 += inicioAcliente;
-            hijoInicio.t3 += cierreSesion;
+            hijoLogin.t1 += loginToInicio;
+            hijoLogin.t2 += cierreSesion;
             hijoLogin.Show();
         }
-
         private void Open_Inicio()
         {
             hijoInicio = new Inicio(cine);
             hijoInicio.MdiParent = this;
             hijoInicio.Dock = DockStyle.Fill;
+            hijoInicio.t1 += inicioToAdmin;
+            hijoInicio.t2 += inicioToCliente;
+            hijoInicio.t3 += cierreSesion;
             hijoInicio.Show();
-            hijoInicio.t1 += cierreSesion;
         }
         private void Open_Admin()
         {
             hijoAdministrador = new Administrador(cine);
             hijoAdministrador.MdiParent = this;
             hijoAdministrador.Dock = DockStyle.Fill;
-            hijoAdministrador.t1 += adminToUsuarios;
-            hijoAdministrador.t2 += adminToPeliculas;
-            hijoAdministrador.t3 += adminToSalas;
-            hijoAdministrador.t4 += adminToFunciones;
-            hijoAdministrador.t5 += cierreSesion;
+            hijoAdministrador.t1 += AdminToUsuarios;
+            hijoAdministrador.t2 += AdminToPeliculas;
+            hijoAdministrador.t3 += AdminToSalas;
+            hijoAdministrador.t4 += AdminToFunciones;
+            hijoAdministrador.t5 += AdminToInicio;
+            hijoAdministrador.t6 += cierreSesion;
             hijoAdministrador.Show();
         }
-
         private void Open_Usuarios()
         {
             hijoUsuarios = new Usuarios(cine);
             hijoUsuarios.MdiParent = this;
             hijoUsuarios.Dock = DockStyle.Fill;
+            hijoUsuarios.t1 = UsuariosToAdmin;
             hijoUsuarios.Show();
         }
         private void Open_Peliculas()
@@ -193,6 +234,7 @@ namespace TP1_GrupoB
             hijoPeliculas = new Peliculas(cine);
             hijoPeliculas.MdiParent = this;
             hijoPeliculas.Dock = DockStyle.Fill;
+            hijoPeliculas.t1 = PeliculasToAdmin;
             hijoPeliculas.Show();
         }       
         private void Open_Salas()
@@ -200,6 +242,7 @@ namespace TP1_GrupoB
             hijoSalas = new Salas(cine);
             hijoSalas.MdiParent = this;
             hijoSalas.Dock = DockStyle.Fill;
+            hijoSalas.t1 = SalasToAdmin;
             hijoSalas.Show();
         }
         private void Open_Funciones()
@@ -207,15 +250,15 @@ namespace TP1_GrupoB
             hijoFunciones = new Funciones(cine);
             hijoFunciones.MdiParent = this;
             hijoFunciones.Dock = DockStyle.Fill;
+            hijoFunciones.t1= FuncionesToAdmin;
             hijoFunciones.Show();
-        }        
-        
+        }                
         private void Open_Cliente()
         {
             hijoCliente = new Cliente(cine);
             hijoCliente.MdiParent = this;
             hijoCliente.Dock = DockStyle.Fill;
-            hijoCliente.t1 += ;
+            hijoCliente.t1 += ClienteToCompra;
             hijoCliente.Show();
         }
 
@@ -224,6 +267,7 @@ namespace TP1_GrupoB
             hijoListCompras = new ListCompras(cine);
             hijoListCompras.MdiParent = this;
             hijoListCompras.Dock = DockStyle.Fill;
+           // hijoListCompras.t1 += ClienteToListCompras;
             hijoListCompras.Show();
         }
 
@@ -232,8 +276,8 @@ namespace TP1_GrupoB
             hijoCompra = new Compra(cine);
             hijoCompra.MdiParent = this;
             hijoCompra.Dock = DockStyle.Fill;
+       //     hijoCompra.t1 += CompraToCliente;
             hijoCompra.Show();
-            hijoCompra t1 += compraToCliente;
         }
 
         #endregion

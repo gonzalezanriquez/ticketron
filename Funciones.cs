@@ -14,7 +14,7 @@ namespace TP1_GrupoB
     public partial class Funciones : Form
     {
         private Cine miCine;
-        public Funciones_Inicio transferencia2;
+        public FuncionesToAdmin t1;
         private int selectedFuncion;
         public List<Usuario> usuarios;
         public Salas sala;
@@ -64,7 +64,7 @@ namespace TP1_GrupoB
         #region
         private void volver_button_Click(object sender, EventArgs e)
         {
-            this.transferencia2();
+            this.t1();
         }
         #endregion
 
@@ -89,7 +89,7 @@ namespace TP1_GrupoB
             boxFecha.Value = DateTime.Parse(dataGridView1[3, e.RowIndex].Value.ToString());
             selectedFuncion = int.Parse(boxId.Text);
             boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
-            //boxCantClientes= dataGridView1[5, e.RowIndex].Value.ToString();
+
 
         }
         #endregion
@@ -122,14 +122,14 @@ namespace TP1_GrupoB
             {
                 if (miCine.modificaFuncion(selectedFuncion, boxSala.Text, boxPelicula.Text, DateTime.Parse(boxFecha.Text), int.Parse(boxCosto.Text)))
                 {
-                    MessageBox.Show("Modificado con exito");
+                    MessageBox.Show("Funcion Modificada con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("No se pudo modificar");
+                    MessageBox.Show("La Funcion no se pudo modificar", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Se debe seleccionar un usuario");
+                MessageBox.Show("Se debe seleccionar una Funcion", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -148,7 +148,7 @@ namespace TP1_GrupoB
             }
         }
 
-        public delegate void Funciones_Inicio();
+        public delegate void FuncionesToAdmin();
 
     }
 
