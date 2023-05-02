@@ -22,7 +22,7 @@ namespace TP1_GrupoB
         {
             miCine = cine;
             InitializeComponent();
-            label1.Text = miCine.nombreLogueado()+" Saldo: "+miCine.Logueado.credito;
+            label1.Text = miCine.nombreLogueado() + " Saldo: " + miCine.Logueado.credito;
         }
 
 
@@ -37,9 +37,6 @@ namespace TP1_GrupoB
         {
             refreshData();
         }
-
-
-
 
 
 
@@ -60,10 +57,7 @@ namespace TP1_GrupoB
 
             foreach (Funcion f in miCine.Logueado.misFunciones)
             {
-
-
                 dataGridView1.Rows.Add(new string[] { miCine.Logueado.nombre, f.pelicula.nombre, f.miSala.ubicacion, f.fecha.ToString(), f.costo.ToString() });
-
             }
 
         }
@@ -92,6 +86,7 @@ namespace TP1_GrupoB
                 if (f.fecha >= DateTime.Now)
                 {
                     miCine.Logueado.credito += f.costo;
+                    MessageBox.Show("Monto devuelto de manera correcta.", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //miCine.Logueado.misFunciones.Remove(f);
                 }
 

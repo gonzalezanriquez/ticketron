@@ -408,7 +408,7 @@ namespace TP1_GrupoB
                         f.clientes.Add(Logueado);
                         f.cantClientes += cantidad; 
                          
-                        MessageBox.Show("Cantidad clientes "+ contador+" - " + f.clientes[0]);                        
+                                             
 
                         f.miSala.capacidad -= cantidad; 
                        

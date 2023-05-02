@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListCompras));
             btnVolver = new Button();
-            ColID = new DataGridViewTextBoxColumn();
-            ColPelicula = new DataGridViewTextBoxColumn();
-            ColSala = new DataGridViewTextBoxColumn();
-            ColFecha = new DataGridViewTextBoxColumn();
-            ColCosto = new DataGridViewTextBoxColumn();
-            ColClientes = new DataGridViewTextBoxColumn();
             pictureBox1 = new PictureBox();
             btnMostrarCompras = new Button();
             label2 = new Label();
@@ -47,6 +41,11 @@
             boxId = new TextBox();
             btnDevolver = new Button();
             boxMonto = new TextBox();
+            ColID = new DataGridViewTextBoxColumn();
+            ColPelicula = new DataGridViewTextBoxColumn();
+            ColSala = new DataGridViewTextBoxColumn();
+            ColFecha = new DataGridViewTextBoxColumn();
+            ColCosto = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -60,48 +59,6 @@
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
-            // 
-            // ColID
-            // 
-            ColID.HeaderText = "ID";
-            ColID.MinimumWidth = 8;
-            ColID.Name = "ColID";
-            ColID.Width = 150;
-            // 
-            // ColPelicula
-            // 
-            ColPelicula.HeaderText = "Pelicula";
-            ColPelicula.MinimumWidth = 8;
-            ColPelicula.Name = "ColPelicula";
-            ColPelicula.Width = 150;
-            // 
-            // ColSala
-            // 
-            ColSala.HeaderText = "Sala";
-            ColSala.MinimumWidth = 8;
-            ColSala.Name = "ColSala";
-            ColSala.Width = 150;
-            // 
-            // ColFecha
-            // 
-            ColFecha.HeaderText = "Fecha";
-            ColFecha.MinimumWidth = 8;
-            ColFecha.Name = "ColFecha";
-            ColFecha.Width = 150;
-            // 
-            // ColCosto
-            // 
-            ColCosto.HeaderText = "Costo";
-            ColCosto.MinimumWidth = 8;
-            ColCosto.Name = "ColCosto";
-            ColCosto.Width = 150;
-            // 
-            // ColClientes
-            // 
-            ColClientes.HeaderText = "Cant Clientes";
-            ColClientes.MinimumWidth = 8;
-            ColClientes.Name = "ColClientes";
-            ColClientes.Width = 150;
             // 
             // pictureBox1
             // 
@@ -157,7 +114,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto });
             dataGridView1.Location = new Point(29, 324);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
@@ -210,6 +167,42 @@
             boxMonto.Size = new Size(168, 23);
             boxMonto.TabIndex = 38;
             // 
+            // ColID
+            // 
+            ColID.HeaderText = "ID";
+            ColID.MinimumWidth = 8;
+            ColID.Name = "ColID";
+            ColID.Visible = false;
+            ColID.Width = 150;
+            // 
+            // ColPelicula
+            // 
+            ColPelicula.HeaderText = "Pelicula";
+            ColPelicula.MinimumWidth = 8;
+            ColPelicula.Name = "ColPelicula";
+            ColPelicula.Width = 150;
+            // 
+            // ColSala
+            // 
+            ColSala.HeaderText = "Sala";
+            ColSala.MinimumWidth = 8;
+            ColSala.Name = "ColSala";
+            ColSala.Width = 150;
+            // 
+            // ColFecha
+            // 
+            ColFecha.HeaderText = "Fecha";
+            ColFecha.MinimumWidth = 8;
+            ColFecha.Name = "ColFecha";
+            ColFecha.Width = 150;
+            // 
+            // ColCosto
+            // 
+            ColCosto.HeaderText = "Monto";
+            ColCosto.MinimumWidth = 8;
+            ColCosto.Name = "ColCosto";
+            ColCosto.Width = 80;
+            // 
             // ListCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -242,12 +235,6 @@
         private Button btnVolver;
 
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ColID;
-        private DataGridViewTextBoxColumn ColPelicula;
-        private DataGridViewTextBoxColumn ColSala;
-        private DataGridViewTextBoxColumn ColFecha;
-        private DataGridViewTextBoxColumn ColCosto;
-        private DataGridViewTextBoxColumn ColClientes;
 
         private PictureBox pictureBox1;
         private Button btnMostrarCompras;
@@ -259,6 +246,11 @@
         private TextBox boxId;
         private Button btnDevolver;
         private TextBox boxMonto;
+        private DataGridViewTextBoxColumn ColID;
+        private DataGridViewTextBoxColumn ColPelicula;
+        private DataGridViewTextBoxColumn ColSala;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColCosto;
         /* private DataGridView dataGridView1;
 private DataGridViewTextBoxColumn idUsuario;
 private DataGridViewTextBoxColumn dni;

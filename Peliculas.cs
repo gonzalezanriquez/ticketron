@@ -115,11 +115,16 @@ namespace TP1_GrupoB
                 MessageBox.Show("Debe seleccionar alguna pelicula para eliminarla", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            
+
+        }
+
+        private void Peliculas_Load(object sender, EventArgs e)
+        {
+            refreshData();
         }
     }
 
-        public delegate void PeliculasToAdmin();
-    
+    public delegate void PeliculasToAdmin();
+
 
 }

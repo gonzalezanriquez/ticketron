@@ -30,14 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
+            boxDeSala = new TextBox();
             boxFechas = new DateTimePicker();
             boxCantidad = new NumericUpDown();
             boxCostos = new TextBox();
             boxPeliculas = new TextBox();
-            boxPelis = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
-            BoxSala = new TextBox();
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -52,13 +51,13 @@
             pictureBox1 = new PictureBox();
             btnMostrar = new Button();
             dataGridView1 = new DataGridView();
+            btnVolver = new Button();
             ID = new DataGridViewTextBoxColumn();
             ColPelicula = new DataGridViewTextBoxColumn();
             ColSala = new DataGridViewTextBoxColumn();
             ColFecha = new DataGridViewTextBoxColumn();
             ColCosto = new DataGridViewTextBoxColumn();
             ColCantClientes = new DataGridViewTextBoxColumn();
-            btnVolver = new Button();
             panelEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)boxCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -67,14 +66,13 @@
             // 
             // panelEdicion
             // 
+            panelEdicion.Controls.Add(boxDeSala);
             panelEdicion.Controls.Add(boxFechas);
             panelEdicion.Controls.Add(boxCantidad);
             panelEdicion.Controls.Add(boxCostos);
             panelEdicion.Controls.Add(boxPeliculas);
-            panelEdicion.Controls.Add(boxPelis);
             panelEdicion.Controls.Add(textBox2);
             panelEdicion.Controls.Add(textBox1);
-            panelEdicion.Controls.Add(BoxSala);
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
             panelEdicion.Controls.Add(label6);
@@ -86,6 +84,15 @@
             panelEdicion.Name = "panelEdicion";
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
+            // 
+            // boxDeSala
+            // 
+            boxDeSala.BackColor = SystemColors.Menu;
+            boxDeSala.Enabled = false;
+            boxDeSala.Location = new Point(89, 85);
+            boxDeSala.Name = "boxDeSala";
+            boxDeSala.Size = new Size(192, 23);
+            boxDeSala.TabIndex = 51;
             // 
             // boxFechas
             // 
@@ -124,15 +131,6 @@
             boxPeliculas.Size = new Size(192, 23);
             boxPeliculas.TabIndex = 39;
             // 
-            // boxPelis
-            // 
-            boxPelis.BackColor = SystemColors.Menu;
-            boxPelis.Enabled = false;
-            boxPelis.Location = new Point(89, 56);
-            boxPelis.Name = "boxPelis";
-            boxPelis.Size = new Size(192, 23);
-            boxPelis.TabIndex = 48;
-            // 
             // textBox2
             // 
             textBox2.BackColor = SystemColors.Menu;
@@ -150,15 +148,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(192, 23);
             textBox1.TabIndex = 48;
-            // 
-            // BoxSala
-            // 
-            BoxSala.BackColor = SystemColors.Menu;
-            BoxSala.Enabled = false;
-            BoxSala.Location = new Point(89, 85);
-            BoxSala.Name = "BoxSala";
-            BoxSala.Size = new Size(192, 23);
-            BoxSala.TabIndex = 38;
             // 
             // label3
             // 
@@ -293,10 +282,22 @@
             dataGridView1.TabIndex = 41;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
             // 
+            // btnVolver
+            // 
+            btnVolver.BackColor = Color.IndianRed;
+            btnVolver.Location = new Point(758, 248);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(233, 35);
+            btnVolver.TabIndex = 40;
+            btnVolver.Text = "VOLVER";
+            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // ID
             // 
             ID.HeaderText = "ID";
             ID.Name = "ID";
+            ID.Visible = false;
             // 
             // ColPelicula
             // 
@@ -322,17 +323,6 @@
             // 
             ColCantClientes.HeaderText = "Cant Clientes";
             ColCantClientes.Name = "ColCantClientes";
-            // 
-            // btnVolver
-            // 
-            btnVolver.BackColor = Color.IndianRed;
-            btnVolver.Location = new Point(758, 248);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(233, 35);
-            btnVolver.TabIndex = 40;
-            btnVolver.Text = "VOLVER";
-            btnVolver.UseVisualStyleBackColor = false;
-            btnVolver.Click += btnVolver_Click;
             // 
             // Compra
             // 
@@ -383,15 +373,7 @@
         private TextBox textBox2;
         private TextBox textBox1;
         private TextBox boxPelicula;
-        private TextBox BoxSala;
         private ComboBox boxSala;
-
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn ColPelicula;
-        private DataGridViewTextBoxColumn ColSala;
-        private DataGridViewTextBoxColumn ColFecha;
-        private DataGridViewTextBoxColumn ColCosto;
-        private DataGridViewTextBoxColumn ColCantClientes;
         private NumericUpDown numericUpDown1;
         private DateTimePicker boxFecha;
         private TextBox BoxCosto;
@@ -401,8 +383,13 @@
         private TextBox boxPeliculas;
         private TextBox boxSalas;
         private TextBox boxIds;
-
-        private TextBox boxPelis;
+        private TextBox boxDeSala;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ColPelicula;
+        private DataGridViewTextBoxColumn ColSala;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColCosto;
+        private DataGridViewTextBoxColumn ColCantClientes;
 
         //  private ComboBox boxPelicula;
     }
