@@ -56,7 +56,7 @@ namespace TP1_GrupoB
 
             foreach (Usuario usu in usuarios)
             {
-                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase))
+                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.isBloqueado)
                 {
                     flag = 4;
                     continue;
@@ -71,6 +71,7 @@ namespace TP1_GrupoB
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
                     usu.intentosFallidos++;
+                    usu.isBloqueado=true;
                     flag = 2;
                     return Tuple.Create(flag, usu.intentosFallidos);               
                 }
@@ -409,12 +410,9 @@ namespace TP1_GrupoB
                         Logueado.credito -= cantidad * f.costo;
 
 
-
                             for (int i = 0; i <= cantidad; i++)
-                        {
-                            MessageBox.Show("ENTRO N! "+ i);
-                            f.clientes.Add(Logueado);
-                            MessageBox.Show(""+f.clientes.Count());
+                        {                           
+                            f.clientes.Add(Logueado);                            
                         }
                                                     
                         f.cantClientes += cantidad;                                              
