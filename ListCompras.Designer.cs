@@ -30,6 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListCompras));
             btnVolver = new Button();
+
+            dataGridView1 = new DataGridView();
+            ColID = new DataGridViewTextBoxColumn();
+            ColPelicula = new DataGridViewTextBoxColumn();
+            ColSala = new DataGridViewTextBoxColumn();
+            ColFecha = new DataGridViewTextBoxColumn();
+            ColCosto = new DataGridViewTextBoxColumn();
+            ColClientes = new DataGridViewTextBoxColumn();
+            mostarClientes = new Button();
+
             pictureBox1 = new PictureBox();
             btnMostrarCompras = new Button();
             label2 = new Label();
@@ -44,19 +54,74 @@
             password = new DataGridViewTextBoxColumn();
             isAdmin = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
             // 
+
+            btnVolver.Location = new Point(675, 47);
+
             btnVolver.Location = new Point(758, 270);
+
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(233, 35);
             btnVolver.TabIndex = 0;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
+
+            // dataGridView1
             // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
+            dataGridView1.Location = new Point(161, 317);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(672, 92);
+            dataGridView1.TabIndex = 2;
+            // 
+            // ColID
+            // 
+            ColID.HeaderText = "ID";
+            ColID.Name = "ColID";
+            // 
+            // ColPelicula
+            // 
+            ColPelicula.HeaderText = "Pelicula";
+            ColPelicula.Name = "ColPelicula";
+            // 
+            // ColSala
+            // 
+            ColSala.HeaderText = "Sala";
+            ColSala.Name = "ColSala";
+            // 
+            // ColFecha
+            // 
+            ColFecha.HeaderText = "Fecha";
+            ColFecha.Name = "ColFecha";
+            // 
+            // ColCosto
+            // 
+            ColCosto.HeaderText = "Costo";
+            ColCosto.Name = "ColCosto";
+            // 
+            // ColClientes
+            // 
+            ColClientes.HeaderText = "Cant Clientes";
+            ColClientes.Name = "ColClientes";
+            // 
+            // mostarClientes
+            // 
+            mostarClientes.Location = new Point(264, 155);
+            mostarClientes.Name = "mostarClientes";
+            mostarClientes.Size = new Size(75, 23);
+            mostarClientes.TabIndex = 3;
+            mostarClientes.Text = "VOLVER";
+            mostarClientes.UseVisualStyleBackColor = true;
+            mostarClientes.Click += mostarClientes_Click;
+
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -163,11 +228,17 @@
             isAdmin.Name = "isAdmin";
             isAdmin.ReadOnly = true;
             isAdmin.Resizable = DataGridViewTriState.True;
+
             // 
             // ListCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+
+            ClientSize = new Size(1006, 537);
+            Controls.Add(mostarClientes);
+            Controls.Add(dataGridView1);
+
             ClientSize = new Size(1022, 662);
             Controls.Add(dataGridView1);
             Controls.Add(label2);
@@ -175,11 +246,14 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(btnMostrarCompras);
+
             Controls.Add(btnVolver);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListCompras";
             Text = "ListCompras";
+
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -188,6 +262,16 @@
         #endregion
 
         private Button btnVolver;
+
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColID;
+        private DataGridViewTextBoxColumn ColPelicula;
+        private DataGridViewTextBoxColumn ColSala;
+        private DataGridViewTextBoxColumn ColFecha;
+        private DataGridViewTextBoxColumn ColCosto;
+        private DataGridViewTextBoxColumn ColClientes;
+        private Button mostarClientes;
+
         private PictureBox pictureBox1;
         private Button btnMostrarCompras;
         private Label label2;
@@ -201,5 +285,6 @@
         private DataGridViewTextBoxColumn mail;
         private DataGridViewTextBoxColumn password;
         private DataGridViewTextBoxColumn isAdmin;
+
     }
 }

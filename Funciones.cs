@@ -37,14 +37,16 @@ namespace TP1_GrupoB
             refreshData();
         }
 
-
-
         private void refreshData()
         {
             dataGridView1.Rows.Clear();
             foreach (Funcion f in miCine.obtenerFuncion())
             {
+
+                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+
                 dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
+
             }
         }
 
@@ -57,9 +59,14 @@ namespace TP1_GrupoB
             boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
             boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
+
+            boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+            selectedFuncion = int.Parse(boxId.Text);
+
             selectedFuncion = int.Parse(boxId.Text);
             boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             var clientes = dataGridView1[5, e.RowIndex].Value.ToString();
+
         }
 
 
@@ -103,7 +110,7 @@ namespace TP1_GrupoB
         {
             if (selectedFuncion != -1)
             {
-                if (miCine.eliminarUsuario(selectedFuncion))
+                if (miCine.eliminarFunciones(selectedFuncion))
                 {
                     MessageBox.Show("Funcion eliminada con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

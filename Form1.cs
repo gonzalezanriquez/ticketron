@@ -36,8 +36,10 @@ namespace TP1_GrupoB
       
         
         public Form1()
-        {   
+        {
+            
             cine = new Cine();
+            
             InitializeComponent();
 
             #region DATOS DE PRUEBA
@@ -56,6 +58,20 @@ namespace TP1_GrupoB
             cine.agregarSala("CaballitoC", 50);
             cine.agregarSala("CaballitoD", 60);
             cine.agregarSala("CaballitoE", 70);
+
+            DateTime fecha = new DateTime(2023, 5, 1, 5, 12, 55);
+
+            cine.agregarFuncion("CaballitoA", "El mago con patas",  fecha, 300);
+            cine.agregarFuncion("CaballitoB", "El mago con patas",  fecha, 423);
+            cine.agregarFuncion("CaballitoC", "El perro sin patas",  fecha, 223);
+            cine.agregarFuncion("CaballitoD", "El perro sin patas",  fecha, 123);
+            cine.agregarFuncion("CaballitoE", "El baul acolchonado",  fecha, 333);
+           
+
+
+
+
+
 
             #endregion
 
