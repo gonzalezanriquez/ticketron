@@ -36,23 +36,26 @@
             ColFecha = new DataGridViewTextBoxColumn();
             ColCosto = new DataGridViewTextBoxColumn();
             ColClientes = new DataGridViewTextBoxColumn();
-            mostarClientes = new Button();
             pictureBox1 = new PictureBox();
             btnMostrarCompras = new Button();
             label2 = new Label();
             tituloUsuarios = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            label = new Label();
+            label3 = new Label();
+            boxId = new TextBox();
+            btnDevolver = new Button();
+            boxMonto = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(1083, 450);
-            btnVolver.Margin = new Padding(4, 5, 4, 5);
+            btnVolver.Location = new Point(758, 270);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(333, 58);
+            btnVolver.Size = new Size(233, 35);
             btnVolver.TabIndex = 0;
             btnVolver.Text = "VOLVER";
             btnVolver.UseVisualStyleBackColor = true;
@@ -100,24 +103,12 @@
             ColClientes.Name = "ColClientes";
             ColClientes.Width = 150;
             // 
-            // mostarClientes
-            // 
-            mostarClientes.Location = new Point(377, 258);
-            mostarClientes.Margin = new Padding(4, 5, 4, 5);
-            mostarClientes.Name = "mostarClientes";
-            mostarClientes.Size = new Size(107, 38);
-            mostarClientes.TabIndex = 3;
-            mostarClientes.Text = "VOLVER";
-            mostarClientes.UseVisualStyleBackColor = true;
-            mostarClientes.Click += mostarClientes_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1083, 65);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(758, 39);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(333, 355);
+            pictureBox1.Size = new Size(233, 213);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -127,10 +118,9 @@
             btnMostrarCompras.AutoSize = true;
             btnMostrarCompras.BackColor = Color.Orange;
             btnMostrarCompras.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMostrarCompras.Location = new Point(41, 450);
-            btnMostrarCompras.Margin = new Padding(4, 5, 4, 5);
+            btnMostrarCompras.Location = new Point(29, 270);
             btnMostrarCompras.Name = "btnMostrarCompras";
-            btnMostrarCompras.Size = new Size(333, 58);
+            btnMostrarCompras.Size = new Size(233, 35);
             btnMostrarCompras.TabIndex = 7;
             btnMostrarCompras.Text = "MOSTRAR COMPRAS";
             btnMostrarCompras.UseVisualStyleBackColor = false;
@@ -139,10 +129,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(61, 122);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(43, 73);
             label2.Name = "label2";
-            label2.Size = new Size(130, 25);
+            label2.Size = new Size(87, 15);
             label2.TabIndex = 11;
             label2.Text = "Usuario Actual:";
             // 
@@ -150,20 +139,18 @@
             // 
             tituloUsuarios.AutoSize = true;
             tituloUsuarios.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloUsuarios.Location = new Point(56, 65);
-            tituloUsuarios.Margin = new Padding(4, 0, 4, 0);
+            tituloUsuarios.Location = new Point(39, 39);
             tituloUsuarios.Name = "tituloUsuarios";
-            tituloUsuarios.Size = new Size(442, 40);
+            tituloUsuarios.Size = new Size(290, 25);
             tituloUsuarios.TabIndex = 10;
             tituloUsuarios.Text = "SECCION HISTORIAL COMPRAS";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(194, 122);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(136, 73);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
+            label1.Size = new Size(38, 15);
             label1.TabIndex = 9;
             label1.Text = "label1";
             // 
@@ -171,20 +158,68 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
-            dataGridView1.Location = new Point(41, 540);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(29, 324);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1048, 153);
+            dataGridView1.Size = new Size(942, 205);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Location = new Point(96, 161);
+            label.Name = "label";
+            label.Size = new Size(119, 15);
+            label.TabIndex = 43;
+            label.Text = "MONTO A DEVOLVER";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(197, 132);
+            label3.Name = "label3";
+            label3.Size = new Size(18, 15);
+            label3.TabIndex = 42;
+            label3.Text = "ID";
+            // 
+            // boxId
+            // 
+            boxId.BackColor = SystemColors.Menu;
+            boxId.Enabled = false;
+            boxId.Location = new Point(221, 124);
+            boxId.Name = "boxId";
+            boxId.Size = new Size(168, 23);
+            boxId.TabIndex = 41;
+            // 
+            // btnDevolver
+            // 
+            btnDevolver.Location = new Point(221, 200);
+            btnDevolver.Name = "btnDevolver";
+            btnDevolver.Size = new Size(168, 23);
+            btnDevolver.TabIndex = 44;
+            btnDevolver.Text = "DEVOLVER ENTRADA/AS";
+            btnDevolver.UseVisualStyleBackColor = true;
+            btnDevolver.Click += btnDevolver_Click;
+            // 
+            // boxMonto
+            // 
+            boxMonto.Location = new Point(221, 153);
+            boxMonto.Name = "boxMonto";
+            boxMonto.Size = new Size(168, 23);
+            boxMonto.TabIndex = 38;
             // 
             // ListCompras
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1460, 1103);
-            Controls.Add(mostarClientes);
+            ClientSize = new Size(1022, 660);
+            Controls.Add(btnDevolver);
+            Controls.Add(label);
+            Controls.Add(label3);
+            Controls.Add(boxId);
+            Controls.Add(boxMonto);
             Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(tituloUsuarios);
@@ -193,9 +228,9 @@
             Controls.Add(btnMostrarCompras);
             Controls.Add(btnVolver);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "ListCompras";
             Text = "ListCompras";
+            Load += ListCompras_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -213,21 +248,25 @@
         private DataGridViewTextBoxColumn ColFecha;
         private DataGridViewTextBoxColumn ColCosto;
         private DataGridViewTextBoxColumn ColClientes;
-        private Button mostarClientes;
 
         private PictureBox pictureBox1;
         private Button btnMostrarCompras;
         private Label label2;
         private Label tituloUsuarios;
         private Label label1;
+        private Label label;
+        private Label label3;
+        private TextBox boxId;
+        private Button btnDevolver;
+        private TextBox boxMonto;
         /* private DataGridView dataGridView1;
-         private DataGridViewTextBoxColumn idUsuario;
-         private DataGridViewTextBoxColumn dni;
-         private DataGridViewTextBoxColumn nombre;
-         private DataGridViewTextBoxColumn apellido;
-         private DataGridViewTextBoxColumn mail;
-         private DataGridViewTextBoxColumn password;
-         private DataGridViewTextBoxColumn isAdmin;*/
+private DataGridViewTextBoxColumn idUsuario;
+private DataGridViewTextBoxColumn dni;
+private DataGridViewTextBoxColumn nombre;
+private DataGridViewTextBoxColumn apellido;
+private DataGridViewTextBoxColumn mail;
+private DataGridViewTextBoxColumn password;
+private DataGridViewTextBoxColumn isAdmin;*/
 
     }
 }

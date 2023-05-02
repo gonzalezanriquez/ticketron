@@ -35,7 +35,11 @@ namespace TP1_GrupoB
             dataGridView1.Rows.Clear();
             foreach (Funcion f in miCine.obtenerFuncion())
             {
-                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+                if (f.fecha>=DateTime.Now)
+                {
+                    dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+                }
+               
             }
         }
 
@@ -48,24 +52,20 @@ namespace TP1_GrupoB
         private void btnComprar_Click(object sender, EventArgs e)
         {
 
-            
-            
-            
-            
-            
-            MessageBox.Show("CANTIDAD ENTRADAS: "+int.Parse(boxCantidad.Value.ToString()) + " - ID FUNCION:" + int.Parse(boxIds.Text));
+
 
             switch (miCine.comprarEntradas(miCine.Logueado, int.Parse(boxCantidad.Value.ToString()), int.Parse(boxIds.Text)))
-                {
+            {
 
-                case 1: MessageBox.Show("Entrada Comprada con Exito", " Ticketron", MessageBoxButtons.OK,MessageBoxIcon.Information); 
+                case 1:
+                    MessageBox.Show("Entrada Comprada con Exito", " Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 2:
                     MessageBox.Show("Saldo Insuficiente para realizar la compra", " Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
 
             };
- 
+
 
         }
 
@@ -77,7 +77,7 @@ namespace TP1_GrupoB
 
         private void boxCantidad_Button(object sender, EventArgs e)
         {
-         
+
 
         }
 
@@ -89,6 +89,11 @@ namespace TP1_GrupoB
             boxFechas.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
             boxCostos.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             //selectedFuncion = int.Parse(boxId.Text);
+        }
+
+        private void Compra_Load(object sender, EventArgs e)
+        {
+            refreshData();
         }
     }
 }

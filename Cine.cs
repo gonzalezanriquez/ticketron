@@ -29,6 +29,8 @@ namespace TP1_GrupoB
         public List<Sala> salas { get; set; }
         public List<Pelicula> peliculas { get; set; }
         public Usuario Logueado { get; set; }
+        
+        
         #endregion
 
         public Cine()

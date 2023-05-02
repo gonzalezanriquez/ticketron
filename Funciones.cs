@@ -39,11 +39,19 @@ namespace TP1_GrupoB
 
         private void refreshData()
         {
+           
+            
             dataGridView1.Rows.Clear();
+
+           
+
             foreach (Funcion f in miCine.obtenerFuncion())
             {
-
-                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+                if (f.fecha>=DateTime.Now)
+                {
+                    dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+                }
+              
 
               
             }
@@ -128,6 +136,8 @@ namespace TP1_GrupoB
 
         private void Funciones_Load(object sender, EventArgs e)
         {
+
+            refreshData();
             foreach (Sala salas in miCine.obtenerSalas())
             {
                 boxSala.Items.Add(salas.ubicacion);

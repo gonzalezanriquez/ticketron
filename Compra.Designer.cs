@@ -30,17 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
-
             boxFechas = new DateTimePicker();
             boxCantidad = new NumericUpDown();
             boxCostos = new TextBox();
             boxPeliculas = new TextBox();
-            boxSalas = new TextBox();
-
+            boxPelis = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             BoxSala = new TextBox();
-
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -48,6 +45,7 @@
             btnComprar = new Button();
             label5 = new Label();
             label4 = new Label();
+            boxSalas = new TextBox();
             label2 = new Label();
             tituloFunciones = new Label();
             label1 = new Label();
@@ -61,10 +59,6 @@
             ColCosto = new DataGridViewTextBoxColumn();
             ColCantClientes = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
-
-
-            boxPelis = new TextBox();
-
             panelEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)boxCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -73,17 +67,14 @@
             // 
             // panelEdicion
             // 
-
             panelEdicion.Controls.Add(boxFechas);
             panelEdicion.Controls.Add(boxCantidad);
             panelEdicion.Controls.Add(boxCostos);
             panelEdicion.Controls.Add(boxPeliculas);
-
             panelEdicion.Controls.Add(boxPelis);
             panelEdicion.Controls.Add(textBox2);
             panelEdicion.Controls.Add(textBox1);
             panelEdicion.Controls.Add(BoxSala);
-
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
             panelEdicion.Controls.Add(label6);
@@ -96,7 +87,6 @@
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
             // 
-
             // boxFechas
             // 
             boxFechas.CustomFormat = "dd MM yyyy hh:mm:ss";
@@ -134,15 +124,15 @@
             boxPeliculas.Size = new Size(192, 23);
             boxPeliculas.TabIndex = 39;
             // 
-            // boxSalas
+            // boxPelis
             // 
-            boxSalas.BackColor = SystemColors.Menu;
-            boxSalas.Enabled = false;
-            boxSalas.Location = new Point(89, 85);
-            boxSalas.Name = "boxSalas";
-            boxSalas.Size = new Size(192, 23);
-            boxSalas.TabIndex = 38;
-
+            boxPelis.BackColor = SystemColors.Menu;
+            boxPelis.Enabled = false;
+            boxPelis.Location = new Point(89, 56);
+            boxPelis.Name = "boxPelis";
+            boxPelis.Size = new Size(192, 23);
+            boxPelis.TabIndex = 48;
+            // 
             // textBox2
             // 
             textBox2.BackColor = SystemColors.Menu;
@@ -169,7 +159,6 @@
             BoxSala.Name = "BoxSala";
             BoxSala.Size = new Size(192, 23);
             BoxSala.TabIndex = 38;
-
             // 
             // label3
             // 
@@ -200,15 +189,12 @@
             // 
             // boxIds
             // 
-
             boxIds.BackColor = SystemColors.Menu;
             boxIds.Enabled = false;
             boxIds.Location = new Point(89, 22);
             boxIds.Name = "boxIds";
             boxIds.Size = new Size(192, 23);
             boxIds.TabIndex = 32;
-
-
             // 
             // btnComprar
             // 
@@ -237,6 +223,15 @@
             label4.Size = new Size(48, 15);
             label4.TabIndex = 34;
             label4.Text = "Pelicula";
+            // 
+            // boxSalas
+            // 
+            boxSalas.BackColor = SystemColors.Menu;
+            boxSalas.Enabled = false;
+            boxSalas.Location = new Point(89, 85);
+            boxSalas.Name = "boxSalas";
+            boxSalas.Size = new Size(192, 23);
+            boxSalas.TabIndex = 38;
             // 
             // label2
             // 
@@ -339,18 +334,6 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-
-
-            // boxPelis
-            // 
-            boxPelis.BackColor = SystemColors.Menu;
-            boxPelis.Enabled = false;
-            boxPelis.Location = new Point(89, 56);
-            boxPelis.Name = "boxPelis";
-            boxPelis.Size = new Size(192, 23);
-            boxPelis.TabIndex = 48;
-            // 
-
             // Compra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -367,6 +350,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Compra";
             Text = "Compra";
+            Load += Compra_Load;
             panelEdicion.ResumeLayout(false);
             panelEdicion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)boxCantidad).EndInit();
