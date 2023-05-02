@@ -61,11 +61,11 @@ namespace TP1_GrupoB
 
             DateTime fecha = new DateTime(2023, 5, 1, 5, 12, 55);
 
-            cine.agregarFuncion("CaballitoA", "El mago con patas", fecha, 300);
-            cine.agregarFuncion("CaballitoB", "El mago con patas", fecha, 423);
-            cine.agregarFuncion("CaballitoC", "El perro sin patas", fecha, 223);
-            cine.agregarFuncion("CaballitoD", "El perro sin patas", fecha, 123);
-            cine.agregarFuncion("CaballitoE", "El baul acolchonado", fecha, 333);
+            cine.agregarFuncion("CaballitoA", "El mago con patas",  fecha, 300);
+            cine.agregarFuncion("CaballitoB", "El mago con patas",  fecha, 423);
+            cine.agregarFuncion("CaballitoC", "El perro sin patas",  fecha, 223);
+            cine.agregarFuncion("CaballitoD", "El perro sin patas",  fecha, 123);
+            cine.agregarFuncion("CaballitoE", "El baul acolchonado",  fecha, 333);
            
 
 

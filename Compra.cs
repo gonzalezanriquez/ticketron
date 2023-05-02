@@ -20,6 +20,8 @@ namespace TP1_GrupoB
         {
             InitializeComponent();
             this.miCine = miCine;
+
+
         }
 
         public delegate void CompraToCliente();
@@ -41,7 +43,25 @@ namespace TP1_GrupoB
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            miCine.comprarEntrada(miCine.Logueado, cant, int.Parse(boxIds.Text));
+
+            
+            
+            
+            
+            
+            MessageBox.Show("CANTIDAD ENTRADAS: "+int.Parse(boxCantidad.Value.ToString()) + " - ID FUNCION:" + int.Parse(boxIds.Text));
+
+            switch (miCine.comprarEntradas(miCine.Logueado, int.Parse(boxCantidad.Value.ToString()), int.Parse(boxIds.Text)))
+                {
+
+                case 1: MessageBox.Show("Entrada Comprada con Exito", " Ticketron", MessageBoxButtons.OK,MessageBoxIcon.Information); 
+                    break;
+                case 2:
+                    MessageBox.Show("Saldo Insuficiente para realizar la compra", " Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+
+            };
+ 
 
         }
 
@@ -52,7 +72,7 @@ namespace TP1_GrupoB
 
         private void boxCantidad_Button(object sender, EventArgs e)
         {
-            cant = (int)boxCantidad.Value;
+         
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

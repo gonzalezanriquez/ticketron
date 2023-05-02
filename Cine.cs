@@ -10,6 +10,7 @@ using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
 
 namespace TP1_GrupoB
@@ -105,6 +106,9 @@ namespace TP1_GrupoB
         public List<Pelicula> obtenerPeliculas() { 
         return peliculas.ToList();
         }
+
+
+
         #endregion
 
         #region METODOS AGREGAR
@@ -118,7 +122,7 @@ namespace TP1_GrupoB
         
         public bool agregarFuncion(string ubicacionSala, string tituloPelicula, DateTime fechadouble, int costo)
         {
-
+            
             Sala miSala = null;
             foreach (Sala sal in salas)
             {
@@ -153,21 +157,21 @@ namespace TP1_GrupoB
             }
 
 
-            
 
-            if (miSala != null || miPelicula != null || misUsuarios != null)
+            if (miSala != null && miPelicula != null && misUsuarios != null)
             {
 
-                int cantClientes=0;
 
-                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, cantClientes, costo);
+                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 0, costo);
 
                 miPelicula.misFunciones.Add(miFuncion);
                 miSala.misFunciones.Add(miFuncion);
-                //misUsuarios.misFunciones.Add(miFuncion);
-                funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 35, costo));
-                idFunciones++;                               
+                misUsuarios.misFunciones.Add(miFuncion);
 
+                funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble,0, costo));
+                idFunciones++;
+
+               
                 return true;
             }
             else
@@ -384,71 +388,40 @@ namespace TP1_GrupoB
 
 
 
-        #region METODO COMPRA DE ENTRADAS
-        public bool comprarEntrada(Usuario Logueado, int cantidad, int idFuncion)
+          
+
+        public int comprarEntradas(Usuario Logueado, int cantidad, int idFuncion)
         {
-            foreach (Funcion f in funciones) {
-
-                Boolean compra = false;
-                
-
+            int flag = 0;
+            int contador= 0;
+            foreach (Funcion f in funciones)
+            {
                 if (idFuncion == f.id)
-                {
-                    /*
-                    if (cantidad + f.cantClientes < f.miSala.capacidad)
+                {                              
+                    if (cantidad * f.costo <= Logueado.credito && f.miSala.capacidad > f.cantClientes)
                     {
-                        MessageBox.Show("aaaaa" + cantidad + " " + idFuncion + " " + Logueado.nombre);
-                    }
-
-
-                    if (Logueado.credito > f.costo)
-                    {
-                        MessageBox.Show("vvvvvvvvvv" + cantidad + " " + idFuncion + " " + Logueado);
-                        compra = true;
-                    }
-                   
-                    compra = false;
-
-                    if (!compra)
-                    {
-                        MessageBox.Show("ccccccccc" + cantidad + " " + idFuncion + " " + Logueado);
-                        break;
-
-                    }
-                    */
-
-                    if (cantidad < f.miSala.capacidad && f.costo <= Logueado.credito)
-                    {
-                        
-                        Logueado.credito = Logueado.credito - f.costo;
+                        flag = 1;
+                        Logueado.credito -= cantidad * f.costo;
                         f.clientes.Add(Logueado);
-                        MessageBox.Show("SE HIZO LA COMPRA :D" + Logueado.credito);
-                        compra = true;
+                        f.cantClientes += cantidad; 
+                         
+                        MessageBox.Show("Cantidad clientes "+ contador+" - " + f.clientes[0]);                        
 
-
+                        f.miSala.capacidad -= cantidad; 
+                       
+             
+                       return flag;
                     }
-                    else {
-
-                        MessageBox.Show("Gracias por haber venido :(");
-                    }
-
-                    /*
-                    MessageBox.Show("dddddddddd" + cantidad + " " + idFuncion + " " + Logueado);
-                    Logueado.credito = Logueado.credito - f.costo;
-                    f.clientes.Add(Logueado);
-
-                    f.cantClientes = f.cantClientes + cantidad;
-                    return true; 
-                    */
+                    flag = 2;
+                    return flag;
                 }
-                
-                return false;
-       
-            }
-            return false;
-            
+            }              
+
+            return flag;
         }
-        #endregion
+            
+        
+        
 
 
         public bool depositarCredito(int id, double credito, double monto)
