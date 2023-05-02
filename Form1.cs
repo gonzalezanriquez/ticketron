@@ -33,6 +33,8 @@ namespace TP1_GrupoB
         private Compra hijoCompra;
         private ListCompras hijoListCompras;
 
+        private Perfil hijoPerfil;
+
       
         
         public Form1()
@@ -45,9 +47,9 @@ namespace TP1_GrupoB
             #region DATOS DE PRUEBA
             
             /*DATOS DE PRUBA*/
-            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",true);
-            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456",false);
-            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890",  false);
+            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",1000.00,true);
+            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456", 1000.00, false);
+            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890", 1000.00, false);
 
             cine.agregarPelicula( "El mago con patas", "Una pelicula muy buena recomendada para entendidos", "Poster1", 200);
             cine.agregarPelicula( "El perro sin patas", "Una pelicula muy mala no vengan a verla", "Poster2", 150);
@@ -196,6 +198,20 @@ namespace TP1_GrupoB
             Open_Login();
         }
 
+        private void ClienteToPerfil()
+        {
+            hijoCliente.Close();
+            Open_Perfil();
+
+        }
+
+        private void PerfiltoCliente()
+        {
+            hijoPerfil.Close();
+            Open_Cliente();
+
+        }
+
 
         #endregion
 
@@ -284,6 +300,7 @@ namespace TP1_GrupoB
             hijoCliente.t1 += ClienteToCompra;
             hijoCliente.t2 += ClienteToListCompras;
             hijoCliente.t3 += ClienteToInicio;
+            hijoCliente.t4 += ClienteToPerfil;
             hijoCliente.Show();
         }
 
@@ -303,6 +320,15 @@ namespace TP1_GrupoB
             hijoListCompras.t1 += ListComprasToCliente;
            
             hijoListCompras.Show();
+        }
+
+        private void Open_Perfil()
+        {
+            hijoPerfil = new Perfil(cine);
+            hijoPerfil.MdiParent = this;
+            hijoPerfil.Dock = DockStyle.Fill;
+            hijoPerfil.t1 = PerfiltoCliente;
+            hijoPerfil.Show();
         }
 
         #endregion

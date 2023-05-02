@@ -60,7 +60,7 @@
 
                 
             }
-            else if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, checkBoxIsAdmin.Checked))
+            else if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text,0.00, checkBoxIsAdmin.Checked))
             {
                 MessageBox.Show("Usuario agregado con Exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -74,7 +74,7 @@
         {
             if (selectedUser != -1)
             {
-                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text, checkBoxIsAdmin.Checked))
+                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text,0.00, checkBoxIsAdmin.Checked))
                 {
                     MessageBox.Show("Usuario Modificado con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

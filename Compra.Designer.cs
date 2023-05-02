@@ -208,12 +208,6 @@
             boxIds.Size = new Size(192, 23);
             boxIds.TabIndex = 32;
 
-            boxId.BackColor = SystemColors.Menu;
-            boxId.Enabled = false;
-            boxId.Location = new Point(89, 23);
-            boxId.Name = "boxId";
-            boxId.Size = new Size(192, 23);
-            boxId.TabIndex = 32;
 
             // 
             // btnComprar

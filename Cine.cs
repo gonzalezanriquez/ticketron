@@ -113,9 +113,9 @@ namespace TP1_GrupoB
 
         #region METODOS AGREGAR
 
-        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,double credito,bool isAdmin)
         {
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,credito,isAdmin));
             idUsuarios++;
             return true;
         }
@@ -201,7 +201,7 @@ namespace TP1_GrupoB
         #region METODOS MODIFICAR
 
         //MODIFICAR
-        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
+        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,double newCredito, bool isAdmin)
         {
             foreach (Usuario usu in usuarios)
             {
@@ -211,6 +211,7 @@ namespace TP1_GrupoB
                     usu.apellido = apellido;
                     usu.dni = dni;
                     usu.mail = mail;
+                    usu.credito = newCredito;
                     usu.contrasenia = contrasenia;
                     usu.isAdmin = isAdmin;
                     return true;
