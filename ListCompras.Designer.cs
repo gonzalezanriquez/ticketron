@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListCompras));
             btnVolver = new Button();
 
-            dataGridView1 = new DataGridView();
-            ColID = new DataGridViewTextBoxColumn();
+            //dataGridView1 = new DataGridView();
+           /* ColID = new DataGridViewTextBoxColumn();
             ColPelicula = new DataGridViewTextBoxColumn();
             ColSala = new DataGridViewTextBoxColumn();
             ColFecha = new DataGridViewTextBoxColumn();
             ColCosto = new DataGridViewTextBoxColumn();
             ColClientes = new DataGridViewTextBoxColumn();
-            mostarClientes = new Button();
+            mostarClientes = new Button();*/
 
             pictureBox1 = new PictureBox();
             btnMostrarCompras = new Button();
@@ -73,18 +73,18 @@
             btnVolver.Click += btnVolver_Click;
 
             // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            
+           /* dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
             dataGridView1.Location = new Point(161, 317);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(672, 92);
-            dataGridView1.TabIndex = 2;
+            dataGridView1.TabIndex = 2;*/
             // 
             // ColID
             // 
-            ColID.HeaderText = "ID";
+           /* ColID.HeaderText = "ID";
             ColID.Name = "ColID";
             // 
             // ColPelicula
@@ -110,7 +110,7 @@
             // ColClientes
             // 
             ColClientes.HeaderText = "Cant Clientes";
-            ColClientes.Name = "ColClientes";
+            ColClientes.Name = "ColClientes";*/
             // 
             // mostarClientes
             // 
@@ -237,10 +237,10 @@
 
             ClientSize = new Size(1006, 537);
             Controls.Add(mostarClientes);
-            Controls.Add(dataGridView1);
+          //  Controls.Add(dataGridView1);
 
             ClientSize = new Size(1022, 662);
-            Controls.Add(dataGridView1);
+          //  Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(tituloUsuarios);
             Controls.Add(label1);
@@ -254,7 +254,7 @@
 
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+           ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -263,13 +263,13 @@
 
         private Button btnVolver;
 
-        private DataGridView dataGridView1;
+       /* private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ColID;
         private DataGridViewTextBoxColumn ColPelicula;
         private DataGridViewTextBoxColumn ColSala;
         private DataGridViewTextBoxColumn ColFecha;
         private DataGridViewTextBoxColumn ColCosto;
-        private DataGridViewTextBoxColumn ColClientes;
+        private DataGridViewTextBoxColumn ColClientes;*/
         private Button mostarClientes;
 
         private PictureBox pictureBox1;
