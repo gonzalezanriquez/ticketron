@@ -397,6 +397,8 @@ namespace TP1_GrupoB
         {
             int flag = 0;
             int contador= 0;
+
+
             foreach (Funcion f in funciones)
             {
                 if (idFuncion == f.id)
@@ -405,11 +407,17 @@ namespace TP1_GrupoB
                     {
                         flag = 1;
                         Logueado.credito -= cantidad * f.costo;
-                        f.clientes.Add(Logueado);
-                        f.cantClientes += cantidad; 
-                         
-                                             
 
+
+
+                            for (int i = 0; i <= cantidad; i++)
+                        {
+                            MessageBox.Show("ENTRO N! "+ i);
+                            f.clientes.Add(Logueado);
+                            MessageBox.Show(""+f.clientes.Count());
+                        }
+                                                    
+                        f.cantClientes += cantidad;                                              
                         f.miSala.capacidad -= cantidad; 
                        
              
