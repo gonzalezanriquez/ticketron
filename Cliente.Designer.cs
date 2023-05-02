@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cliente));
             tituloClientes = new Label();
-            btnComprar = new Button();
             pictureBox1 = new PictureBox();
             btnCompras = new Button();
             label2 = new Label();
             label1 = new Label();
             btnVolver = new Button();
+            btnBuyTickets = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -48,19 +48,6 @@
             tituloClientes.Size = new Size(181, 25);
             tituloClientes.TabIndex = 15;
             tituloClientes.Text = "SECCION CLIENTES";
-            // 
-            // btnComprar
-            // 
-            btnComprar.BackColor = Color.DarkRed;
-            btnComprar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnComprar.ForeColor = SystemColors.ButtonFace;
-            btnComprar.Location = new Point(106, 267);
-            btnComprar.Name = "btnComprar";
-            btnComprar.Size = new Size(233, 35);
-            btnComprar.TabIndex = 14;
-            btnComprar.Text = "SACA TU ENTRADA";
-            btnComprar.UseVisualStyleBackColor = false;
-            btnComprar.Click += btnComprar_Click;
             // 
             // pictureBox1
             // 
@@ -114,16 +101,28 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
+            // btnBuyTickets
+            // 
+            btnBuyTickets.BackColor = Color.Orange;
+            btnBuyTickets.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuyTickets.Location = new Point(106, 273);
+            btnBuyTickets.Name = "btnBuyTickets";
+            btnBuyTickets.Size = new Size(233, 35);
+            btnBuyTickets.TabIndex = 20;
+            btnBuyTickets.Text = "SACA TU ENTRADA";
+            btnBuyTickets.UseVisualStyleBackColor = false;
+            btnBuyTickets.Click += btnBuyTickets_Click;
+            // 
             // Cliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 623);
+            Controls.Add(btnBuyTickets);
             Controls.Add(btnVolver);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(tituloClientes);
-            Controls.Add(btnComprar);
             Controls.Add(pictureBox1);
             Controls.Add(btnCompras);
             FormBorderStyle = FormBorderStyle.None;
@@ -136,11 +135,11 @@
 
         #endregion
         private Label tituloClientes;
-        private Button btnComprar;
         private PictureBox pictureBox1;
         private Button btnCompras;
         private Label label2;
         private Label label1;
         private Button btnVolver;
+        private Button btnBuyTickets;
     }
 }

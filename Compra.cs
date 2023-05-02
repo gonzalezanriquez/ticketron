@@ -22,6 +22,10 @@ namespace TP1_GrupoB
             this.miCine = miCine;
 
 
+
+
+            label1.Text = miCine.nombreLogueado();
+
         }
 
         public delegate void CompraToCliente();
@@ -68,11 +72,13 @@ namespace TP1_GrupoB
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.t1();
+
         }
 
         private void boxCantidad_Button(object sender, EventArgs e)
         {
          
+
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

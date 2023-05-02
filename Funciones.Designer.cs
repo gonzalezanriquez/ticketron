@@ -58,6 +58,7 @@
             salasBindingSource = new BindingSource(components);
             ID = new DataGridViewTextBoxColumn();
             Pelicula = new DataGridViewTextBoxColumn();
+
             IDs = new DataGridViewTextBoxColumn();
             Peliculas = new DataGridViewTextBoxColumn();
             Salas = new DataGridViewTextBoxColumn();
@@ -66,6 +67,16 @@
             ColID = new DataGridViewTextBoxColumn();
             ColPelicula = new DataGridViewTextBoxColumn();
             ColSala = new DataGridViewTextBoxColumn();
+
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            ColPeliculas = new DataGridViewTextBoxColumn();
+            ColSalas = new DataGridViewTextBoxColumn();
+
             ColFecha = new DataGridViewTextBoxColumn();
             ColCosto = new DataGridViewTextBoxColumn();
             ColClientes = new DataGridViewTextBoxColumn();
@@ -94,8 +105,11 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
+
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, ColPeliculas, ColSalas, ColFecha, ColCosto, ColClientes });
             dataGridView1.Location = new Point(32, 303);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(962, 334);
             dataGridView1.TabIndex = 1;
@@ -312,6 +326,7 @@
             // 
             // ID
             // 
+
             ID.HeaderText = "ID";
             ID.Name = "ID";
             // 
@@ -374,12 +389,95 @@
             // 
             ColClientes.HeaderText = "Cant Clientes";
             ColClientes.Name = "ColClientes";
+
+            ID.Frozen = true;
+            ID.HeaderText = "id";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // Pelicula
+            // 
+            Pelicula.Frozen = true;
+            Pelicula.HeaderText = "Pelicula";
+            Pelicula.Name = "Pelicula";
+            Pelicula.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "ID";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Peliculas";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Salas";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Fechas";
+            Column4.Name = "Column4";
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Costos";
+            Column1.Name = "Column1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.Frozen = true;
+            dataGridViewTextBoxColumn2.HeaderText = "ID";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // ColPeliculas
+            // 
+            ColPeliculas.Frozen = true;
+            ColPeliculas.HeaderText = "Peliculas";
+            ColPeliculas.Name = "ColPeliculas";
+            ColPeliculas.ReadOnly = true;
+            // 
+            // ColSalas
+            // 
+            ColSalas.Frozen = true;
+            ColSalas.HeaderText = "Salas";
+            ColSalas.Name = "ColSalas";
+            ColSalas.ReadOnly = true;
+            // 
+            // ColFecha
+            // 
+            ColFecha.Frozen = true;
+            ColFecha.HeaderText = "Fecha";
+            ColFecha.Name = "ColFecha";
+            ColFecha.ReadOnly = true;
+            // 
+            // ColCosto
+            // 
+            ColCosto.Frozen = true;
+            ColCosto.HeaderText = "Costo";
+            ColCosto.Name = "ColCosto";
+            ColCosto.ReadOnly = true;
+            // 
+            // ColClientes
+            // 
+            ColClientes.Frozen = true;
+            ColClientes.HeaderText = "Cant Clientes";
+            ColClientes.Name = "ColClientes";
+            ColClientes.ReadOnly = true;
+
             // 
             // Funciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1022, 662);
+            ClientSize = new Size(1022, 660);
             Controls.Add(panelEdicion);
             Controls.Add(label2);
             Controls.Add(tituloFunciones);
@@ -446,6 +544,7 @@
         private ComboBox boxPelicula;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Pelicula;
+
         private DataGridViewTextBoxColumn IDs;
         private DataGridViewTextBoxColumn Peliculas;
         private DataGridViewTextBoxColumn Salas;
@@ -454,6 +553,16 @@
         private DataGridViewTextBoxColumn ColID;
         private DataGridViewTextBoxColumn ColPelicula;
         private DataGridViewTextBoxColumn ColSala;
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn ColPeliculas;
+        private DataGridViewTextBoxColumn ColSalas;
+
         private DataGridViewTextBoxColumn ColFecha;
         private DataGridViewTextBoxColumn ColCosto;
         private DataGridViewTextBoxColumn ColClientes;

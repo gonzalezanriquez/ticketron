@@ -30,11 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compra));
             panelEdicion = new Panel();
+
             boxFechas = new DateTimePicker();
             boxCantidad = new NumericUpDown();
             boxCostos = new TextBox();
             boxPeliculas = new TextBox();
             boxSalas = new TextBox();
+
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            BoxSala = new TextBox();
+
             label3 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -55,6 +61,10 @@
             ColCosto = new DataGridViewTextBoxColumn();
             ColCantClientes = new DataGridViewTextBoxColumn();
             btnVolver = new Button();
+
+
+            boxPelis = new TextBox();
+
             panelEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)boxCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -63,11 +73,17 @@
             // 
             // panelEdicion
             // 
+
             panelEdicion.Controls.Add(boxFechas);
             panelEdicion.Controls.Add(boxCantidad);
             panelEdicion.Controls.Add(boxCostos);
             panelEdicion.Controls.Add(boxPeliculas);
-            panelEdicion.Controls.Add(boxSalas);
+
+            panelEdicion.Controls.Add(boxPelis);
+            panelEdicion.Controls.Add(textBox2);
+            panelEdicion.Controls.Add(textBox1);
+            panelEdicion.Controls.Add(BoxSala);
+
             panelEdicion.Controls.Add(label3);
             panelEdicion.Controls.Add(label7);
             panelEdicion.Controls.Add(label6);
@@ -80,6 +96,7 @@
             panelEdicion.Size = new Size(611, 161);
             panelEdicion.TabIndex = 47;
             // 
+
             // boxFechas
             // 
             boxFechas.CustomFormat = "dd MM yyyy hh:mm:ss";
@@ -125,6 +142,34 @@
             boxSalas.Name = "boxSalas";
             boxSalas.Size = new Size(192, 23);
             boxSalas.TabIndex = 38;
+
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Menu;
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(351, 54);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(192, 23);
+            textBox2.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Menu;
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(351, 22);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(192, 23);
+            textBox1.TabIndex = 48;
+            // 
+            // BoxSala
+            // 
+            BoxSala.BackColor = SystemColors.Menu;
+            BoxSala.Enabled = false;
+            BoxSala.Location = new Point(89, 85);
+            BoxSala.Name = "BoxSala";
+            BoxSala.Size = new Size(192, 23);
+            BoxSala.TabIndex = 38;
+
             // 
             // label3
             // 
@@ -155,12 +200,21 @@
             // 
             // boxIds
             // 
+
             boxIds.BackColor = SystemColors.Menu;
             boxIds.Enabled = false;
             boxIds.Location = new Point(89, 22);
             boxIds.Name = "boxIds";
             boxIds.Size = new Size(192, 23);
             boxIds.TabIndex = 32;
+
+            boxId.BackColor = SystemColors.Menu;
+            boxId.Enabled = false;
+            boxId.Location = new Point(89, 23);
+            boxId.Name = "boxId";
+            boxId.Size = new Size(192, 23);
+            boxId.TabIndex = 32;
+
             // 
             // btnComprar
             // 
@@ -291,6 +345,18 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
+
+
+            // boxPelis
+            // 
+            boxPelis.BackColor = SystemColors.Menu;
+            boxPelis.Enabled = false;
+            boxPelis.Location = new Point(89, 56);
+            boxPelis.Name = "boxPelis";
+            boxPelis.Size = new Size(192, 23);
+            boxPelis.TabIndex = 48;
+            // 
+
             // Compra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -341,6 +407,7 @@
         private TextBox boxPelicula;
         private TextBox BoxSala;
         private ComboBox boxSala;
+
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn ColPelicula;
         private DataGridViewTextBoxColumn ColSala;
@@ -356,6 +423,9 @@
         private TextBox boxPeliculas;
         private TextBox boxSalas;
         private TextBox boxIds;
+
+        private TextBox boxPelis;
+
         //  private ComboBox boxPelicula;
     }
 }
