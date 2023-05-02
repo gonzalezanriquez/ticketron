@@ -16,7 +16,7 @@ namespace TP1_GrupoB
     {
         private Cine miCine;
         public ListComprasToCliente t1;
-        
+
 
         public ListCompras(Cine cine)
         {
@@ -41,7 +41,7 @@ namespace TP1_GrupoB
 
         //private void btnMostrar_Click(object sender, EventArgs e)
         //{
-            
+
         //}
 
 
@@ -49,19 +49,19 @@ namespace TP1_GrupoB
         private void btnMostrarCompras_Click(object sender, EventArgs e)
         {
             refreshData();
-            if (miCine.Logueado.misFunciones.Count==0)
+            if (miCine.Logueado.misFunciones.Count == 0)
             {
                 MessageBox.Show("el Usuario no tiene funciones Asignadas", "Ticketron");
             }
 
-            
+
         }
 
         private void refreshData()
         {
             dataGridView1.Rows.Clear();
 
-            
+
 
 
             foreach (Funcion f in miCine.Logueado.misFunciones)
@@ -91,15 +91,16 @@ namespace TP1_GrupoB
         public delegate void ListComprasToCliente();
 
 
-            foreach (Funcion u in miCine.Logueado.misFunciones)
-            {
-                dataGridView1.Rows.Add(new string[] { u.id.ToString() });
-            }
-        }
+        /*       foreach (Funcion u in miCine.Logueado.misFunciones)
+               {
+                   dataGridView1.Rows.Add(new string[] { u.id.ToString() });
+               }
+           }
+       }*/
+
+
+        // public delegate void ListComprasToCliente();
+
+
     }
-
-
-        public delegate void ListComprasToCliente();
-
-    
 }
