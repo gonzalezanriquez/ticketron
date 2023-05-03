@@ -116,16 +116,24 @@ namespace TP1_GrupoB
 
         #region METODOS AGREGAR
 
+      
+
+
         public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,double credito,bool isAdmin)
         {
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,credito,isAdmin));
+
+       
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia, credito, isAdmin));
             idUsuarios++;
-            return true;
+            return true; 
+            
+            
         }
         
         public bool agregarFuncion(string ubicacionSala, string tituloPelicula, DateTime fechadouble, int costo)
         {
-            
+
+         
             Sala miSala = null;
             foreach (Sala sal in salas)
             {
