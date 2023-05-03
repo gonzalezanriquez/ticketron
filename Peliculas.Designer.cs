@@ -57,8 +57,12 @@
             label8 = new Label();
             boxDuracion = new TextBox();
             label5 = new Label();
+            btnCancel = new Button();
+            BoxFlyer = new PictureBox();
+            btnFlyer = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BoxFlyer).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -71,12 +75,13 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(970, 303);
+            dataGridView1.Size = new Size(969, 303);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // id
             // 
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             id.DefaultCellStyle = dataGridViewCellStyle1;
             id.HeaderText = "id";
@@ -128,9 +133,9 @@
             // button2
             // 
             button2.BackColor = Color.RosyBrown;
-            button2.Location = new Point(761, 244);
+            button2.Location = new Point(797, 272);
             button2.Name = "button2";
-            button2.Size = new Size(233, 35);
+            button2.Size = new Size(196, 31);
             button2.TabIndex = 2;
             button2.Text = "VOLVER";
             button2.UseVisualStyleBackColor = false;
@@ -158,9 +163,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(761, 25);
+            pictureBox1.Location = new Point(797, 83);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(233, 213);
+            pictureBox1.Size = new Size(196, 183);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -177,7 +182,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(372, 118);
+            label6.Location = new Point(307, 113);
             label6.Name = "label6";
             label6.Size = new Size(50, 15);
             label6.TabIndex = 35;
@@ -186,7 +191,7 @@
             // label
             // 
             label.AutoSize = true;
-            label.Location = new Point(78, 150);
+            label.Location = new Point(52, 150);
             label.Name = "label";
             label.Size = new Size(37, 15);
             label.TabIndex = 33;
@@ -195,7 +200,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(78, 118);
+            label3.Location = new Point(52, 118);
             label3.Name = "label3";
             label3.Size = new Size(18, 15);
             label3.TabIndex = 32;
@@ -205,36 +210,36 @@
             // 
             boxId.BackColor = SystemColors.Menu;
             boxId.Enabled = false;
-            boxId.Location = new Point(167, 110);
+            boxId.Location = new Point(121, 110);
             boxId.Name = "boxId";
             boxId.Size = new Size(32, 23);
             boxId.TabIndex = 31;
             // 
             // boxPoster
             // 
-            boxPoster.Location = new Point(167, 197);
+            boxPoster.Location = new Point(121, 197);
             boxPoster.Name = "boxPoster";
             boxPoster.Size = new Size(158, 23);
             boxPoster.TabIndex = 29;
             // 
             // boxSinopsis
             // 
-            boxSinopsis.Location = new Point(438, 110);
+            boxSinopsis.Location = new Point(307, 139);
             boxSinopsis.Multiline = true;
             boxSinopsis.Name = "boxSinopsis";
-            boxSinopsis.Size = new Size(192, 110);
+            boxSinopsis.Size = new Size(176, 81);
             boxSinopsis.TabIndex = 28;
             // 
             // boxNombre
             // 
-            boxNombre.Location = new Point(167, 139);
+            boxNombre.Location = new Point(121, 139);
             boxNombre.Name = "boxNombre";
             boxNombre.Size = new Size(158, 23);
             boxNombre.TabIndex = 26;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(438, 244);
+            btnEliminar.Location = new Point(293, 243);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(97, 23);
             btnEliminar.TabIndex = 25;
@@ -244,7 +249,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(290, 244);
+            btnModificar.Location = new Point(190, 243);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(97, 23);
             btnModificar.TabIndex = 24;
@@ -254,7 +259,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(144, 244);
+            btnAgregar.Location = new Point(87, 243);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(97, 23);
             btnAgregar.TabIndex = 23;
@@ -265,7 +270,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(78, 205);
+            label8.Location = new Point(52, 205);
             label8.Name = "label8";
             label8.Size = new Size(40, 15);
             label8.TabIndex = 37;
@@ -273,7 +278,7 @@
             // 
             // boxDuracion
             // 
-            boxDuracion.Location = new Point(167, 168);
+            boxDuracion.Location = new Point(121, 168);
             boxDuracion.Name = "boxDuracion";
             boxDuracion.Size = new Size(158, 23);
             boxDuracion.TabIndex = 27;
@@ -281,17 +286,49 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(78, 176);
+            label5.Location = new Point(52, 176);
             label5.Name = "label5";
             label5.Size = new Size(55, 15);
             label5.TabIndex = 34;
             label5.Text = "Duracion";
+            // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(396, 243);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(97, 23);
+            btnCancel.TabIndex = 38;
+            btnCancel.Text = "CANCELAR";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // BoxFlyer
+            // 
+            BoxFlyer.Location = new Point(526, 83);
+            BoxFlyer.Name = "BoxFlyer";
+            BoxFlyer.Size = new Size(243, 183);
+            BoxFlyer.SizeMode = PictureBoxSizeMode.Zoom;
+            BoxFlyer.TabIndex = 39;
+            BoxFlyer.TabStop = false;
+            // 
+            // btnFlyer
+            // 
+            btnFlyer.Location = new Point(561, 282);
+            btnFlyer.Name = "btnFlyer";
+            btnFlyer.Size = new Size(75, 23);
+            btnFlyer.TabIndex = 40;
+            btnFlyer.Text = "SUBIR";
+            btnFlyer.UseVisualStyleBackColor = true;
+            btnFlyer.Click += btnFlyer_Click;
             // 
             // Peliculas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnFlyer);
+            Controls.Add(BoxFlyer);
+            Controls.Add(btnCancel);
             Controls.Add(label8);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -318,6 +355,7 @@
             Load += Peliculas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BoxFlyer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -349,5 +387,8 @@
         private DataGridViewTextBoxColumn Sinopsis;
         private DataGridViewTextBoxColumn Poster;
         private DataGridViewTextBoxColumn Duracion;
+        private Button btnCancel;
+        private PictureBox BoxFlyer;
+        private Button btnFlyer;
     }
 }

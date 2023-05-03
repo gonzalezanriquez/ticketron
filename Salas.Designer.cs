@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salas));
             btnVolver = new Button();
             dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            Ubicacion = new DataGridViewTextBoxColumn();
+            Capacidad = new DataGridViewTextBoxColumn();
             pictureBox1 = new PictureBox();
             tituloUsuarios = new Label();
             label2 = new Label();
@@ -45,9 +48,7 @@
             btnModificar = new Button();
             btnAgregar = new Button();
             botonMostrarSalas = new Button();
-            id = new DataGridViewTextBoxColumn();
-            Ubicacion = new DataGridViewTextBoxColumn();
-            Capacidad = new DataGridViewTextBoxColumn();
+            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -72,6 +73,22 @@
             dataGridView1.Size = new Size(962, 334);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            // 
+            // id
+            // 
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // Ubicacion
+            // 
+            Ubicacion.HeaderText = "Ubicacion";
+            Ubicacion.Name = "Ubicacion";
+            // 
+            // Capacidad
+            // 
+            Capacidad.HeaderText = "Capacidad";
+            Capacidad.Name = "Capacidad";
             // 
             // pictureBox1
             // 
@@ -204,27 +221,22 @@
             botonMostrarSalas.UseVisualStyleBackColor = false;
             botonMostrarSalas.Click += botonMostrarSalas_Click;
             // 
-            // id
+            // btnCancel
             // 
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // Ubicacion
-            // 
-            Ubicacion.HeaderText = "Ubicacion";
-            Ubicacion.Name = "Ubicacion";
-            // 
-            // Capacidad
-            // 
-            Capacidad.HeaderText = "Capacidad";
-            Capacidad.Name = "Capacidad";
+            btnCancel.Location = new Point(405, 200);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(97, 23);
+            btnCancel.TabIndex = 37;
+            btnCancel.Text = "CANCELAR";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // Salas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnCancel);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -272,5 +284,6 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn Ubicacion;
         private DataGridViewTextBoxColumn Capacidad;
+        private Button btnCancel;
     }
 }

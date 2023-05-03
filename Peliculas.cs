@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TP1_GrupoB
 {
@@ -40,12 +42,17 @@ namespace TP1_GrupoB
 
                 dataGridView1.Rows.Add(new string[] { p.id.ToString(), p.nombre, p.sinopsis, p.poster, p.duracion.ToString() });
 
+
+
             }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.t1();
+
+
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -64,6 +71,8 @@ namespace TP1_GrupoB
                 boxPoster.Text = dataGridView1[3, e.RowIndex].Value.ToString();
                 boxDuracion.Text = dataGridView1[4, e.RowIndex].Value.ToString();
 
+                BoxFlyer.Image = Image.FromFile(@boxPoster.Text);
+                disableBtn();
                 selectedFilm = int.Parse(boxId.Text);
             }
         }
@@ -74,6 +83,9 @@ namespace TP1_GrupoB
             {
 
                 MessageBox.Show("Todos los campos deben estar completos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                refreshData();
+                clearBox();
+                enableBtn();
             }
             else
             {
@@ -90,6 +102,9 @@ namespace TP1_GrupoB
                 if (miCine.modificarPelicula(selectedFilm, boxNombre.Text, boxSinopsis.Text, boxPoster.Text, int.Parse(boxDuracion.Text)))
                 {
                     MessageBox.Show("Pelicula Modificada con Éxito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    refreshData();
+                    clearBox();
+                    enableBtn();
                 }
                 else
                 {
@@ -109,6 +124,9 @@ namespace TP1_GrupoB
             {
                 miCine.eliminarPeliculas(int.Parse(boxId.Text));
                 MessageBox.Show("Pelicula Eliminada con Éxito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refreshData();
+                clearBox();
+                enableBtn();
             }
             else
             {
@@ -118,9 +136,61 @@ namespace TP1_GrupoB
 
         }
 
+
+
+
+        private void clearBox()
+        {
+            boxId.Clear();
+            boxNombre.Clear();
+            boxSinopsis.Clear();
+            boxPoster.Clear();
+            boxDuracion.Clear();
+            BoxFlyer.Image = null;
+        }
+
+        private void enableBtn()
+        {
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnCancel.Visible = false;
+
+        }
+        private void disableBtn()
+        {
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnCancel.Visible = true;
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clearBox();
+            enableBtn();
+
+        }
+
         private void Peliculas_Load(object sender, EventArgs e)
         {
             refreshData();
+            enableBtn();
+        }
+
+        private void btnFlyer_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                BoxFlyer.Image = new Bitmap(open.FileName);
+                // image file path  
+                boxPoster.Text = open.FileName;
+            }
         }
     }
 
