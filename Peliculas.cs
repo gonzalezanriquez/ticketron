@@ -136,9 +136,6 @@ namespace TP1_GrupoB
 
         }
 
-
-
-
         private void clearBox()
         {
             boxId.Clear();
