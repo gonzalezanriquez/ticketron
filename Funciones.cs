@@ -39,14 +39,21 @@ namespace TP1_GrupoB
 
         private void refreshData()
         {
+           
+            
             dataGridView1.Rows.Clear();
+
+           
+
             foreach (Funcion f in miCine.obtenerFuncion())
             {
+                if (f.fecha>=DateTime.Now)
+                {
+                    dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
+                }
+              
 
-                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString() });
-
-                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre.ToString(), f.miSala.ubicacion.ToString(), f.fecha.ToString(), f.costo.ToString(), f.cantClientes.ToString(), });
-
+              
             }
         }
 
@@ -62,9 +69,6 @@ namespace TP1_GrupoB
 
             boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             selectedFuncion = int.Parse(boxId.Text);
-
-            selectedFuncion = int.Parse(boxId.Text);
-            boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
             var clientes = dataGridView1[5, e.RowIndex].Value.ToString();
 
         }
@@ -132,6 +136,8 @@ namespace TP1_GrupoB
 
         private void Funciones_Load(object sender, EventArgs e)
         {
+
+            refreshData();
             foreach (Sala salas in miCine.obtenerSalas())
             {
                 boxSala.Items.Add(salas.ubicacion);

@@ -18,6 +18,7 @@ namespace TP1_GrupoB
         public ClienteToCompra t1;
         public ClienteToListCompras t2;
         public ClienteToInicio t3;
+        public ClienteToPerfil t4;
 
 
         public Cliente(Cine cine)
@@ -29,7 +30,7 @@ namespace TP1_GrupoB
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-         
+
         }
         /*IR A LISTADO DE COMPRAS*/
         private void btnBuyTickets_Click(object sender, EventArgs e)
@@ -48,8 +49,14 @@ namespace TP1_GrupoB
             this.t2();
         }
 
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            this.t4();
+        }
+
         public delegate void ClienteToCompra();
         public delegate void ClienteToListCompras();
         public delegate void ClienteToInicio();
+        public delegate void ClienteToPerfil();
     }
 }

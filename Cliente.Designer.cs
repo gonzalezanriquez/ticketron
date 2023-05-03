@@ -36,6 +36,7 @@
             label1 = new Label();
             btnVolver = new Button();
             btnBuyTickets = new Button();
+            btnPerfil = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -93,7 +94,7 @@
             // 
             btnVolver.BackColor = Color.ForestGreen;
             btnVolver.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVolver.Location = new Point(744, 534);
+            btnVolver.Location = new Point(744, 500);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(173, 35);
             btnVolver.TabIndex = 19;
@@ -103,8 +104,9 @@
             // 
             // btnBuyTickets
             // 
-            btnBuyTickets.BackColor = Color.Orange;
+            btnBuyTickets.BackColor = Color.DarkRed;
             btnBuyTickets.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuyTickets.ForeColor = SystemColors.ControlLightLight;
             btnBuyTickets.Location = new Point(106, 273);
             btnBuyTickets.Name = "btnBuyTickets";
             btnBuyTickets.Size = new Size(233, 35);
@@ -113,11 +115,24 @@
             btnBuyTickets.UseVisualStyleBackColor = false;
             btnBuyTickets.Click += btnBuyTickets_Click;
             // 
+            // btnPerfil
+            // 
+            btnPerfil.BackColor = Color.SteelBlue;
+            btnPerfil.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPerfil.Location = new Point(106, 395);
+            btnPerfil.Name = "btnPerfil";
+            btnPerfil.Size = new Size(233, 35);
+            btnPerfil.TabIndex = 21;
+            btnPerfil.Text = "CONSULTA TU PERFIL";
+            btnPerfil.UseVisualStyleBackColor = false;
+            btnPerfil.Click += btnPerfil_Click;
+            // 
             // Cliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 623);
+            Controls.Add(btnPerfil);
             Controls.Add(btnBuyTickets);
             Controls.Add(btnVolver);
             Controls.Add(label2);
@@ -141,5 +156,6 @@
         private Label label1;
         private Button btnVolver;
         private Button btnBuyTickets;
+        private Button btnPerfil;
     }
 }

@@ -106,7 +106,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColID, ColPelicula, ColSala, ColFecha, ColCosto, ColClientes });
 
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, ColPeliculas, ColSalas, ColFecha, ColCosto, ColClientes });
+            //dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, ColPeliculas, ColSalas, ColFecha, ColCosto, ColClientes });
             dataGridView1.Location = new Point(32, 303);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;

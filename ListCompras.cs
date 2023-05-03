@@ -16,13 +16,13 @@ namespace TP1_GrupoB
     {
         private Cine miCine;
         public ListComprasToCliente t1;
-        
+
 
         public ListCompras(Cine cine)
         {
             miCine = cine;
             InitializeComponent();
-            label1.Text = miCine.nombreLogueado();
+            label1.Text = miCine.nombreLogueado() + " Saldo: " + miCine.Logueado.credito;
         }
 
 
@@ -39,67 +39,66 @@ namespace TP1_GrupoB
         }
 
 
-        //private void btnMostrar_Click(object sender, EventArgs e)
-        //{
-            
-        //}
-
-
 
         private void btnMostrarCompras_Click(object sender, EventArgs e)
         {
             refreshData();
-            if (miCine.Logueado.misFunciones.Count==0)
+            if (miCine.Logueado.misFunciones.Count == 0)
             {
                 MessageBox.Show("el Usuario no tiene funciones Asignadas", "Ticketron");
             }
 
-            
         }
 
         private void refreshData()
         {
             dataGridView1.Rows.Clear();
 
-            
-
 
             foreach (Funcion f in miCine.Logueado.misFunciones)
             {
-
-                dataGridView1.Rows.Add(new string[] { miCine.Logueado.nombre, f.pelicula.nombre, f.miSala.ubicacion, f.fecha.ToString() });
+                dataGridView1.Rows.Add(new string[] { f.id.ToString(), f.pelicula.nombre, f.miSala.ubicacion, f.fecha.ToString(), f.costo.ToString() });
             }
+
         }
 
-
-
-
-        //private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
-        //    boxPelicula.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-        //    boxSala.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-        //    boxFecha.Value = Convert.ToDateTime(dataGridView1[3, e.RowIndex].Value.ToString());
-        //    boxCosto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
-        //    selectedFuncion = int.Parse(boxId.Text);
-        //}
-
-
-
-
-
-        public delegate void ListComprasToCliente();
-
-
-            foreach (Funcion u in miCine.Logueado.misFunciones)
+        private void ListCompras_Load(object sender, EventArgs e)
+        {
+            refreshData();
+            if (miCine.Logueado.misFunciones.Count == 0)
             {
-                dataGridView1.Rows.Add(new string[] { u.id.ToString() });
+                MessageBox.Show("el Usuario no tiene funciones Asignadas", "Ticketron");
+            }
+
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            boxId.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+            boxMonto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+            foreach (Funcion f in miCine.Logueado.misFunciones)
+            {
+
+                if (f.fecha >= DateTime.Now)
+                {
+                    miCine.Logueado.credito += f.costo;
+                    
+                    MessageBox.Show("Monto devuelto de manera correcta.", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+
+
             }
         }
-    }
-
 
         public delegate void ListComprasToCliente();
 
-    
+
+
+    }
 }

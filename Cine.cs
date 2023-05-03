@@ -29,6 +29,8 @@ namespace TP1_GrupoB
         public List<Sala> salas { get; set; }
         public List<Pelicula> peliculas { get; set; }
         public Usuario Logueado { get; set; }
+        
+        
         #endregion
 
         public Cine()
@@ -54,7 +56,7 @@ namespace TP1_GrupoB
 
             foreach (Usuario usu in usuarios)
             {
-                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase))
+                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.isBloqueado)
                 {
                     flag = 4;
                     continue;
@@ -69,6 +71,7 @@ namespace TP1_GrupoB
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
                     usu.intentosFallidos++;
+                    usu.isBloqueado=true;
                     flag = 2;
                     return Tuple.Create(flag, usu.intentosFallidos);               
                 }
@@ -113,9 +116,9 @@ namespace TP1_GrupoB
 
         #region METODOS AGREGAR
 
-        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,double credito,bool isAdmin)
         {
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,credito,isAdmin));
             idUsuarios++;
             return true;
         }
@@ -201,7 +204,7 @@ namespace TP1_GrupoB
         #region METODOS MODIFICAR
 
         //MODIFICAR
-        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
+        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,double newCredito, bool isAdmin)
         {
             foreach (Usuario usu in usuarios)
             {
@@ -211,6 +214,7 @@ namespace TP1_GrupoB
                     usu.apellido = apellido;
                     usu.dni = dni;
                     usu.mail = mail;
+                    usu.credito = newCredito;
                     usu.contrasenia = contrasenia;
                     usu.isAdmin = isAdmin;
                     return true;
@@ -394,6 +398,8 @@ namespace TP1_GrupoB
         {
             int flag = 0;
             int contador= 0;
+
+
             foreach (Funcion f in funciones)
             {
                 if (idFuncion == f.id)
@@ -402,11 +408,14 @@ namespace TP1_GrupoB
                     {
                         flag = 1;
                         Logueado.credito -= cantidad * f.costo;
-                        f.clientes.Add(Logueado);
-                        f.cantClientes += cantidad; 
-                         
-                        MessageBox.Show("Cantidad clientes "+ contador+" - " + f.clientes[0]);                        
 
+
+                            for (int i = 0; i <= cantidad; i++)
+                        {                           
+                            f.clientes.Add(Logueado);                            
+                        }
+                                                    
+                        f.cantClientes += cantidad;                                              
                         f.miSala.capacidad -= cantidad; 
                        
              

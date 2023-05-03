@@ -44,13 +44,13 @@ namespace TP1_GrupoB
             if (mail != null && mail != "" && pass != null && pass != "" && nombre != null && nombre != "" && apellido != null && apellido != ""
                 && dni != null && dni != "")
             {
-                miCine.agregarUsuario(dni, nombre, apellido, mail, pass, isAdmin);
+                miCine.agregarUsuario(dni, nombre, apellido, mail, pass,0.00, isAdmin);
                 MessageBox.Show("Usuario registrado con exito.", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.t1();
             }
             else
             {
-                miCine.agregarUsuario(dni, nombre, apellido, mail, pass, isAdmin);
+                miCine.agregarUsuario(dni, nombre, apellido, mail, pass,0.0, isAdmin);
                 MessageBox.Show("Debe completar todos los campos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 

@@ -74,7 +74,7 @@ namespace TP1_GrupoB
         {
             if (selectedSala != -1)
             {
-                if (miCine.modificarSala(selectedSala,boxUbicacion.Text,int.Parse(boxCapacidad.Text)))
+                if (miCine.modificarSala(selectedSala, boxUbicacion.Text, int.Parse(boxCapacidad.Text)))
                 {
                     MessageBox.Show("Sala Modificada con Exito", "Ticketron");
                 }
@@ -103,6 +103,11 @@ namespace TP1_GrupoB
                 MessageBox.Show("Se debe seleccionar un Sala");
             }
 
+        }
+
+        private void Salas_Load(object sender, EventArgs e)
+        {
+            refreshData();
         }
     }
     public delegate void SalasToAdmin();
