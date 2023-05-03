@@ -1,11 +1,13 @@
-﻿namespace TP1_GrupoB
+﻿using System.Windows.Forms;
+
+namespace TP1_GrupoB
 {
     public partial class Usuarios : Form
     {
         private Cine miCine;
         private int selectedUser;
-        public Usuarios_Bienvenida transferencia;
-        public bool isA;
+        public UsuariosToAdmin t1;
+
 
         public Usuarios(Cine cine)
         {
@@ -13,40 +15,29 @@
             miCine = cine;
             label1.Text = miCine.nombreLogueado();
             selectedUser = -1;
-
         }
-
-
 
         private void botonMostrarUsuarios_Click(object sender, EventArgs e)
         {
-
             refreshData();
             selectedUser = -1;
         }
 
         private void refreshData()
         {
-
             dataGridView1.Rows.Clear();
 
             foreach (Usuario u in miCine.obtenerUsuarios())
             {
-
                 dataGridView1.Rows.Add(new string[] { u.id.ToString(), u.dni, u.nombre, u.apellido, u.mail, u.contrasenia, u.isAdmin.ToString() });
-
             }
         }
 
         private void volver_button_Click(object sender, EventArgs e)
         {
-            this.transferencia();
+            this.t1();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -58,9 +49,12 @@
             boxContrasenia.Text = dataGridView1[5, e.RowIndex].Value.ToString();
             checkBoxIsAdmin.Checked = bool.Parse(dataGridView1[6, e.RowIndex].Value.ToString());
 
+            disableBtn();
 
             selectedUser = int.Parse(boxId.Text);
+
         }
+
 
         //AGREGAR
         private void button1_Click(object sender, EventArgs e)
@@ -68,35 +62,42 @@
         {
             if (boxDni.Text == "" || boxNombre.Text == "" || boxApellido.Text == "" || boxContrasenia.Text == "" || boxMail.Text == "" || boxNombre.Text == null || boxApellido.Text == null || boxContrasenia.Text == null || boxMail.Text == null)
             {
-                MessageBox.Show("Debe rellenar los datos para agregar al usuario");
-            }
-            else
-                MessageBox.Show((checkBoxIsAdmin.Text));
+                MessageBox.Show("Debe completar todos los campos", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ 
 
-            if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, checkBoxIsAdmin.Checked))
+
+            }
+            else if (miCine.agregarUsuario(boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, 0.00, checkBoxIsAdmin.Checked))
             {
-                MessageBox.Show("Agregado con exito");
+                MessageBox.Show("Usuario agregado con Exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refreshData();
+                enableBtn();
+                clearBox();
             }
             else
-                MessageBox.Show("Problemas al agregar");
+                MessageBox.Show("Problemas al agregar", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
 
         //MODIFICAR
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (selectedUser != -1)
             {
-                if (miCine.modificarUsuario(selectedUser, boxId.Text, boxNombre.Text, boxApellido.Text, boxContrasenia.Text, boxMail.Text))
+                if (miCine.modificarUsuario(selectedUser, boxDni.Text, boxNombre.Text, boxApellido.Text, boxMail.Text, boxContrasenia.Text, 0.00, checkBoxIsAdmin.Checked))
                 {
-                    MessageBox.Show("Modificado con exito");
+                    MessageBox.Show("Usuario Modificado con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshData();
+                    enableBtn();
+                    clearBox();
                 }
                 else
-                    MessageBox.Show("No se pudo modificar");
+                    MessageBox.Show("El usario no pudo ser modificado", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("Se debe seleccionar un usuario");
+                MessageBox.Show("Se debe seleccionar un usuario", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         //ELIMINAR
@@ -106,19 +107,56 @@
             {
                 if (miCine.eliminarUsuario(selectedUser))
                 {
-                    MessageBox.Show("Eliminado con exito");
+                    MessageBox.Show("Usuario Eliminado con exito", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshData();
+                    enableBtn();
+                    clearBox();
+
                 }
                 else
-                    MessageBox.Show("No se pudo eliminar");
+                    MessageBox.Show("El usario no pudo ser eliminado", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
             else
             {
-                MessageBox.Show("Se debe seleccionar un usuario");
+                MessageBox.Show("Se debe seleccionar un usuario", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+        private void enableBtn()
+        {
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+
+        }
+        private void disableBtn()
+        {
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
+
+        }
 
 
-        public delegate void Usuarios_Bienvenida();
+        private void clearBox()
+        {
+            boxId.Clear();
+            boxDni.Clear();
+            boxApellido.Clear();
+            boxNombre.Clear();
+            boxMail.Clear();
+            boxContrasenia.Clear();
+            checkBoxIsAdmin.Checked=false;
+        }
+
+        private void Usuarios_Load(object sender, EventArgs e)
+        {
+            refreshData();
+            enableBtn();
+
+        }
+
+        public delegate void UsuariosToAdmin();
     }
 }

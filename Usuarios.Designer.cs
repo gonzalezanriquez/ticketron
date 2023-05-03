@@ -82,7 +82,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(962, 334);
             dataGridView1.TabIndex = 1;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // idUsuario
@@ -247,14 +246,14 @@
             boxContrasenia.Location = new Point(453, 158);
             boxContrasenia.Name = "boxContrasenia";
             boxContrasenia.Size = new Size(158, 23);
-            boxContrasenia.TabIndex = 14;
+            boxContrasenia.TabIndex = 15;
             // 
             // boxMail
             // 
             boxMail.Location = new Point(453, 129);
             boxMail.Name = "boxMail";
             boxMail.Size = new Size(158, 23);
-            boxMail.TabIndex = 15;
+            boxMail.TabIndex = 14;
             // 
             // boxId
             // 
@@ -360,6 +359,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Usuarios";
             Text = "Main";
+            Load += Usuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

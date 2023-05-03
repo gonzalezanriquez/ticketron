@@ -32,7 +32,7 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
         }
-        public Usuario(int Id, string Dni, string Nombre, string Apellido, string Mail,string Contrasenia,bool IsAdmin) {
+        public Usuario(int Id, string Dni, string Nombre, string Apellido, string Mail,string Contrasenia,double Credito, bool IsAdmin) {
             id =Id;
             dni = Dni;
             nombre = Nombre;
@@ -40,12 +40,17 @@ namespace TP1_GrupoB
             mail = Mail;
             contrasenia = Contrasenia;
             isAdmin = IsAdmin;
-            intentosFallidos=1;
+            intentosFallidos=0;
+            credito = Credito;
             isBloqueado = false;
             List<Funcion> misFunciones = new List<Funcion>();
 
         }
 
         #endregion
+
+
+
+
     }
 }

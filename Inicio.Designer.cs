@@ -33,6 +33,7 @@
             pictureBox1 = new PictureBox();
             btnAdmin = new Button();
             tituloInicio = new Label();
+            btnCerrarSesion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -66,23 +67,35 @@
             btnAdmin.TabIndex = 9;
             btnAdmin.Text = "ADMINISTRACION";
             btnAdmin.UseVisualStyleBackColor = false;
-            btnAdmin.Click += button2_Click;
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // tituloInicio
             // 
             tituloInicio.AutoSize = true;
             tituloInicio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloInicio.Location = new Point(68, 93);
+            tituloInicio.Location = new Point(68, 31);
             tituloInicio.Name = "tituloInicio";
-            tituloInicio.Size = new Size(194, 25);
+            tituloInicio.Size = new Size(0, 25);
             tituloInicio.TabIndex = 10;
-            tituloInicio.Text = "SECCION PELICULAS";
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.SteelBlue;
+            btnCerrarSesion.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrarSesion.Location = new Point(641, 473);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(233, 35);
+            btnCerrarSesion.TabIndex = 11;
+            btnCerrarSesion.Text = "CERRAR SESION";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 623);
+            ClientSize = new Size(1022, 662);
+            Controls.Add(btnCerrarSesion);
             Controls.Add(tituloInicio);
             Controls.Add(btnAdmin);
             Controls.Add(pictureBox1);
@@ -90,6 +103,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Inicio";
             Text = "Inicio";
+            Load += Inicio_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -101,5 +115,6 @@
         private PictureBox pictureBox1;
         private Button btnAdmin;
         private Label tituloInicio;
+        private Button btnCerrarSesion;
     }
 }

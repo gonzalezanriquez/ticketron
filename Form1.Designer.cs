@@ -38,7 +38,6 @@
             IsMdiContainer = true;
             Name = "Form1";
             Text = "Ticketron. Disfruta del buen Cine";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 

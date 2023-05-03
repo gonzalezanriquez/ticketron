@@ -14,7 +14,7 @@ namespace TP1_GrupoB
     {
 
         private Cine miCine;
-        public Salas_Bienvenida transferencia4;
+        public SalasToAdmin t1;
         private int selectedSala;
 
         public Salas(Cine cine)
@@ -27,20 +27,15 @@ namespace TP1_GrupoB
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.transferencia4();
+            this.t1();
         }
 
 
 
         private void botonMostrarSalas_Click(object sender, EventArgs e)
         {
-
-
             refreshData();
             selectedSala = -1;
-
-
-
         }
 
         private void refreshData()
@@ -49,9 +44,7 @@ namespace TP1_GrupoB
 
             foreach (Sala s in miCine.obtenerSalas())
             {
-
                 dataGridView1.Rows.Add(new string[] { s.id.ToString(), s.ubicacion, s.capacidad.ToString() });
-
             }
         }
 
@@ -61,6 +54,8 @@ namespace TP1_GrupoB
             boxUbicacion.Text = dataGridView1[1, e.RowIndex].Value.ToString();
             boxCapacidad.Text = dataGridView1[2, e.RowIndex].Value.ToString();
             selectedSala = int.Parse(boxId.Text);
+            disableBtn();
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -72,6 +67,8 @@ namespace TP1_GrupoB
             else if (miCine.agregarSala(boxUbicacion.Text, int.Parse(boxCapacidad.Text)))
             {
                 MessageBox.Show("Agregado con exito", "Ticketron");
+                enableBtn();
+                clearBox();
             }
             else
                 MessageBox.Show("Problemas al agregar", "Ticketron");
@@ -81,9 +78,11 @@ namespace TP1_GrupoB
         {
             if (selectedSala != -1)
             {
-                if (miCine.modificarSala(selectedSala,boxUbicacion.Text,int.Parse(boxCapacidad.Text)))
+                if (miCine.modificarSala(selectedSala, boxUbicacion.Text, int.Parse(boxCapacidad.Text)))
                 {
                     MessageBox.Show("Sala Modificada con Exito", "Ticketron");
+                    enableBtn();
+                    clearBox();
                 }
                 else
                     MessageBox.Show("La Sala no se pudo modificar", "Ticketron");
@@ -101,6 +100,8 @@ namespace TP1_GrupoB
                 if (miCine.eliminarUsuario(selectedSala))
                 {
                     MessageBox.Show("Sala Eliminada con exito");
+                    enableBtn();
+                    clearBox();
                 }
                 else
                     MessageBox.Show("La sala No se pudo ser eliminada.");
@@ -111,7 +112,48 @@ namespace TP1_GrupoB
             }
 
         }
+
+        private void enableBtn()
+        {
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnCancel.Visible = false;
+
+        }
+        private void disableBtn()
+        {
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnCancel.Visible = true;
+
+        }
+
+
+        private void clearBox()
+        {
+            boxId.Clear();
+            boxUbicacion.Clear();
+            boxCapacidad.Clear();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            refreshData();
+            enableBtn();
+            clearBox() ;
+        }
+
+
+        private void Salas_Load(object sender, EventArgs e)
+        {
+            refreshData();
+            enableBtn();
+        }
+
+
     }
-    public delegate void Salas_Bienvenida();
+    public delegate void SalasToAdmin();
 }
 

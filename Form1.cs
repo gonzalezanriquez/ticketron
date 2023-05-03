@@ -18,263 +18,321 @@ namespace TP1_GrupoB
         private Usuario usuario;
         private Sala miSala;
         private Pelicula pelicula;
+        
+        private Registro hijoRegistro;
+        private Login hijoLogin;
+
+        private Inicio hijoInicio;
+        private Administrador hijoAdministrador;
+        private Usuarios hijoUsuarios;
         private Peliculas hijoPeliculas;
         private Salas hijoSalas;
         private Funciones hijoFunciones;
-        private Login hijoLogin;
-        private Usuarios hijoUsuarios;
-        private Bienvenida hijoBienvenida;
-        private Inicio hijoInicio;
 
+        private Cliente hijoCliente;
+        private Compra hijoCompra;
+        private ListCompras hijoListCompras;
 
+        private Perfil hijoPerfil;
+
+      
+        
         public Form1()
-        {   
+        {
+            
             cine = new Cine();
+            
             InitializeComponent();
 
+            #region DATOS DE PRUEBA
             
-            
-            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",true);
-            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456",false);
-            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890", false);
+            /*DATOS DE PRUBA*/
+            cine.agregarUsuario("32793188", "Leandro", "Gonzalez", "mail", "1234",1000.00,true);
+            cine.agregarUsuario("32793189", "Camila", "Giudice", "mail2", "3456", 1000.00, false);
+            cine.agregarUsuario("32793180", "Kevin", "Hercog", "mail3", "7890", 1000.00, false);
 
             cine.agregarPelicula( "El mago con patas", "Una pelicula muy buena recomendada para entendidos", "Poster1", 200);
             cine.agregarPelicula( "El perro sin patas", "Una pelicula muy mala no vengan a verla", "Poster2", 150);
             cine.agregarPelicula( "El baul acolchonado", "Una pelicula de calidad intermedia para los fanaticos de los baules", "Poster1", 170);
 
-            cine.agregarSala( "CaballitoA", 30);
+            cine.agregarSala("CaballitoA", 30);
             cine.agregarSala("CaballitoB", 40);
             cine.agregarSala("CaballitoC", 50);
             cine.agregarSala("CaballitoD", 60);
             cine.agregarSala("CaballitoE", 70);
 
+            DateTime fecha = new DateTime(2023, 5, 1, 5, 12, 55);
 
-            cine.agregarFuncion( 300, 50, DateTime.Today, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(300, 50, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(400, 70, DateTime.Now, pelicula, miSala);
-            cine.agregarFuncion(500, 90, DateTime.Now, pelicula, miSala);
-                
-
-          
+            cine.agregarFuncion("CaballitoA", "El mago con patas",  fecha, 300);
+            cine.agregarFuncion("CaballitoB", "El mago con patas",  fecha, 423);
+            cine.agregarFuncion("CaballitoC", "El perro sin patas",  fecha, 223);
+            cine.agregarFuncion("CaballitoD", "El perro sin patas",  fecha, 123);
+            cine.agregarFuncion("CaballitoE", "El baul acolchonado",  fecha, 333);
+           
 
 
-            Open_Login();
 
+
+
+
+            #endregion
+
+            Open_Login(); 
+            
+            
 
         }
-
-        private void TLogin()
-        {           
+        #region RUTAS
+        private void loginToInicio()
+        {
             MessageBox.Show("Te damos la bienvenida,  " + cine.nombreLogueado(), "Inicio de Sesion - Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
             hijoLogin.Close();
-
             Open_Inicio();
-
-            hijoInicio.transf1 += Inicio_a_Bienvenida;
-
-
-
-
-
-
         }
-  
-        private void Inicio_a_Bienvenida()
+
+        private void loginToRegistro()
+        {
+            hijoLogin.Close();
+            Open_Registro();
+        }
+
+        private void registroTologin()
+        {
+            hijoRegistro.Close();
+            Open_Login();
+        }
+
+
+        private void inicioToAdmin()
         {
             hijoInicio.Close();
-            Open_Bienvenida();
-
-            hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
-            hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
-            hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
-            hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
-            hijoBienvenida.Show();
+            Open_Admin();           
+        }
+        private void inicioToCliente()
+        {
+            hijoInicio.Close();
+            Open_Cliente();
         }
 
-
-        #region Peliculas
-        private void Bienvenida_a_Peliculas()
+        private void AdminToUsuarios()
         {
-            hijoBienvenida.Close();
+            hijoAdministrador.Close();
+            Open_Usuarios();
+        }
+        private void AdminToPeliculas()
+        {
+            hijoAdministrador.Close();
             Open_Peliculas();
-            hijoPeliculas.transferencia3 += Peliculas_Bienvenida;
-            hijoPeliculas.Show();
-
         }
-
-
-        private void Peliculas_Bienvenida()
+        private void AdminToSalas()
         {
-            hijoPeliculas.Close();
-            Open_Bienvenida();
-            hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
-            hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
-            hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
-            hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
-            hijoBienvenida.Show();
-
-
-
-        }
-
-        #endregion
-
-        #region Funciones
-        private void Bienvenida_a_Funciones()
-        {
-            hijoBienvenida.Close();
-            Open_Funciones();
-            hijoFunciones.transferencia2 += Funciones_Bienvenida;
-            hijoFunciones.Show();
-
-        }
-
-        private void Funciones_Bienvenida()
-        {
-            hijoFunciones.Close();
-            Open_Bienvenida();
-            hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
-            hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
-            hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
-            hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
-            hijoBienvenida.Show();
-
-        }
-        #endregion
-
-        #region Salas
-
-        private void Bienvenida_a_Salas()
-        {
-            hijoBienvenida.Close();
+            hijoAdministrador.Close();
             Open_Salas();
-            hijoSalas.transferencia4 += Salas_Bienvenida;
-            hijoSalas.Show();
-
         }
-
-
-        private void Salas_Bienvenida()
+        private void AdminToFunciones()
         {
-            hijoSalas.Close();
-            Open_Bienvenida();
-            hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
-            hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
-            hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
-            hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
-            hijoBienvenida.Show();
-
-
-
+            hijoAdministrador.Close();
+            Open_Funciones();
         }
-
-        #endregion 
-
-        #region Usuarios
-        private void Bienvenida_a_Usuarios()
+        private void AdminToInicio()
         {
-            hijoBienvenida.Close();
-            Open_Usuarios();           
-            hijoUsuarios.transferencia += Usuarios_Bienvenida;
-            hijoUsuarios.Show();
-
+            hijoAdministrador.Close();
+            Open_Inicio ();
         }
-
-
-        private void Usuarios_Bienvenida()
+        private void UsuariosToAdmin()
         {
             hijoUsuarios.Close();
-            Open_Bienvenida();
-            hijoBienvenida.transferencia += Bienvenida_a_Usuarios;
-            hijoBienvenida.transferencia2 += Bienvenida_a_Funciones;
-            hijoBienvenida.transferencia3 += Bienvenida_a_Peliculas;
-            hijoBienvenida.transferencia4 += Bienvenida_a_Salas;
-            hijoBienvenida.Show();
+            Open_Admin();
+        }
+        private void PeliculasToAdmin()
+        {
+            hijoPeliculas.Close();
+            Open_Admin();
+        }
+        private void SalasToAdmin()
+        {
+            hijoSalas.Close();
+            Open_Admin();
+        }
+        private void FuncionesToAdmin()
+        {
+            hijoFunciones.Close();
+            Open_Admin();
+        }
 
+        private void ClienteToCompra()
+        {
+            hijoCliente.Close();
+            Open_Compra();
+        }
 
+        private void ClienteToInicio()
+        {
+            hijoCliente.Close();
+            Open_Inicio();
+        }
+
+        private void CompraToCliente()
+        {
+            hijoCompra.Close();
+            Open_Cliente();
+        }
+
+        private void ClienteToListCompras()
+        {
+            hijoCliente.Close();
+            Open_ListCompras();
 
         }
 
+        private void ListComprasToCliente()
+        {
+            hijoListCompras.Close();
+            Open_Cliente();
+        }
 
-     
+
+        private void cierreSesion()
+        {
+            cine.cerrarSesion();
+            Open_Login();
+        }
+
+        private void ClienteToPerfil()
+        {
+            hijoCliente.Close();
+            Open_Perfil();
+
+        }
+
+        private void PerfiltoCliente()
+        {
+            hijoPerfil.Close();
+            Open_Cliente();
+
+        }
+
 
         #endregion
 
-        /*----------------------------------------------------------------*/
-        
-        private void Open_Inicio()
-        {
-            hijoInicio = new Inicio(cine);
-            hijoInicio.MdiParent= this;
-            hijoInicio.Dock = DockStyle.Fill;
-            hijoInicio.Show();
-        }
-        
-        
-        private void Open_Bienvenida()
-        {
-            hijoBienvenida = new Bienvenida(cine);
-            hijoBienvenida.MdiParent = this;
-            hijoBienvenida.Dock = DockStyle.Fill; 
-            hijoBienvenida.Show();
-        }
 
-        //prueba
-        private void Open_Funciones()
+
+
+
+        #region MDI CHILDREN
+        private void Open_Registro()
         {
-            hijoFunciones = new Funciones(cine);
-            hijoFunciones.MdiParent = this;
-            hijoFunciones.Dock = DockStyle.Fill;
-            
-        }
-
-        private void Open_Usuarios()
-        {
-            hijoUsuarios = new Usuarios(cine);
-            hijoUsuarios.MdiParent = this;
-            hijoUsuarios.Dock = DockStyle.Fill;
-      
-        }
-
-        private void Open_Peliculas()
-        {
-            hijoPeliculas = new Peliculas(cine);
-            hijoPeliculas.MdiParent = this;
-            hijoPeliculas.Dock = DockStyle.Fill;
-
-        }
-
-        private void Open_Salas()
-        {
-            hijoSalas = new Salas(cine);
-            hijoSalas.MdiParent = this;
-            hijoSalas.Dock = DockStyle.Fill;
-
+            hijoRegistro = new Registro(cine);
+            hijoRegistro.MdiParent = this;
+            hijoRegistro.Dock = DockStyle.Fill;
+            hijoRegistro.t1 += registroTologin;
+            hijoRegistro.Show();
         }
         private void Open_Login()
         {
             hijoLogin = new Login(cine);
             hijoLogin.MdiParent = this;
-            hijoLogin.Dock = DockStyle.Fill; /*Para adaptar el contenido dentro de el contenedor */
-            hijoLogin.transferencia += TLogin;
-
+            hijoLogin.Dock = DockStyle.Fill;
+            hijoLogin.t1 += loginToInicio;
+            hijoLogin.t2 += loginToRegistro;            
             hijoLogin.Show();
         }
+        private void Open_Inicio()
+        {
+            hijoInicio = new Inicio(cine);
+            hijoInicio.MdiParent = this;
+            hijoInicio.Dock = DockStyle.Fill;
+            hijoInicio.t1 += inicioToAdmin;
+            hijoInicio.t2 += inicioToCliente;
+            hijoInicio.t3 += cierreSesion;
+            hijoInicio.Show();
+        }
+        private void Open_Admin()
+        {
+            hijoAdministrador = new Administrador(cine);
+            hijoAdministrador.MdiParent = this;
+            hijoAdministrador.Dock = DockStyle.Fill;
+            hijoAdministrador.t1 += AdminToUsuarios;
+            hijoAdministrador.t2 += AdminToPeliculas;
+            hijoAdministrador.t3 += AdminToSalas;
+            hijoAdministrador.t4 += AdminToFunciones;
+            hijoAdministrador.t5 += AdminToInicio;
+            hijoAdministrador.t6 += cierreSesion;
+            hijoAdministrador.Show();
+        }
+        private void Open_Usuarios()
+        {
+            hijoUsuarios = new Usuarios(cine);
+            hijoUsuarios.MdiParent = this;
+            hijoUsuarios.Dock = DockStyle.Fill;
+            hijoUsuarios.t1 = UsuariosToAdmin;
+            hijoUsuarios.Show();
+        }
+        private void Open_Peliculas()
+        {
+            hijoPeliculas = new Peliculas(cine);
+            hijoPeliculas.MdiParent = this;
+            hijoPeliculas.Dock = DockStyle.Fill;
+            hijoPeliculas.t1 = PeliculasToAdmin;
+            hijoPeliculas.Show();
+        }       
+        private void Open_Salas()
+        {
+            hijoSalas = new Salas(cine);
+            hijoSalas.MdiParent = this;
+            hijoSalas.Dock = DockStyle.Fill;
+            hijoSalas.t1 = SalasToAdmin;
+            hijoSalas.Show();
+        }
+        private void Open_Funciones()
+        {
+            hijoFunciones = new Funciones(cine);
+            hijoFunciones.MdiParent = this;
+            hijoFunciones.Dock = DockStyle.Fill;
+            hijoFunciones.t1= FuncionesToAdmin;
+            hijoFunciones.Show();
+        }                
+        private void Open_Cliente()
+        {
+            hijoCliente = new Cliente(cine);
+            hijoCliente.MdiParent = this;
+            hijoCliente.Dock = DockStyle.Fill;
+            hijoCliente.t1 += ClienteToCompra;
+            hijoCliente.t2 += ClienteToListCompras;
+            hijoCliente.t3 += ClienteToInicio;
+            hijoCliente.t4 += ClienteToPerfil;
+            hijoCliente.Show();
+        }
 
+        private void Open_Compra()
+        {
+            hijoCompra = new Compra(cine);
+            hijoCompra.MdiParent = this;
+            hijoCompra.Dock = DockStyle.Fill;
+            hijoCompra.t1 += CompraToCliente;
+            hijoCompra.Show();
+        }
+        private void Open_ListCompras()
+        {
+            hijoListCompras = new ListCompras(cine);
+            hijoListCompras.MdiParent = this;
+            hijoListCompras.Dock = DockStyle.Fill;
+            hijoListCompras.t1 += ListComprasToCliente;
+           
+            hijoListCompras.Show();
+        }
 
+        private void Open_Perfil()
+        {
+            hijoPerfil = new Perfil(cine);
+            hijoPerfil.MdiParent = this;
+            hijoPerfil.Dock = DockStyle.Fill;
+            hijoPerfil.t1 = PerfiltoCliente;
+            hijoPerfil.Show();
+        }
 
-        private void Form1_Load(object sender, EventArgs e) {  }
+        #endregion
+
     }
 }
+

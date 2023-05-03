@@ -48,6 +48,7 @@
             btnModificar = new Button();
             btnAgregar = new Button();
             botonMostrarSalas = new Button();
+            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             id.HeaderText = "id";
             id.Name = "id";
+            id.Visible = false;
             // 
             // Ubicacion
             // 
@@ -219,11 +221,22 @@
             botonMostrarSalas.UseVisualStyleBackColor = false;
             botonMostrarSalas.Click += botonMostrarSalas_Click;
             // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(405, 200);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(97, 23);
+            btnCancel.TabIndex = 37;
+            btnCancel.Text = "CANCELAR";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
             // Salas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 662);
+            Controls.Add(btnCancel);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -243,6 +256,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Salas";
             Text = "Salas";
+            Load += Salas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -253,9 +267,6 @@
 
         private Button btnVolver;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn Ubicacion;
-        private DataGridViewTextBoxColumn Capacidad;
         private PictureBox pictureBox1;
         private Label tituloUsuarios;
         private Label label2;
@@ -270,5 +281,9 @@
         private Button btnModificar;
         private Button btnAgregar;
         private Button botonMostrarSalas;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn Ubicacion;
+        private DataGridViewTextBoxColumn Capacidad;
+        private Button btnCancel;
     }
 }

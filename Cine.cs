@@ -1,93 +1,102 @@
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net.Mail;
+using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace TP1_GrupoB
 {
     public class Cine
     {
         #region atributos
-        public List<Usuario> usuarios {  get; set; }
+        public List<Usuario> clientes {  get; set; }
+
+        public List<Usuario> usuarios { get; set; }
         public int idUsuarios{ get; set; }
-
         public int idFunciones { get; set; }
-
         public int idPeliculas{ get; set; }
-
         public int idSalas { get; set; }
         public List<Funcion> funciones { get; set; }
         public List<Sala> salas { get; set; }
         public List<Pelicula> peliculas { get; set; }
         public Usuario Logueado { get; set; }
+        
+        
         #endregion
 
         public Cine()
         {
-            usuarios= new List<Usuario>();
-            idUsuarios= 1;
+            clientes = new List<Usuario>();
+            usuarios = new List<Usuario>();
+            idUsuarios = 1;
             idFunciones = 1;
             idPeliculas = 1;
             idSalas = 1;
             funciones = new List<Funcion>();
             salas= new List<Sala>();
             peliculas= new List<Pelicula>();
+        
         }
   
-       
 
-        // Iniciar Sesion
+        #region INICIAR SESION
 
-        #region inicioSesion
-        public bool iniciarSesion(string mail, string contrasenia)
+        public Tuple<int, int> iniciarSesion(string mail, string contrasenia)
         {
-            bool encontrado = false;
+            int flag = 0;
+
             foreach (Usuario usu in usuarios)
             {
-
-                if (!usu.mail.Equals(mail))
+                if (!usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.isBloqueado)
                 {
+                    flag = 4;
                     continue;
                 }
-
-                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 4)
+                if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && usu.contrasenia.Equals(contrasenia) && !usu.isBloqueado)
                 {
                     Logueado = usu;
-                    return true;
-
-
-
+                    flag = 1;
+                    return Tuple.Create(flag, 0);
                 }
 
                 if (usu.mail.Equals(mail, StringComparison.OrdinalIgnoreCase) && !usu.contrasenia.Equals(contrasenia) && usu.intentosFallidos < 3)
                 {
-                    MessageBox.Show("Contraseña Incorrecta.Intento N°: " + usu.intentosFallidos, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     usu.intentosFallidos++;
-
-                    return false;
+                    usu.isBloqueado=true;
+                    flag = 2;
+                    return Tuple.Create(flag, usu.intentosFallidos);               
                 }
 
-                if (usu.isBloqueado == true || usu.intentosFallidos >= 3)
-                {
-                    MessageBox.Show("Usuario bloqueado, pruebe con otro", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return false;
+                if (usu.isBloqueado == true || usu.intentosFallidos > 3)
+                {                   
+                    flag = 3;
+                    return Tuple.Create(flag, 0);
                 }
+               
             }
-            MessageBox.Show("Usuario no encontrado ", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            return encontrado;
+            return Tuple.Create(flag, 0); ;
         }
+
+
+
+
 
 # endregion
 
 
-        #region Métodos
-        //Mostrar Usuarios, Funciones, Salas y Peliculas con lista clon
+
+
+        #region LISTADOS
+      
         public List<Usuario> obtenerUsuarios() { 
             return usuarios.ToList();
         }
@@ -100,25 +109,86 @@ namespace TP1_GrupoB
         public List<Pelicula> obtenerPeliculas() { 
         return peliculas.ToList();
         }
+
+
+
         #endregion
 
-
-
-
         #region METODOS AGREGAR
-        //Agregar 
-        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,bool isAdmin)
-        {
-            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia,isAdmin));
-            idUsuarios++;
-            return true;
-        }
 
-        public bool agregarFuncion(int cantClientes, double costo, DateTime fecha, Pelicula pelicula, Sala miSala)
+      
+
+
+        public bool agregarUsuario(string dni, string nombre, string apellido, string mail, string contrasenia,double credito,bool isAdmin)
         {
-            funciones.Add(new Funcion(idFunciones, cantClientes, costo, fecha, pelicula, miSala));
-            idFunciones++;
-            return true;
+
+       
+            usuarios.Add(new Usuario(idUsuarios, dni, nombre, apellido, mail, contrasenia, credito, isAdmin));
+            idUsuarios++;
+            return true; 
+            
+            
+        }
+        
+        public bool agregarFuncion(string ubicacionSala, string tituloPelicula, DateTime fechadouble, int costo)
+        {
+
+         
+            Sala miSala = null;
+            foreach (Sala sal in salas)
+            {
+                if (sal.ubicacion == ubicacionSala)
+                {
+                    miSala = sal;
+                    break;
+                }
+            }
+
+            Pelicula miPelicula = null;
+
+            foreach (Pelicula peli in peliculas)
+            {
+                if (peli.nombre == tituloPelicula)
+                {
+                    miPelicula = peli;
+                    break;
+                }
+            }
+
+
+            Usuario misUsuarios = null;
+
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu ==Logueado)
+                {
+                    misUsuarios = usu;
+                    break;
+                }
+            }
+
+
+
+            if (miSala != null && miPelicula != null && misUsuarios != null)
+            {
+
+
+                Funcion miFuncion = new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble, 0, costo);
+
+                miPelicula.misFunciones.Add(miFuncion);
+                miSala.misFunciones.Add(miFuncion);
+                misUsuarios.misFunciones.Add(miFuncion);
+
+                funciones.Add(new Funcion(idFunciones, miSala, miPelicula, misUsuarios, fechadouble,0, costo));
+                idFunciones++;
+
+               
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool agregarPelicula(string nombre, string sinopsis, string poster, int duracion)
@@ -134,12 +204,15 @@ namespace TP1_GrupoB
             idSalas++;
             return true;
         }
-#endregion
+
+
+
+        #endregion
 
         #region METODOS MODIFICAR
 
         //MODIFICAR
-        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia)
+        public bool modificarUsuario(int id,string dni, string nombre, string apellido, string mail, string contrasenia,double newCredito, bool isAdmin)
         {
             foreach (Usuario usu in usuarios)
             {
@@ -149,8 +222,9 @@ namespace TP1_GrupoB
                     usu.apellido = apellido;
                     usu.dni = dni;
                     usu.mail = mail;
+                    usu.credito = newCredito;
                     usu.contrasenia = contrasenia;
-                    idUsuarios--;
+                    usu.isAdmin = isAdmin;
                     return true;
                 }
             }
@@ -191,16 +265,51 @@ namespace TP1_GrupoB
             return false;
         }
 
-        public bool modificaFuncion(int id, string nombre, string sinopsis, string poster, int duracion)
+        public bool modificaFuncion(int id, string ubicacionSala, string  tituloPelicula, DateTime fechadouble, int costo)
         {
+            Sala miSala = null;
+            foreach (Sala sal in salas)
+            {
+                if (sal.ubicacion == ubicacionSala)
+                {
+                    miSala = sal;
+                    break;
+                }
+            }
+
+            Pelicula miPelicula = null;
+
             foreach (Pelicula peli in peliculas)
             {
-                if (peli.id == id)
+                if (peli.nombre == tituloPelicula)
                 {
-                    peli.nombre = nombre;
-                    peli.sinopsis = sinopsis;
-                    peli.poster = poster;
-                    peli.duracion = duracion;
+                    miPelicula = peli;
+                    break;
+                }
+            }
+
+
+            Usuario misUsuarios = null;
+
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu == Logueado)
+                {
+                    misUsuarios = usu;
+                    break;
+                }
+            }
+
+
+            foreach (Funcion funcion in funciones)
+            {
+                if (funcion.id == id)
+                {
+                    funcion.id = id;
+                    funcion.miSala= miSala;
+                    funcion.pelicula = miPelicula;
+                    funcion.fecha = fechadouble;
+                    funcion.costo = costo;
 
                     return true;
                 }
@@ -221,6 +330,7 @@ namespace TP1_GrupoB
                 if (usu.id == id)
                 {
                     usuarios.Remove(usu);
+                    idUsuarios--;
                     return true;
                 }
             }
@@ -234,6 +344,7 @@ namespace TP1_GrupoB
                 if (peli.id == id)
                 {
                     peliculas.Remove(peli);
+                    idPeliculas--;
                     return true;
                 }
             }
@@ -247,6 +358,7 @@ namespace TP1_GrupoB
                 if (sal.id == id)
                 {
                     salas.Remove(sal);
+                    idSalas--;
                     return true;
                 }
             }
@@ -261,6 +373,7 @@ namespace TP1_GrupoB
                 if (fun.id == id)
                 {
                     funciones.Remove(fun);
+                    idFunciones--;
                     return true;
                 }
             }
@@ -270,57 +383,63 @@ namespace TP1_GrupoB
 
         #endregion
 
-        //Logueado ahora
+        #region CERRAR SESION
+        public void cerrarSesion()
+        {
+            Logueado = null;
+        }
+        #endregion
+
+        #region LOGUEADO
         public string nombreLogueado()
         {
             return Logueado.nombre;
+            
         }
+        #endregion
 
-        public bool comprarEntrada(Usuario Logueado, decimal cantidad)
+
+
+          
+
+        public int comprarEntradas(Usuario Logueado, int cantidad, int idFuncion)
         {
-            foreach (Funcion f in funciones) {
+            int flag = 0;
+            int contador= 0;
 
-                Boolean compra = false;
 
-                if (cantidad +f.cantClientes < f.miSala.capacidad)
-                {
-                    MessageBox.Show("Compra exitosa");
+            foreach (Funcion f in funciones)
+            {
+                if (idFuncion == f.id)
+                {                              
+                    if (cantidad * f.costo <= Logueado.credito && f.miSala.capacidad > f.cantClientes)
+                    {
+                        flag = 1;
+                        Logueado.credito -= cantidad * f.costo;
+
+
+                            for (int i = 0; i <= cantidad; i++)
+                        {                           
+                            f.clientes.Add(Logueado);                            
+                        }
+                                                    
+                        f.cantClientes += cantidad;                                              
+                        f.miSala.capacidad -= cantidad; 
+                       
+             
+                       return flag;
+                    }
+                    flag = 2;
+                    return flag;
                 }
-                    MessageBox.Show("Disculpe la sala esta llena");
+            }              
 
-                if (Logueado.credito > f.costo) {
-
-                    MessageBox.Show("Tiene saldo disponible para realizar la compra");
-                    compra = true;
-                }
-                    MessageBox.Show("No tiene saldo suficiente para realiza la compra");
-                    compra = false;
-
-                if (!compra)
-                {
-                    MessageBox.Show("No se realizo la compra");
-                    break;
-
-                }
-
-                
-                MessageBox.Show("La compra fue exitosa");
-                MessageBox.Show("SE COMPRARON: " + cantidad + "ENTRADAS");
-                Logueado.credito = Logueado.credito - f.costo;
-                f.clientes.Add(Logueado);
-                //Logueado.misFunciones.Add(id);
-                f.cantClientes = f.cantClientes + (int)cantidad;
-
-                    
-                
-            
-            
-            
-            
-            
-            }
-            return true;
+            return flag;
         }
+            
+        
+        
+
 
         //Agregar saldo, a verificar
         public bool depositarCredito(int id, double credito, double monto)
@@ -375,14 +494,33 @@ namespace TP1_GrupoB
         ComprarEntrada(int idUsuario, int cant){
         }
 
-       // DevolverEntrada(){
+
+        public bool depositarCredito(int id, double credito, double monto)
+        {
+            bool encontrado = false;
+            foreach (Usuario usu in usuarios)
+            {
+                if (usu.id == id)
+                {
+                    usu.credito = credito;
+
+                    if (monto <= 0)
+                    {
+                        credito = credito + 0;
+                    }
+                    else
+                    {
+                        credito = credito + monto;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return encontrado;
         }
-
-
-       // BuscarFuncion(string Ubicacion, Date Fecha, double Costo, string pelicula): List<Funcion>  
-
-
-       */
 
 
     }

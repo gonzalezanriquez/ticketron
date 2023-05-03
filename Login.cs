@@ -3,10 +3,11 @@ namespace TP1_GrupoB
     public partial class Login : Form
     {
         private Cine miCine;
-        public TLogin transferencia;
-        public TLogin transferencia2;
-        public TLogin transferencia3;
-        public TLogin transferencia4;
+        public loginToInicio t1;
+        public loginToRegistro t2;
+
+
+
 
 
         public Login(Cine cine)
@@ -20,7 +21,7 @@ namespace TP1_GrupoB
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
 
             string mail = labelUsuario.Text;
@@ -29,10 +30,32 @@ namespace TP1_GrupoB
             if (mail != null && mail != "" && pass != null && pass != "")
             {
 
-                if (miCine.iniciarSesion(mail, pass))
+                switch (miCine.iniciarSesion(mail, pass))
                 {
-                    this.transferencia();
+                    case var tuple when tuple.Item1 == 1:
+
+                        this.t1();
+
+                        break;
+                    case var tuple when tuple.Item1 == 2:
+                        MessageBox.Show("Contraseña Incorrecta. Intento N°: " + tuple.Item2, "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+                    case var tuple when tuple.Item1 == 3:
+                        MessageBox.Show("Usuario bloqueado, pruebe con otro", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+                    case var tuple when tuple.Item1 == 4:
+
+                        MessageBox.Show("Usuario no encontrado. Ingrese un usuario valido ", "Ticketron", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        break;
+
                 }
+
+
+
+
 
             }
             else
@@ -41,9 +64,18 @@ namespace TP1_GrupoB
             }
         }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            this.t2();
+        }
 
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            this.t2();
+        }
 
-        public delegate void TLogin();
+        public delegate void loginToInicio();
+        public delegate void loginToRegistro();
 
 
 
